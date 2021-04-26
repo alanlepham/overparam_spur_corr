@@ -12,6 +12,16 @@ model_attributes = {
         'target_resolution': (224, 224),
         'flatten': False
     },
+    'resnet152': {
+        'feature_type': 'image',
+        'target_resolution': (224, 224),
+        'flatten': False
+    },    
+    'resnet101': {
+        'feature_type': 'image',
+        'target_resolution': (224, 224),
+        'flatten': False
+    },
     'resnet50': {
         'feature_type': 'image',
         'target_resolution': (224, 224),
@@ -46,6 +56,15 @@ model_attributes = {
         'feature_type': 'image',
         'target_resolution': (224, 224),
         'flatten': False
-    }
-
+    },
+    'barlowtwins_resnet50': {
+        'feature_type': 'image',
+        'target_resolution': (224, 224),
+        'flatten': False,
+    },
+    'weaksup_resnet50': {
+        'feature_type': 'image',
+        'target_resolution': (224, 224),
+        'flatten': False,
+    },
 }

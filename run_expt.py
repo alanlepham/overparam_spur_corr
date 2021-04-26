@@ -119,7 +119,9 @@ def main():
 
     log_data(data, logger)
 
-    ## Initialize model
+    # =====================
+    ## Initialize model start
+    # =====================
     pretrained = not args.train_from_scratch
     if resume:
         model = torch.load(os.path.join(args.log_dir, 'last_model.pth'))
@@ -130,6 +132,16 @@ def main():
         d = train_data.input_size()[0]
         model = nn.Linear(d, n_classes)
         model.has_aux_logits = False
+
+    # resnet imagenet pretrain
+    elif args.model == 'resnet152':
+        model = torchvision.models.resnet152(pretrained=pretrained)
+        d = model.fc.in_features
+        model.fc = nn.Linear(d, n_classes)
+    elif args.model == 'resnet101':
+        model = torchvision.models.resnet101(pretrained=pretrained)
+        d = model.fc.in_features
+        model.fc = nn.Linear(d, n_classes)
     elif args.model == 'resnet50':
         model = torchvision.models.resnet50(pretrained=pretrained)
         d = model.fc.in_features
@@ -138,6 +150,12 @@ def main():
         model = torchvision.models.resnet34(pretrained=pretrained)
         d = model.fc.in_features
         model.fc = nn.Linear(d, n_classes)
+    elif args.model == 'resnet18':
+        model = torchvision.models.resnet18(pretrained=pretrained)
+        d = model.fc.in_features
+        model.fc = nn.Linear(d, n_classes)
+
+    # misc
     elif args.model == 'wideresnet50':
         model = torchvision.models.wide_resnet50_2(pretrained=pretrained)
         d = model.fc.in_features
@@ -154,6 +172,18 @@ def main():
         assert not pretrained
         assert args.resnet_width is not None
         model = resnet10vw(args.resnet_width, num_classes=n_classes)
+    
+    # misc resnet50 pretrain
+    elif args.model == 'barlowtwins_resnet50':
+        model = torch.hub.load('facebookresearch/barlowtwins:main', 'resnet50')
+        d = model.fc.in_features
+        model.fc = nn.Linear(d, n_classes)
+    elif args.model == 'weaksup_resnet50':
+        model = torch.hub.load('facebookresearch/semi-supervised-ImageNet1K-models', 'resnet50_ssl')
+        d = model.fc.in_features
+        model.fc = nn.Linear(d, n_classes)
+
+    # text models
     elif args.model == 'bert':
         assert args.dataset == 'MultiNLI'
 
@@ -171,6 +201,10 @@ def main():
             config=config)
     else:
         raise ValueError('Model not recognized.')
+
+    # =====================
+    ## Initialize model end
+    # =====================
 
     logger.flush()
 
