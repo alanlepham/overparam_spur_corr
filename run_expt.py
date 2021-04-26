@@ -51,7 +51,7 @@ def main():
     parser.add_argument('--resnet_width', type=int, default=None)
 
     # Optimization
-    parser.add_argument('--n_epochs', type=int, default=4)
+    parser.add_argument('--n_epochs', type=int, default=4, help='number of (additional) epochs to run')
     parser.add_argument('--batch_size', type=int, default=32)
     parser.add_argument('--lr', type=float, default=0.001)
     parser.add_argument('--scheduler', action='store_true', default=False)
