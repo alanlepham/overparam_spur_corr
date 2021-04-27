@@ -77,6 +77,7 @@ def main():
     parser.add_argument('--save_step', type=int, default=10)
     parser.add_argument('--save_best', action='store_true', default=False)
     parser.add_argument('--save_last', action='store_true', default=False)
+    parser.add_argument('--debug', default=False, action='store_true')
 
     args = parser.parse_args()
     check_args(args)
@@ -226,9 +227,10 @@ def main():
         raise ValueError('Model not recognized.')
     
     if args.freeze and args.freeze_from < args.freeze_to:
-        for i in range(args.freeze_from, args.freeze_to):
-            for param in model.features[i].parameters():
-                param.requires_grad = False
+        for i, child in enumerate(model.children()):
+            if args.freeze_from <= i and i < args.freeze_to: 
+                for param in child.parameters():
+                    param.requires_grad = False
 
     # =====================
     ## Initialize model end
