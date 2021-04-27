@@ -1,0 +1,14 @@
+Pillow>=6.1.0
+torch
+torchvision
+
+matplotlib==3.0.3
+numpy==1.16.2
+pandas==0.24.2
+pytorch_transformers==1.2.0
+
+tqdm==4.32.2
+
+# torchvision==0.2.2
+# pillow==5.4.1
+# torch==1.1.0
