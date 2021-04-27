@@ -137,7 +137,7 @@ def main():
                 
                 df = pd.read_csv(file_pth)
                 df = df[:last_pth+1]
-                df.to_csv(file_pth)
+                df.to_csv(file_pth, index=False)
             
             model = torch.load(os.path.join(args.log_dir, f'{last_pth}_model.pth'))
         d = train_data.input_size()[0]
