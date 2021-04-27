@@ -239,12 +239,13 @@ def train(model, criterion, dataset,
         
         if args.debug:
             model_params = []
-            for i, child in enumerate(model.children()):
-                print("LAYER", i)
+            for i, (child_name, child) in enumerate(model.named_children()):
+                print("MODULE", i, child_name)
                 layer_params = []
                 numerator = 0
                 denominator = 0
-                for j, param in enumerate(child.parameters()):
+                for j, (name, param) in enumerate(child.named_parameters()):
+                    # print("Parameter", name)
                     weights = param.detach().cpu().numpy().flatten()
                     layer_params.append(weights)
                     compare = prev[i][j] == weights
