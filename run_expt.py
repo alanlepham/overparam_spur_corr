@@ -17,14 +17,18 @@ def main():
     # Settings
     parser.add_argument('-d', '--dataset', choices=dataset_attributes.keys(), required=True)
     parser.add_argument('-s', '--shift_type', choices=shift_types, required=True)
+    
     # Confounders
     parser.add_argument('-t', '--target_name')
     parser.add_argument('-c', '--confounder_names', nargs='+')
+    
     # Resume?
     parser.add_argument('--resume', default=False, action='store_true')
+    
     # Label shifts
     parser.add_argument('--minority_fraction', type=float)
     parser.add_argument('--imbalance_ratio', type=float)
+    
     # Data
     parser.add_argument('--fraction', type=float, default=1.0)
     parser.add_argument('--root_dir', default=None)
@@ -32,6 +36,7 @@ def main():
     parser.add_argument('--reweight_groups', action='store_true', default=False)
     parser.add_argument('--augment_data', action='store_true', default=False)
     parser.add_argument('--val_fraction', type=float, default=0.1)
+    
     # Objective
     parser.add_argument('--robust', default=False, action='store_true')
     parser.add_argument('--alpha', type=float, default=0.2)
@@ -51,13 +56,19 @@ def main():
     parser.add_argument('--resnet_width', type=int, default=None)
 
     # Optimization
-    parser.add_argument('--n_epochs', type=int, default=4)
+    parser.add_argument('--n_epochs', type=int, default=4, help='number of (additional) epochs to run')
     parser.add_argument('--batch_size', type=int, default=32)
     parser.add_argument('--lr', type=float, default=0.001)
     parser.add_argument('--scheduler', action='store_true', default=False)
     parser.add_argument('--weight_decay', type=float, default=5e-5)
     parser.add_argument('--gamma', type=float, default=0.1)
     parser.add_argument('--minimum_variational_weight', type=float, default=0)
+    
+    # Freeze
+    parser.add_argument('--freeze', default=False, action='store_true')
+    parser.add_argument('--freeze_from', type=int, default=0, help='Layer to start freeze from')
+    parser.add_argument('--freeze_to', type=int, default=0, help='Layer to freeze to (exclusive)')
+    
     # Misc
     parser.add_argument('--seed', type=int, default=0)
     parser.add_argument('--show_progress', default=False, action='store_true')
@@ -66,6 +77,7 @@ def main():
     parser.add_argument('--save_step', type=int, default=10)
     parser.add_argument('--save_best', action='store_true', default=False)
     parser.add_argument('--save_last', action='store_true', default=False)
+    parser.add_argument('--debug', default=False, action='store_true')
 
     args = parser.parse_args()
     check_args(args)
@@ -119,10 +131,24 @@ def main():
 
     log_data(data, logger)
 
-    ## Initialize model
+    # =====================
+    ## Initialize model start
+    # =====================
     pretrained = not args.train_from_scratch
     if resume:
-        model = torch.load(os.path.join(args.log_dir, 'last_model.pth'))
+        pth_files = sorted([int(f.split('_')[0]) for f in os.listdir(args.log_dir) if f.split('_')[0].isnumeric()])
+        last_pth = pth_files[-1]
+        
+        for filename in ['train', 'val', 'test']:
+            filename_csv =  filename+'.csv'
+            file_pth = os.path.join(args.log_dir, filename_csv)
+            
+            df = pd.read_csv(file_pth)
+            df = df[:last_pth]
+            df.to_csv(file_pth)
+        
+        model = torch.load(os.path.join(args.log_dir, f'{last_pth}_model.pth'))
+        #model = torch.load(os.path.join(args.log_dir, 'last_model.pth'))
         d = train_data.input_size()[0]
     elif model_attributes[args.model]['feature_type'] in ('precomputed', 'raw_flattened'):
         assert pretrained
@@ -130,6 +156,16 @@ def main():
         d = train_data.input_size()[0]
         model = nn.Linear(d, n_classes)
         model.has_aux_logits = False
+
+    # resnet imagenet pretrain
+    elif args.model == 'resnet152':
+        model = torchvision.models.resnet152(pretrained=pretrained)
+        d = model.fc.in_features
+        model.fc = nn.Linear(d, n_classes)
+    elif args.model == 'resnet101':
+        model = torchvision.models.resnet101(pretrained=pretrained)
+        d = model.fc.in_features
+        model.fc = nn.Linear(d, n_classes)
     elif args.model == 'resnet50':
         model = torchvision.models.resnet50(pretrained=pretrained)
         d = model.fc.in_features
@@ -138,6 +174,12 @@ def main():
         model = torchvision.models.resnet34(pretrained=pretrained)
         d = model.fc.in_features
         model.fc = nn.Linear(d, n_classes)
+    elif args.model == 'resnet18':
+        model = torchvision.models.resnet18(pretrained=pretrained)
+        d = model.fc.in_features
+        model.fc = nn.Linear(d, n_classes)
+
+    # misc
     elif args.model == 'wideresnet50':
         model = torchvision.models.wide_resnet50_2(pretrained=pretrained)
         d = model.fc.in_features
@@ -154,6 +196,18 @@ def main():
         assert not pretrained
         assert args.resnet_width is not None
         model = resnet10vw(args.resnet_width, num_classes=n_classes)
+    
+    # misc resnet50 pretrain
+    elif args.model == 'barlowtwins_resnet50':
+        model = torch.hub.load('facebookresearch/barlowtwins:main', 'resnet50')
+        d = model.fc.in_features
+        model.fc = nn.Linear(d, n_classes)
+    elif args.model == 'weaksup_resnet50':
+        model = torch.hub.load('facebookresearch/semi-supervised-ImageNet1K-models', 'resnet50_ssl')
+        d = model.fc.in_features
+        model.fc = nn.Linear(d, n_classes)
+
+    # text models
     elif args.model == 'bert':
         assert args.dataset == 'MultiNLI'
 
@@ -171,6 +225,16 @@ def main():
             config=config)
     else:
         raise ValueError('Model not recognized.')
+    
+    if args.freeze and args.freeze_from < args.freeze_to:
+        for i, child in enumerate(model.children()):
+            if args.freeze_from <= i and i < args.freeze_to: 
+                for param in child.parameters():
+                    param.requires_grad = False
+
+    # =====================
+    ## Initialize model end
+    # =====================
 
     logger.flush()
 

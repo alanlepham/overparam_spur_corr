@@ -139,6 +139,19 @@ def train(model, criterion, dataset,
                 eps=1e-08)
         else:
             scheduler = None
+  
+    
+    if args.debug:
+        prev = []
+        compare = []
+        
+        model_params = []
+        for i, child in enumerate(model.children()):
+            layer_params = []
+            for param in child.parameters():
+                layer_params.append(param.detach().cpu().numpy().flatten())
+            model_params.append(layer_params)
+        prev = model_params
 
     best_val_acc = 0
     for epoch in range(epoch_offset, epoch_offset+args.n_epochs):
@@ -223,3 +236,24 @@ def train(model, criterion, dataset,
                     f'  {train_loss_computer.get_group_name(group_idx)}:\t'
                     f'adj = {train_loss_computer.adj[group_idx]:.3f}\n')
         logger.write('\n')
+        
+        if args.debug:
+            model_params = []
+            for i, child in enumerate(model.children()):
+                print("LAYER", i)
+                layer_params = []
+                numerator = 0
+                denominator = 0
+                for j, param in enumerate(child.parameters()):
+                    weights = param.detach().cpu().numpy().flatten()
+                    layer_params.append(weights)
+                    compare = prev[i][j] == weights
+                    numerator += sum(compare)
+                    denominator += len(compare)
+                if denominator:
+                    print('>', 'Percent of Weights that Stay the Same:', numerator / denominator)
+                else:
+                    print('> No parameters')
+                model_params.append(layer_params)
+            prev = model_params
+        
