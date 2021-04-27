@@ -124,20 +124,22 @@ def main():
     # =====================
     pretrained = not args.train_from_scratch
     if resume:
-        pth_files = sorted([int(f.split('_')[0]) for f in os.listdir(args.log_dir) if f.split('_')[0].isnumeric()])
-        last_pth = pth_files[-1]
-        
-        for filename in ['train', 'val', 'test']:
-            filename_csv =  filename+'.csv'
-            file_pth = os.path.join(args.log_dir, filename_csv)
+        pth_files_full_names = os.listdir(args.log_dir)
+        if "last_model.pth" in pth_files_full_names:
+            model = torch.load(os.path.join(args.log_dir, 'last_model.pth'))
+        else:
+            pth_files = sorted([int(f.split('_')[0]) for f in pth_files_full_names if f.split('_')[0].isnumeric()])
+            last_pth = pth_files[-1]
             
-            df = pd.read_csv(file_pth)
-            df = df[:last_pth]
-            df.to_csv(file_pth)
-        
-        model = torch.load(os.path.join(args.log_dir, f'{last_pth}_model.pth'))
-        
-        #model = torch.load(os.path.join(args.log_dir, 'last_model.pth'))
+            for filename in ['train', 'val', 'test']:
+                filename_csv =  f'{filename}.csv'
+                file_pth = os.path.join(args.log_dir, filename_csv)
+                
+                df = pd.read_csv(file_pth)
+                df = df[:last_pth+1]
+                df.to_csv(file_pth)
+            
+            model = torch.load(os.path.join(args.log_dir, f'{last_pth}_model.pth'))
         d = train_data.input_size()[0]
     elif model_attributes[args.model]['feature_type'] in ('precomputed', 'raw_flattened'):
         assert pretrained
