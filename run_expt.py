@@ -17,14 +17,18 @@ def main():
     # Settings
     parser.add_argument('-d', '--dataset', choices=dataset_attributes.keys(), required=True)
     parser.add_argument('-s', '--shift_type', choices=shift_types, required=True)
+    
     # Confounders
     parser.add_argument('-t', '--target_name')
     parser.add_argument('-c', '--confounder_names', nargs='+')
+    
     # Resume?
     parser.add_argument('--resume', default=False, action='store_true')
+    
     # Label shifts
     parser.add_argument('--minority_fraction', type=float)
     parser.add_argument('--imbalance_ratio', type=float)
+    
     # Data
     parser.add_argument('--fraction', type=float, default=1.0)
     parser.add_argument('--root_dir', default=None)
@@ -32,6 +36,7 @@ def main():
     parser.add_argument('--reweight_groups', action='store_true', default=False)
     parser.add_argument('--augment_data', action='store_true', default=False)
     parser.add_argument('--val_fraction', type=float, default=0.1)
+    
     # Objective
     parser.add_argument('--robust', default=False, action='store_true')
     parser.add_argument('--alpha', type=float, default=0.2)
@@ -58,6 +63,12 @@ def main():
     parser.add_argument('--weight_decay', type=float, default=5e-5)
     parser.add_argument('--gamma', type=float, default=0.1)
     parser.add_argument('--minimum_variational_weight', type=float, default=0)
+    
+    # Freeze
+    parser.add_argument('--freeze', default=False, action='store_true')
+    parser.add_argument('--freeze_from', type=int, default=0, help='Layer to start freeze from')
+    parser.add_argument('--freeze_to', type=int, default=0, help='Layer to freeze to (exclusive)')
+    
     # Misc
     parser.add_argument('--seed', type=int, default=0)
     parser.add_argument('--show_progress', default=False, action='store_true')
@@ -136,7 +147,6 @@ def main():
             df.to_csv(file_pth)
         
         model = torch.load(os.path.join(args.log_dir, f'{last_pth}_model.pth'))
-        
         #model = torch.load(os.path.join(args.log_dir, 'last_model.pth'))
         d = train_data.input_size()[0]
     elif model_attributes[args.model]['feature_type'] in ('precomputed', 'raw_flattened'):
@@ -214,6 +224,11 @@ def main():
             config=config)
     else:
         raise ValueError('Model not recognized.')
+    
+    if args.freeze and args.freeze_from < args.freeze_to:
+        for i in range(args.freeze_from, args.freeze_to):
+            for param in model.features[i].parameters():
+                param.requires_grad = False
 
     # =====================
     ## Initialize model end
