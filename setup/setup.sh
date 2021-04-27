@@ -5,6 +5,10 @@ source ~/.bashrc
 repo_dir=/work/$USER/overparam_spur_corr
 env_name=overparam_spur_corr
 
+
+# Before running this script:
+# go to Kaggle, log in, go to My Profile > Account > API, select "Create New API Token", download, and place in ~/.kaggle/
+
 # ==================
 # General setup
 # ==================
