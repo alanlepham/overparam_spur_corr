@@ -139,6 +139,13 @@ def train(model, criterion, dataset,
                 eps=1e-08)
         else:
             scheduler = None
+  
+    ### DEBUG ###
+    prev = []
+    compare = []
+    for param in model.parameters():
+      prev.append(param.detach().numpy().flatten())
+    ### DEBUG ###
 
     best_val_acc = 0
     for epoch in range(epoch_offset, epoch_offset+args.n_epochs):
@@ -223,3 +230,18 @@ def train(model, criterion, dataset,
                     f'  {train_loss_computer.get_group_name(group_idx)}:\t'
                     f'adj = {train_loss_computer.adj[group_idx]:.3f}\n')
         logger.write('\n')
+        
+        ### DEBUG ###
+        curr = []
+        epoch_prop_frozen = []
+        for i, param in enumerate(model.parameters()):
+            weights = param.detach().numpy().flatten()
+            curr.append(weights)
+            curr_prev = np.sum(weights == prev[i]) / len(prev[i])
+            epoch_prop_frozen.append(curr_prev)
+            prev = curr
+            print('>', epoch_prop_frozen)
+        compare.append(tuple(epoch_prop_frozen))
+    print('Should be 1:', len(set(compare)))
+    ### DEBUG ###
+        
