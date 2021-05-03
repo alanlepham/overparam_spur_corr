@@ -67,4 +67,19 @@ model_attributes = {
         'target_resolution': (224, 224),
         'flatten': False,
     },
+    'facenet': {
+        'feature_type': 'image',
+        'target_resolution': (160, 160),
+        'flatten': False,
+    },
+    'resnext101_32x8d_wsl': {
+        'feature_type': 'image',
+        'target_resolution': (224, 224),
+        'flatten': False,
+    },
+    'resnext101_32x8d': {
+        'feature_type': 'image',
+        'target_resolution': (224, 224),
+        'flatten': False,
+    },
 }

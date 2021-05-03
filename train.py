@@ -13,6 +13,7 @@ from utils import AverageMeter, accuracy
 from loss import LossComputer
 
 from pytorch_transformers import AdamW, WarmupLinearSchedule
+from torch.optim.lr_scheduler import StepLR
 
 def run_epoch(epoch, model, optimizer, loader, loss_computer, logger, csv_logger, args,
               is_training, show_progress=False, log_every=50, scheduler=None):
@@ -128,7 +129,9 @@ def train(model, criterion, dataset,
             lr=args.lr,
             momentum=0.9,
             weight_decay=args.weight_decay)
-        if args.scheduler:
+        if args.step_scheduler:
+            scheduler = StepLR(optimizer, step_size=args.scheduler_step, gamma=0.1)
+        elif args.scheduler:
             scheduler = torch.optim.lr_scheduler.ReduceLROnPlateau(
                 optimizer,
                 'min',
@@ -153,6 +156,10 @@ def train(model, criterion, dataset,
             show_progress=args.show_progress,
             log_every=args.log_every,
             scheduler=scheduler)
+
+        # learning rate scheduler
+        if args.step_scheduler:
+            scheduler.step() # step scheduler doesn't need loss as an input
 
         logger.write(f'\nValidation:\n')
         val_loss_computer = LossComputer(

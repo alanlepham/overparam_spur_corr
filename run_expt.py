@@ -55,6 +55,8 @@ def main():
     parser.add_argument('--batch_size', type=int, default=32)
     parser.add_argument('--lr', type=float, default=0.001)
     parser.add_argument('--scheduler', action='store_true', default=False)
+    parser.add_argument('--step_scheduler', action='store_true', default=False)
+    parser.add_argument('--scheduler_step', type=int, default=30)
     parser.add_argument('--weight_decay', type=float, default=5e-5)
     parser.add_argument('--gamma', type=float, default=0.1)
     parser.add_argument('--minimum_variational_weight', type=float, default=0)
@@ -197,7 +199,18 @@ def main():
         model = torch.hub.load('facebookresearch/semi-supervised-ImageNet1K-models', 'resnet50_ssl')
         d = model.fc.in_features
         model.fc = nn.Linear(d, n_classes)
-
+    elif args.model == 'facenet':
+        from facenet_pytorch import InceptionResnetV1
+        model = InceptionResnetV1(pretrained="vggface2", num_classes=n_classes, classify=True)
+    elif args.model == 'resnext101_32x8d_wsl':
+        model = torch.hub.load('facebookresearch/WSL-Images', 'resnext101_32x8d_wsl')
+        d = model.fc.in_features
+        model.fc = nn.Linear(d, n_classes)
+    elif args.model == 'resnext101_32x8d':
+        model = torchvision.models.resnext101_32x8d(pretrained=pretrained)
+        d = model.fc.in_features
+        model.fc = nn.Linear(d, n_classes)
+        
     # text models
     elif args.model == 'bert':
         assert args.dataset == 'MultiNLI'
@@ -261,6 +274,9 @@ def check_args(args):
     elif args.shift_type.startswith('label_shift'):
         assert args.minority_fraction
         assert args.imbalance_ratio
+    
+    if args.step_scheduler and args.scheduler:
+        raise Exception("please only set flag of 1 lr scheduler")
 
 
 
