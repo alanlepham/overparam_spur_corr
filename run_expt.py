@@ -69,6 +69,10 @@ def main():
     parser.add_argument('--save_best', action='store_true', default=False)
     parser.add_argument('--save_last', action='store_true', default=False)
 
+    # move some worst group train data over to test
+    parser.add_argument('--worst_group_train_to_test', action='store_true', default=False)
+    parser.add_argument('--percent_to_move', type=float, default=0.5)
+
     args = parser.parse_args()
     check_args(args)
 

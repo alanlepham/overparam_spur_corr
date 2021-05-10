@@ -8,14 +8,18 @@ from models import model_attributes
 from torch.utils.data import Dataset, Subset
 from data.confounder_dataset import ConfounderDataset
 
+
+from math import floor
+
 class CelebADataset(ConfounderDataset):
     """
     CelebA dataset (already cropped and centered).
     Note: idx and filenames are off by one.
     """
 
-    def __init__(self, root_dir, target_name, confounder_names,
+    def __init__(self, args, root_dir, target_name, confounder_names,
                  model_type, augment_data):
+        self.args = args
         self.root_dir = root_dir
         self.target_name = target_name
         self.confounder_names = confounder_names
@@ -53,6 +57,7 @@ class CelebADataset(ConfounderDataset):
         self.n_groups = self.n_classes * pow(2, len(self.confounder_idx))
         self.group_array = (self.y_array*(self.n_groups/2) + self.confounder_array).astype('int')
 
+
         # Read in train/val/test splits
         self.split_df = pd.read_csv(
             os.path.join(root_dir, 'data', 'list_eval_partition.csv'))
@@ -62,6 +67,37 @@ class CelebADataset(ConfounderDataset):
             'val': 1,
             'test': 2
         }
+
+        # peek
+        # np.save("/work/alanpham/overparam_spur_corr/group_array.npy", self.group_array)
+        # np.save("/work/alanpham/overparam_spur_corr/split_array.npy", self.split_array)
+
+        # print("\n\n=================\nDONE\n================")
+        # import sys
+        # sys.exit()
+
+        # modified ver
+        if self.args.worst_group_train_to_test:
+            # split_array = np.load("/work/alanpham/overparam_spur_corr/split_array_50p_train_to_test.npy")
+
+            print(f"worst group train has {np.sum(np.logical_and(self.group_array == 3, self.split_array == 0))} samples")
+
+            train_and_minority = np.logical_and(self.group_array == 3, self.split_array == 0) # train is 0, val is 1, test is 2
+
+            get_indices_of_true = lambda t: [i for i, x in enumerate(t) if x]
+
+            indices_train_and_minority = np.array(get_indices_of_true(train_and_minority))
+
+            num_to_change_to_test = floor(len(indices_train_and_minority) * self.args.percent_to_move)
+
+            np.random.seed(self.args.seed)
+            indicies_to_change_to_test = indices_train_and_minority[np.random.choice(len(indices_train_and_minority), size=num_to_change_to_test, replace=False)]
+            
+            self.split_array[indicies_to_change_to_test] = 2
+            print(np.unique(self.split_array, return_counts=True))
+            print(f"worst group train now has {np.sum(np.logical_and(self.group_array == 3, self.split_array == 0))} samples")
+
+
 
         if model_attributes[self.model_type]['feature_type']=='precomputed':
             self.features_mat = torch.from_numpy(np.load(
