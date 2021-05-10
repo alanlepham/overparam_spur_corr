@@ -78,24 +78,25 @@ class CelebADataset(ConfounderDataset):
 
         # modified ver
         if self.args.worst_group_train_to_test:
-            # split_array = np.load("/work/alanpham/overparam_spur_corr/split_array_50p_train_to_test.npy")
+            for group_idx in range(4):
+                # split_array = np.load("/work/alanpham/overparam_spur_corr/split_array_50p_train_to_test.npy")
 
-            print(f"worst group train has {np.sum(np.logical_and(self.group_array == 3, self.split_array == 0))} samples")
+                print(f"{group_idx} group train has {np.sum(np.logical_and(self.group_array == group_idx, self.split_array == 0))} samples")
 
-            train_and_minority = np.logical_and(self.group_array == 3, self.split_array == 0) # train is 0, val is 1, test is 2
+                train_and_minority = np.logical_and(self.group_array == group_idx, self.split_array == 0) # train is 0, val is 1, test is 2
 
-            get_indices_of_true = lambda t: [i for i, x in enumerate(t) if x]
+                get_indices_of_true = lambda t: [i for i, x in enumerate(t) if x]
 
-            indices_train_and_minority = np.array(get_indices_of_true(train_and_minority))
+                indices_train_and_minority = np.array(get_indices_of_true(train_and_minority))
 
-            num_to_change_to_test = floor(len(indices_train_and_minority) * self.args.percent_to_move)
+                num_to_change_to_test = floor(len(indices_train_and_minority) * self.args.percent_to_move)
 
-            np.random.seed(self.args.seed)
-            indicies_to_change_to_test = indices_train_and_minority[np.random.choice(len(indices_train_and_minority), size=num_to_change_to_test, replace=False)]
-            
-            self.split_array[indicies_to_change_to_test] = 2
-            print(np.unique(self.split_array, return_counts=True))
-            print(f"worst group train now has {np.sum(np.logical_and(self.group_array == 3, self.split_array == 0))} samples")
+                np.random.seed(self.args.seed)
+                indicies_to_change_to_test = indices_train_and_minority[np.random.choice(len(indices_train_and_minority), size=num_to_change_to_test, replace=False)]
+                
+                self.split_array[indicies_to_change_to_test] = 2
+                print(np.unique(self.split_array, return_counts=True))
+                print(f"{group_idx} group train now has {np.sum(np.logical_and(self.group_array == group_idx, self.split_array == 0))} samples")
 
 
 

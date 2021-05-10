@@ -14,10 +14,11 @@ class CUBDataset(ConfounderDataset):
     Note: metadata_df is one-indexed.
     """
 
-    def __init__(self, root_dir,
+    def __init__(self, args, root_dir,
                  target_name, confounder_names,
                  augment_data=False,
                  model_type=None):
+        self.args = args
         self.root_dir = root_dir
         self.target_name = target_name
         self.confounder_names = confounder_names
