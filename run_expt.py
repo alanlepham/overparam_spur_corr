@@ -73,6 +73,11 @@ def main():
     parser.add_argument('--worst_group_train_to_test', action='store_true', default=False)
     parser.add_argument('--percent_to_move', type=float, default=0.5)
 
+    # 
+    parser.add_argument('--reduce_group_size', action='store_true', default=False)
+    parser.add_argument('--reduce_group_size_groupidx', type=int, default=0)
+    parser.add_argument('--percent_reduce', type=float, default=0.5)
+
     args = parser.parse_args()
     check_args(args)
 
@@ -280,6 +285,9 @@ def check_args(args):
         assert args.imbalance_ratio
     
     if args.step_scheduler and args.scheduler:
+        raise Exception("please only set flag of 1 lr scheduler")
+
+    if args.worst_group_train_to_test and args.reduce_third_size_group:
         raise Exception("please only set flag of 1 lr scheduler")
 
 
