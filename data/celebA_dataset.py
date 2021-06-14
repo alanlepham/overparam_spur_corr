@@ -8,14 +8,18 @@ from models import model_attributes
 from torch.utils.data import Dataset, Subset
 from data.confounder_dataset import ConfounderDataset
 
+
+from math import floor
+
 class CelebADataset(ConfounderDataset):
     """
     CelebA dataset (already cropped and centered).
     Note: idx and filenames are off by one.
     """
 
-    def __init__(self, root_dir, target_name, confounder_names,
+    def __init__(self, args, root_dir, target_name, confounder_names,
                  model_type, augment_data):
+        self.args = args
         self.root_dir = root_dir
         self.target_name = target_name
         self.confounder_names = confounder_names
@@ -53,6 +57,7 @@ class CelebADataset(ConfounderDataset):
         self.n_groups = self.n_classes * pow(2, len(self.confounder_idx))
         self.group_array = (self.y_array*(self.n_groups/2) + self.confounder_array).astype('int')
 
+
         # Read in train/val/test splits
         self.split_df = pd.read_csv(
             os.path.join(root_dir, 'data', 'list_eval_partition.csv'))
@@ -62,6 +67,59 @@ class CelebADataset(ConfounderDataset):
             'val': 1,
             'test': 2
         }
+
+        #here
+
+        # peek
+        # np.save("/work/alanpham/overparam_spur_corr/group_array.npy", self.group_array)
+        # np.save("/work/alanpham/overparam_spur_corr/split_array.npy", self.split_array)
+
+        # print("\n\n=================\nDONE\n================")
+        # import sys
+        # sys.exit()
+
+        # modified ver
+        def change_label(group_array, split_array, subgroup_idx, original_set_idx, target_set_idx, percent_to_move, seed=self.args.seed):
+            group_array = group_array.copy()
+            split_array = split_array.copy()
+
+            train_and_minority = np.logical_and(group_array == subgroup_idx, split_array == original_set_idx) # train is 0, val is 1, test is 2
+
+            get_indices_of_true = lambda t: [i for i, x in enumerate(t) if x]
+
+            indices_train_and_minority = np.array(get_indices_of_true(train_and_minority))
+
+            num_to_change_to_test = floor(len(indices_train_and_minority) * percent_to_move)
+
+            np.random.seed(seed)
+            indicies_to_change_to_test = indices_train_and_minority[np.random.choice(len(indices_train_and_minority), size=num_to_change_to_test, replace=False)]
+            
+            split_array[indicies_to_change_to_test] = target_set_idx
+
+            return group_array, split_array
+
+        if self.args.worst_group_train_to_test:
+            for group_idx in range(4):
+                print(f"{group_idx} group train has {np.sum(np.logical_and(self.group_array == group_idx, self.split_array == 0))} samples")
+
+                self.group_array, self.split_array = change_label(self.group_array, self.split_array, group_idx, 0, 2, self.args.percent_to_move, self.args.seed)
+
+                print(np.unique(self.split_array, return_counts=True))
+                print(f"{group_idx} group train now has {np.sum(np.logical_and(self.group_array == group_idx, self.split_array == 0))} samples")
+                print()
+                
+        elif self.args.reduce_group_size:
+            group_idx = 2
+
+            print(f"{group_idx} group train has {np.sum(np.logical_and(self.group_array == group_idx, self.split_array == 0))} samples")
+
+            self.group_array, self.split_array = change_label(self.group_array, self.split_array, self.args.reduce_group_size_groupidx, 0, self.args.move_to_set, self.args.percent_reduce, self.args.seed)
+            # move some train labels to -1 (aka not in any set)
+
+            print(np.unique(self.split_array, return_counts=True))
+            print(f"{group_idx} group train now has {np.sum(np.logical_and(self.group_array == group_idx, self.split_array == 0))} samples")
+            print()
+
 
         if model_attributes[self.model_type]['feature_type']=='precomputed':
             self.features_mat = torch.from_numpy(np.load(
