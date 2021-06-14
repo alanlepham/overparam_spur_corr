@@ -20,6 +20,7 @@ def main():
     # Confounders
     parser.add_argument('-t', '--target_name')
     parser.add_argument('-c', '--confounder_names', nargs='+')
+    parser.add_argument('--combine_val_test', default=False, action='store_true')
     # Resume?
     parser.add_argument('--resume', default=False, action='store_true')
     # Label shifts
@@ -72,6 +73,7 @@ def main():
     # move some worst group train data over to test
     parser.add_argument('--worst_group_train_to_test', action='store_true', default=False)
     parser.add_argument('--percent_to_move', type=float, default=0.5)
+    parser.add_argument('--move_to_set', type=int, default=-1) # 0=train, 1=val, 2=test
 
     # 
     parser.add_argument('--reduce_group_size', action='store_true', default=False)
