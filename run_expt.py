@@ -93,7 +93,6 @@ def main():
     # Record args
     log_args(args, logger)
 
-    set_seed(args.seed)
 
     # Data
     # Test data for label_shift_step is not implemented yet
@@ -103,6 +102,9 @@ def main():
         train_data, val_data, test_data = prepare_data(args, train=True)
     elif args.shift_type == 'label_shift_step':
         train_data, val_data = prepare_data(args, train=True)
+
+    # set seed after preparing data since confounder dataset pickled
+    set_seed(args.seed)
 
     loader_kwargs = {'batch_size':args.batch_size, 'num_workers':4, 'pin_memory':True}
     train_loader = train_data.get_loader(train=True, reweight_groups=args.reweight_groups, **loader_kwargs)
