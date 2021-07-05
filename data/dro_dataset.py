@@ -2,7 +2,10 @@ import torch
 import numpy as np
 from torch.utils.data import Dataset, DataLoader
 from torch.utils.data.sampler import WeightedRandomSampler
-import cPickle
+try:
+  import cPickle as pickle
+except:
+  import pickle
 
 class DRODataset(Dataset):
     def __init__(self, dataset, process_item_fn, n_groups, n_classes, group_str_fn):
@@ -19,7 +22,7 @@ class DRODataset(Dataset):
         if root_dir and os.path.exists(pickl_data_load):
             print("Loading dro dataset groups", dataset_name, "from pickled file")
             with open(pickl_data_load, "wb") as f:
-                group_array, y_array = cPickle.load(f)
+                group_array, y_array = pickle.load(f)
         else:
             print("Loading Dro dataset to arrays")
 
@@ -29,7 +32,7 @@ class DRODataset(Dataset):
             print("Completed loading dro dataset. Caching for future use")
             
             with open(pickl_data_load, "rb") as f:
-                cPickle.dump([group_array, y_array], f)
+                pickle.dump([group_array, y_array], f)
 
         self._group_array = torch.LongTensor(group_array)
         self._y_array = torch.LongTensor(y_array)
