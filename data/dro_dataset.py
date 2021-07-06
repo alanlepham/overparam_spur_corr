@@ -6,9 +6,10 @@ try:
   import cPickle as pickle
 except:
   import pickle
+import os
 
 class DRODataset(Dataset):
-    def __init__(self, dataset, process_item_fn, n_groups, n_classes, group_str_fn):
+    def __init__(self, dataset, root_dir, process_item_fn, n_groups, n_classes, group_str_fn, dataset_name):
         self.dataset = dataset
         self.process_item = process_item_fn
         self.n_groups = n_groups
