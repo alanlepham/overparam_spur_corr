@@ -22,7 +22,7 @@ class DRODataset(Dataset):
         pickl_data_load = os.path.join(root_dir, dataset_name + "_group_y_array.pkl")
         if root_dir and os.path.exists(pickl_data_load):
             print("Loading dro dataset groups", dataset_name, "from pickled file")
-            with open(pickl_data_load, "wb") as f:
+            with open(pickl_data_load, "rb") as f:
                 group_array, y_array = pickle.load(f)
         else:
             print("Loading Dro dataset to arrays")
@@ -32,7 +32,7 @@ class DRODataset(Dataset):
                 y_array.append(y)
             print("Completed loading dro dataset. Caching for future use")
             
-            with open(pickl_data_load, "rb") as f:
+            with open(pickl_data_load, "wb") as f:
                 pickle.dump([group_array, y_array], f)
 
         self._group_array = torch.LongTensor(group_array)
