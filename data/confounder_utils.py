@@ -45,12 +45,14 @@ def prepare_confounder_data(args, train, return_full_dataset=False):
             n_groups=full_dataset.n_groups,
             n_classes=full_dataset.n_classes,
             group_str_fn=full_dataset.group_str)
-    if train:
+    if train and args.combine_val_test:
+        splits = ['train', 'val+test']
+    elif train and not args.combine_val_test:
         splits = ['train', 'val', 'test']
     else:
         splits = ['test']
     subsets = full_dataset.get_splits(       
-        splits,
+        args, splits,
         train_frac=args.fraction,
         subsample_to_minority=args.subsample_to_minority)
     dro_subsets = [

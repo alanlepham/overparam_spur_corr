@@ -107,13 +107,23 @@ class CelebADataset(ConfounderDataset):
                 print(np.unique(self.split_array, return_counts=True))
                 print(f"{group_idx} group train now has {np.sum(np.logical_and(self.group_array == group_idx, self.split_array == 0))} samples")
                 print()
+        elif self.args.reduce_all_size:
+            print("BEFORE reduce_all_size")
+            print(np.unique(self.split_array, return_counts=True))
+            for group_idx in range(4):
+                self.group_array, self.split_array = change_label(self.group_array, self.split_array, group_idx, self.args.reduce_group_size_setidx, self.args.move_to_set, self.args.percent_reduce, self.args.seed)
+                # move some train labels to -1 (aka not in any set)
+
+            print("AFTER reduce_all_size")
+            print(np.unique(self.split_array, return_counts=True))
+            print()
                 
         elif self.args.reduce_group_size:
             group_idx = 2
 
             print(f"{group_idx} group train has {np.sum(np.logical_and(self.group_array == group_idx, self.split_array == 0))} samples")
 
-            self.group_array, self.split_array = change_label(self.group_array, self.split_array, self.args.reduce_group_size_groupidx, 0, self.args.move_to_set, self.args.percent_reduce, self.args.seed)
+            self.group_array, self.split_array = change_label(self.group_array, self.split_array, self.args.reduce_group_size_groupidx, self.args.reduce_group_size_setidx, self.args.move_to_set, self.args.percent_reduce, self.args.seed)
             # move some train labels to -1 (aka not in any set)
 
             print(np.unique(self.split_array, return_counts=True))

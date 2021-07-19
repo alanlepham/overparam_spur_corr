@@ -20,7 +20,14 @@ def main():
     # Confounders
     parser.add_argument('-t', '--target_name')
     parser.add_argument('-c', '--confounder_names', nargs='+')
-    parser.add_argument('--combine_val_test', default=False, action='store_true')
+    # Data Modification
+    parser.add_argument('--resample', default=False, action='store_true') # only works with confounder
+    parser.add_argument('--swap_val_and_train', default=False, action='store_true') # only works with confounder
+    parser.add_argument('--combine_val_test', default=False, action='store_true') # only works with confounder, train=True (currently always true), DOES NOT WORK IF SUBSAMPLE GROUP (MOVE TO -1)
+    # Cross validation
+    parser.add_argument('--cross_validate', default=False, action='store_true') # only works with combine_val_test
+    parser.add_argument('--cross_validate_total_splits', type=int, default=2) # used with cross validate
+    parser.add_argument('--cross_validate_split_num', type=int, default=0) # used with cross validate -- zero indexed. split_num = 0 ... cross_validate_total_splits-1
     # Resume?
     parser.add_argument('--resume', default=False, action='store_true')
     # Label shifts
@@ -77,7 +84,9 @@ def main():
 
     # 
     parser.add_argument('--reduce_group_size', action='store_true', default=False)
+    parser.add_argument('--reduce_all_size', action='store_true', default=False) # uses percent_reduce, reduce_group_size_setidx, move_to_set. only for celebA
     parser.add_argument('--reduce_group_size_groupidx', type=int, default=0)
+    parser.add_argument('--reduce_group_size_setidx', type=int, default=0)
     parser.add_argument('--percent_reduce', type=float, default=0.5)
 
     args = parser.parse_args()
@@ -111,7 +120,10 @@ def main():
     test_data = None
     test_loader = None
     if args.shift_type == 'confounder':
-        train_data, val_data, test_data = prepare_data(args, train=True)
+        if args.combine_val_test:
+            train_data, val_data = prepare_data(args, train=True)
+        else:
+            train_data, val_data, test_data = prepare_data(args, train=True)
     elif args.shift_type == 'label_shift_step':
         train_data, val_data = prepare_data(args, train=True)
 

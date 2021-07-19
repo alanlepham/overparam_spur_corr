@@ -1,5 +1,6 @@
 import numpy as np
 import argparse
+import random
 from toy_example_data import *
 from random_feature_utils import *
 
@@ -8,6 +9,7 @@ def main():
     # data
     parser.add_argument('--features_path', default=None, required=True)
     parser.add_argument('--metadata_path', default=None, required=True)
+    parser.add_argument('--resample', action='store_true')
     parser.add_argument('-f', '--frac', type=float, default=1.0)
     # Random features
     parser.add_argument('-N', '--n_random_features', type=int, action='append')
@@ -27,7 +29,7 @@ def main():
 
     process_args(args)
 
-    full_data, n_groups = load_waterbirds_data(args.features_path, args.metadata_path, frac=args.frac)
+    full_data, n_groups = load_waterbirds_data(args.features_path, args.metadata_path, frac=args.frac, resample=args.resample, seed=args.seed)
     erm_error, over_error, under_error = run_random_features_model(full_data=full_data,
         n_groups=n_groups,
         N=args.n_random_features,
@@ -65,7 +67,7 @@ def process_args(args):
         error_fn = squared_error
     args.error_fn = error_fn
 
-def load_waterbirds_data(features_path, metadata_path, frac=1.0):
+def load_waterbirds_data(features_path, metadata_path, frac=1.0, resample=False, seed=0):
     TRAIN, VAL, TEST = (0, 1, 2)
     features = np.load(features_path)
     metadata = pd.read_csv(metadata_path)
@@ -84,6 +86,47 @@ def load_waterbirds_data(features_path, metadata_path, frac=1.0):
     test_y = metadata[test_mask]['y'].values
     test_x = features[test_mask,:]
     test_g = 2*metadata[test_mask]['y'].values + metadata[test_mask]['place'].values
+
+    set_counts = [sum(list(metadata['split']==i) ) for i in range(3)]
+    
+    if resample:
+        random.seed(seed)
+
+        group = 2*metadata['y'].values + metadata['place'].values
+        train_group_counts = {}
+
+        for group_name in train_g:
+            if group_name in train_group_counts:
+                train_group_counts[group_name] += 1
+            else:
+                train_group_counts[group_name] = 1
+
+        split = np.ones(len(metadata['split']))*TEST
+
+        for group_name in train_group_counts:
+            # set train_group_counts[group_name] number of group group_name to train (resample)
+            group_idxs = np.where(group == group_name)[0]
+            random.shuffle(group_idxs)
+            train_idx = group_idxs[:train_group_counts[group_name]] # take first n indices where n = # of points in group in train
+            split[train_idx] = TRAIN
+
+        # split[np.where(split == VAL)[0][:set_counts[TEST]]] = TEST
+
+        # Train
+        train_mask = split==TRAIN
+        train_y = metadata[train_mask]['y'].values
+        train_x = features[train_mask,:]
+        train_g = 2*metadata[train_mask]['y'].values + metadata[train_mask]['place'].values
+        if frac < 1:
+            idx = np.random.choice(np.arange(train_y.size), int(frac*(train_y.size)))
+            train_x = train_x[idx,:]
+            train_y = train_y[idx]
+            train_g = train_g[idx]
+        # Test
+        test_mask = split==TEST
+        test_y = metadata[test_mask]['y'].values
+        test_x = features[test_mask,:]
+        test_g = 2*metadata[test_mask]['y'].values + metadata[test_mask]['place'].values
     return ((train_x, train_y, train_g), (test_x, test_y, test_g)), 4
 
 if __name__=='__main__':
