@@ -37,6 +37,21 @@ model_attributes = {
         'target_resolution': (224, 224),
         'flatten': False
     },
+    'resnet18_wd4': {
+        'feature_type': 'image',
+        'target_resolution': (224, 224),
+        'flatten': False
+    },
+    'resnet18_wd2': {
+        'feature_type': 'image',
+        'target_resolution': (224, 224),
+        'flatten': False
+    },
+    'resnet18_w3d4': {
+        'feature_type': 'image',
+        'target_resolution': (224, 224),
+        'flatten': False
+    },
     'raw_logistic_regression': {
         'feature_type': 'image',
         'target_resolution': None,

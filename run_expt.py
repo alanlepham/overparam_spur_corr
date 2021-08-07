@@ -11,6 +11,10 @@ from utils import set_seed, Logger, CSVBatchLogger, log_args
 from train import train
 from variable_width_resnet import resnet50vw, resnet18vw, resnet10vw
 
+import sys
+sys.path.append("..")
+from imgclsmob.pytorch.pytorchcv.models.resnet import resnet18_wd4, resnet18_wd2, resnet18_w3d4
+
 def main():
     parser = argparse.ArgumentParser()
 
@@ -171,6 +175,22 @@ def main():
         model = torchvision.models.resnet18(pretrained=pretrained)
         d = model.fc.in_features
         model.fc = nn.Linear(d, n_classes)
+
+    # resnet 18 width reduce
+    elif args.model == 'resnet18_wd4':
+        model = resnet18_wd4(pretrained=pretrained)
+        d = model.fc.in_features
+        model.fc = nn.Linear(d, n_classes)
+    elif args.model == 'resnet18_wd2':
+        model = resnet18_wd2(pretrained=pretrained)
+        d = model.fc.in_features
+        model.fc = nn.Linear(d, n_classes)
+    elif args.model == 'resnet18_w3d4':
+        model = resnet18_w3d4(pretrained=pretrained)
+        d = model.fc.in_features
+        model.fc = nn.Linear(d, n_classes)
+
+
 
     # misc
     elif args.model == 'wideresnet50':
