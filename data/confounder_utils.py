@@ -1,3 +1,4 @@
+from data.breeds_dataset import BreedsDataset
 import os
 import torch
 import pandas as pd
@@ -24,6 +25,9 @@ confounder_settings = {
     },
     'MultiNLI':{
         'constructor': MultiNLIDataset
+    },
+    'Breeds': {
+        'constructor': BreedsDataset
     }
 }
 

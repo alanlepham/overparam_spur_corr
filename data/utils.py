@@ -7,10 +7,11 @@ def train_val_split(dataset, val_frac):
     # split into train and val
     indices = np.arange(len(dataset))
     np.random.shuffle(indices)
-    val_size = int(np.round(len(dataset)*val_frac))
+    val_size = int(np.round(len(dataset) * val_frac))
     train_indices, val_indices = indices[val_size:], indices[:val_size]
     train_data, val_data = Subset(dataset, train_indices), Subset(dataset, val_indices)
     return train_data, val_data
+
 
 # Subsample a fraction for smaller training data
 def subsample(dataset, fraction):
