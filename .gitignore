@@ -2,5 +2,5 @@ __pycache__/
 celebA/
 cub/
 data/__pycache__/
-logs*
+log*
 slurm-*.out

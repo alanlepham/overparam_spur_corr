@@ -44,7 +44,7 @@ class BreedsDataset(ConfounderDataset):
         if not extra_args.breeds_pair:
             pair = extra_args.breeds_pair
         
-        np_data_groups = f"./{pair}_groups.npy"
+        np_data_groups = f"./log/basic_breeds/{pair}_groups.npy"
 
         # TODO assumption based on rise machines 
         if os.path.exists("/data/imagenetwhole"):
