@@ -2,7 +2,7 @@
 #SBATCH -p rise # partition (queue)
 #SBATCH -N 1 # number of nodes requested
 #SBATCH -n 1 # number of tasks (i.e. processes)
-#SBATCH --cpus-per-task=6 # number of cores per task
+#SBATCH --cpus-per-task=12 # number of cores per task
 #SBATCH --gres=gpu:1
 ##SBATCH -o /work/vsrivatsa/slurm_logs/simclr_out.%N.%j.out # STDOUT
 #SBATCH --nodelist=luigi # if you need specific nodes
