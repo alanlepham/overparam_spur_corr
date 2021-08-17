@@ -44,7 +44,7 @@ class BreedsDataset(ConfounderDataset):
         if not extra_args.breeds_pair:
             pair = extra_args.breeds_pair
         
-        np_data_groups = f"/data/{pair}_groups.npy"
+        np_data_groups = f"./{pair}_groups.npy"
 
         # TODO assumption based on rise machines 
         if os.path.exists("/data/imagenetwhole"):
@@ -240,7 +240,6 @@ def unisonShuffleDataset(data_set):
 def relabel_dataset_targets(train_set):
     train_set.targets = np.unique(train_set.targets, return_inverse=1)
     return train_set
-
 
 def concat_datasets_inplace(train_set1, train_set2):
     train_set1.samples = train_set1.samples + train_set2.samples
