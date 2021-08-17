@@ -10,7 +10,7 @@
 #SBATCH -t 13-00:00 # time requested (D-HH:MM)
 
 #SBATCH -o breeds_basic_1.%N.%j.out # STDOUT
-#SBATCH -D /work/vsrivatsa/overparam_spur_corr
+#SBATCH -D /data/vsrivatsa/overparam_spur_corr
 
 pwd
 hostname
