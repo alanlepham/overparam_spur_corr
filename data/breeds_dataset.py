@@ -210,7 +210,8 @@ class BreedsDataset(ConfounderDataset):
 
 def compute_groups(full_dataset):
     print("Computing dominant color metrics for dataset")
-    dominant_metrics_computed = p_map(compute_dominant, full_dataset.samples)
+    samples = [item[0] for item in full_dataset]
+    dominant_metrics_computed = p_map(compute_dominant, samples)
     
     print("Computing labels for dataset")
     clt = KMeans(n_clusters = 2)
