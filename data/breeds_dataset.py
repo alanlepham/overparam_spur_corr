@@ -121,8 +121,8 @@ class BreedsDataset(ConfounderDataset):
         self.full_dataset = relabel_dataset_targets(self.full_dataset)
 
         if not os.path.exists(np_data_groups):
+            groups = compute_groups(self.full_dataset)
             with open(np_data_groups, 'wb') as f:
-                groups = compute_groups(self.full_dataset)
                 np.save(f, groups)
         else:
             with open(np_data_groups, 'rb') as f:
