@@ -27,8 +27,10 @@ def prepare_data(args, train, return_full_dataset=False):
     # Set root_dir to defaults if necessary
     if args.root_dir is None:
         args.root_dir = dataset_attributes[args.dataset]["root_dir"]
+
     if args.shift_type == "confounder":
         return prepare_confounder_data(args, train, return_full_dataset)
+
     elif args.shift_type.startswith("label_shift"):
         assert not return_full_dataset
         return prepare_label_shift_data(args, train)

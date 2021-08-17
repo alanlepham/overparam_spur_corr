@@ -1,3 +1,4 @@
+from data.confounder_dataset import ConfounderDataset
 from data.breeds_dataset import BreedsDataset
 import os
 import torch
@@ -35,7 +36,7 @@ confounder_settings = {
 ### DATA PREPARATION ###
 ########################
 def prepare_confounder_data(args, train, return_full_dataset=False):
-    full_dataset = confounder_settings[args.dataset]['constructor'](
+    full_dataset : ConfounderDataset = confounder_settings[args.dataset]['constructor'](
         root_dir=args.root_dir,
         target_name=args.target_name,
         confounder_names=args.confounder_names,

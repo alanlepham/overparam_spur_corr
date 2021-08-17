@@ -1,3 +1,4 @@
+from data.resample_utils import resample, get_counts
 from enum import Enum, auto
 import os
 import torch
@@ -13,7 +14,7 @@ from robustness.tools.breeds_helpers import setup_breeds
 from robustness.tools import folder
 from robustness.tools.breeds_helpers import print_dataset_info
 from sklearn.cluster import KMeans
-from collections import Counter
+from collections import Counter, defaultdict
 from p_tqdm import p_map
 
 class BreedsDataset(ConfounderDataset):
@@ -32,13 +33,25 @@ class BreedsDataset(ConfounderDataset):
         self.model_type = model_type
 
         breeds_dataset_type = extra_args.breeds_dataset_type
+        breeds_proportions = []
+        if extra_args.breeds_proportions:
+            breeds_proportions = [int(item) for item in extra_args.breeds_proportions.split(',')]
+
         if breeds_dataset_type is None:
             breeds_dataset_type = "entity_13"
-    
-        pair = "reptile-arthropod"
+
+        pair = "mammal-bird"
+        if not extra_args.breeds_pair:
+            pair = extra_args.breeds_pair
+        
         np_data_groups = f"/data/{pair}_groups.npy"
 
-        data_dir = "/data/imagenet"
+        # TODO assumption based on rise machines 
+        if os.path.exists("/data/imagenetwhole"):
+            data_dir = "/data/imagenetwhole"
+        else:
+            data_dir = "/data/imagenet"
+
         info_dir = "./data/BREEDS-Benchmarks/imagenet_class_hierarchy/modified"
 
         classes_available = pair.split("-")
@@ -114,18 +127,16 @@ class BreedsDataset(ConfounderDataset):
         else:
             with open(np_data_groups, 'rb') as f:
                 groups = np.load(f)
-    
+
         self.full_dataset.groups = np.array(groups)
 
         self.full_dataset = unisonShuffleDataset(self.full_dataset) # Shuffle dataset since in order
-
 
         self.y_array = self.full_dataset.targets
         self.n_classes = 2
 
         self.n_groups = 4
         self.group_array = self.full_dataset.groups
-        
 
         self.split_dict = {"train": 0, "val": 1, "test": 2}
 
@@ -148,6 +159,25 @@ class BreedsDataset(ConfounderDataset):
             + [self.split_dict["val"]] * validation_size
             + [self.split_dict["test"]] * test_size
         )
+        
+        self.split_sizes = {
+            0: train_size,
+            1: validation_size, 
+            2: test_size
+        }
+        if breeds_proportions:
+            if max(breeds_proportions) <= 1:
+                counts = get_counts(self.split_array, self.group_array)
+                for i in range(12):
+                    counts[i / 4][(i / 4) % 4] = breeds_proportions[i] * self.split_sizes[i / 4]
+
+            else:
+                counts = defaultdict(defaultdict(int))
+                for i in range(12):
+                    counts[i / 4][(i / 4) % 4] = breeds_proportions[i]
+
+            self.split_array = resample(self.split_array, self.group_array, counts)
+
         print("Completed initializing breeds")
 
     def __len__(self):
