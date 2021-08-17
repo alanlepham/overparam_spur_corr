@@ -41,7 +41,7 @@ class BreedsDataset(ConfounderDataset):
             breeds_dataset_type = "entity_13"
 
         pair = "mammal-bird"
-        if not extra_args.breeds_pair:
+        if extra_args.breeds_pair:
             pair = extra_args.breeds_pair
         
         np_data_groups = f"./log/basic_breeds/{pair}_groups.npy"
