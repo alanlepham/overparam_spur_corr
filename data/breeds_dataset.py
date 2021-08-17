@@ -36,6 +36,7 @@ class BreedsDataset(ConfounderDataset):
             breeds_dataset_type = "entity_13"
     
         pair = "reptile-arthropod"
+        np_data_groups = f"/data/{pair}_groups.npy"
 
         data_dir = "/data/imagenet"
         info_dir = "./data/BREEDS-Benchmarks/imagenet_class_hierarchy/modified"
@@ -98,19 +99,25 @@ class BreedsDataset(ConfounderDataset):
         self.train_set = concat_datasets_inplace(train_set_source, train_set_target)
         self.test_set = concat_datasets_inplace(test_set_source, test_set_target)
         self.full_dataset = concat_datasets_inplace(self.train_set, self.test_set)
-     
+    
         # --------------------------
         # Relabel and Compute Groups
         # --------------------------
 
         print("Realign dataset classes to 0,1")
         self.full_dataset = relabel_dataset_targets(self.full_dataset)
-        
-        groups = compute_groups(self.full_dataset)
+
+        if not os.path.exists(np_data_groups):
+            with open(np_data_groups, 'wb') as f:
+                groups = compute_groups(self.full_dataset)
+                np.save(f, groups)
+        else:
+            with open(np_data_groups, 'rb') as f:
+                groups = np.load(f)
+    
         self.full_dataset.groups = np.array(groups)
 
         self.full_dataset = unisonShuffleDataset(self.full_dataset) # Shuffle dataset since in order
-
 
 
         self.y_array = self.full_dataset.targets
@@ -118,7 +125,7 @@ class BreedsDataset(ConfounderDataset):
 
         self.n_groups = 4
         self.group_array = self.full_dataset.groups
-         
+        
 
         self.split_dict = {"train": 0, "val": 1, "test": 2}
 
@@ -185,9 +192,10 @@ def compute_groups(full_dataset):
         group_num = labels[i] * 2 + full_dataset.targets[i]
         # 0, 0 -> 0 -> color group 0, class 0
         # 0, 1 -> 1 -> color group 0, class 1
+
         # 1, 0 -> 2 -> color group 1, class 0
-        # 1, 1 -> 3 -> color group 1, class 1
-    
+        # 1, 1 -> 3 -> color group 1, class 1    
+
         groups.append(group_num)
 
     return groups
