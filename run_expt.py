@@ -35,6 +35,12 @@ def main():
     parser.add_argument("--reweight_groups", action="store_true", default=False)
     parser.add_argument("--augment_data", action="store_true", default=False)
     parser.add_argument("--val_fraction", type=float, default=0.1)
+
+    # Breeds Data
+    parser.add_argument("--breeds_dataset_type", choices=["entity13", "entity30", "living17", "nonliving26", "custom_level2", "custom_level3"], default="entity13")
+    parser.add_argument("--breeds_groups",  type=str, nargs="+")
+
+
     # Objective
     parser.add_argument("--robust", default=False, action="store_true")
     parser.add_argument("--alpha", type=float, default=0.2)
@@ -311,7 +317,7 @@ def main():
 
 def check_args(args):
     if args.shift_type == "confounder":
-        assert args.confounder_names
+#        assert args.confounder_names
         assert args.target_name
     elif args.shift_type.startswith("label_shift"):
         assert args.minority_fraction

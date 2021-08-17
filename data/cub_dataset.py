@@ -21,7 +21,8 @@ class CUBDataset(ConfounderDataset):
         target_name,
         confounder_names,
         augment_data=False,
-        model_type=None,
+        model_type=None, 
+        extra_args=None
     ):
         self.root_dir = root_dir
         self.target_name = target_name

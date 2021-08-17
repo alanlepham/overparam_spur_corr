@@ -16,7 +16,7 @@ class CelebADataset(ConfounderDataset):
     """
 
     def __init__(
-        self, root_dir, target_name, confounder_names, model_type, augment_data
+        self, root_dir, target_name, confounder_names, model_type, augment_data, extra_args=None
     ):
         self.root_dir = root_dir
         self.target_name = target_name

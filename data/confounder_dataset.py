@@ -15,7 +15,8 @@ class ConfounderDataset(Dataset):
         target_name,
         confounder_names,
         model_type=None,
-        augment_data=None,
+        augment_data=None, 
+        extra_args=None
     ):
         raise NotImplementedError
 

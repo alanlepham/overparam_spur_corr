@@ -40,7 +40,8 @@ def prepare_confounder_data(args, train, return_full_dataset=False):
         target_name=args.target_name,
         confounder_names=args.confounder_names,
         model_type=args.model,
-        augment_data=args.augment_data)
+        augment_data=args.augment_data,
+        extra_args=args)
     if return_full_dataset:
         return DRODataset(
             full_dataset,
