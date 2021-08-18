@@ -40,6 +40,7 @@ def main():
     parser.add_argument("--breeds_dataset_type", choices=["entity13", "entity30", "living17", "nonliving26", "custom_level2", "custom_level3"], default="entity13")
     parser.add_argument("--breeds_pair",  type=str)
     parser.add_argument("--breeds_proportions",  type=str)
+    parser.add_argument("--breeds_cpu",  type=int)
 
 
     # Objective

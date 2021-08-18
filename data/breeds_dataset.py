@@ -121,7 +121,7 @@ class BreedsDataset(ConfounderDataset):
         self.full_dataset = relabel_dataset_targets(self.full_dataset)
 
         if not os.path.exists(np_data_groups):
-            groups = compute_groups(self.full_dataset)
+            groups = compute_groups(self.full_dataset, num_cpus=args.breeds_cpu if args.breeds_cpu else 16)
             with open(np_data_groups, 'wb') as f:
                 np.save(f, groups)
         else:
@@ -208,10 +208,10 @@ class BreedsDataset(ConfounderDataset):
 
 
 
-def compute_groups(full_dataset):
+def compute_groups(full_dataset, num_cpus=16):
     print("Computing dominant color metrics for dataset")
-    samples = p_map(lambda item: item[0], full_dataset)
-    dominant_metrics_computed = p_map(compute_dominant, samples)
+    samples = p_map(lambda item: item[0], full_dataset, num_cpus=num_cpus)
+    dominant_metrics_computed = p_map(compute_dominant, samples, num_cpus=num_cpus)
     
     print("Computing labels for dataset")
     clt = KMeans(n_clusters = 2)
