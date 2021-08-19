@@ -119,7 +119,9 @@ class BreedsDataset(ConfounderDataset):
 
         print("Realign dataset classes to 0,1")
         self.full_dataset = relabel_dataset_targets(self.full_dataset)
-
+        self.full_dataset.samples = self.full_dataset.samples[:10]
+        self.full_dataset.targets = self.full_dataset.targets[:10]
+    
         if not os.path.exists(np_data_groups):
             groups = compute_groups(self.full_dataset, num_cpus=extra_args.breeds_cpu if extra_args.breeds_cpu else 16)
             with open(np_data_groups, 'wb') as f:
@@ -217,6 +219,7 @@ def compute_groups(full_dataset, num_cpus=16):
     clt = KMeans(n_clusters = 2)
     labels = clt.fit_predict(dominant_metrics_computed)
 
+    print(labels)
     print("Relabeling groups for classification")
     groups = []
     for i in range(len(labels)):
@@ -231,6 +234,7 @@ def compute_groups(full_dataset, num_cpus=16):
 
     return groups
 
+
 def unisonShuffleDataset(data_set):
     p = np.random.permutation(len(data_set))
     data_set.samples = np.array(data_set.samples)[p]
@@ -239,7 +243,7 @@ def unisonShuffleDataset(data_set):
     return data_set
 
 def relabel_dataset_targets(train_set):
-    train_set.targets = np.unique(train_set.targets, return_inverse=1)
+    train_set.targets = np.unique(train_set.targets, return_inverse=1)[1]
     return train_set
 
 def concat_datasets_inplace(train_set1, train_set2):
@@ -346,7 +350,7 @@ def load_dataset_values(
     return train_set, test_set
 
 
-def get_dominant_color(image, k=4, image_processing_size = None):
+def get_dominant_color(image, k=4, image_processing_size = None, dominant_only=False):
     """
     takes an image as input
     returns the dominant color of the image as a list
@@ -371,16 +375,31 @@ def get_dominant_color(image, k=4, image_processing_size = None):
 
     #count labels to find most popular
     label_counts = Counter(labels)
-
+    
+    if dominant_only:
+        top_most_common = label_counts.most_common(1)
+        dominant_color = clt.cluster_centers_[top_most_common[0]]
+        return dominant_color, None
+    
     #subset out most popular centroid
     top_most_common, second_most_common = label_counts.most_common(2)
     dominant_color = clt.cluster_centers_[top_most_common[0]]
     non_dominant_color = clt.cluster_centers_[second_most_common[0]]
     return dominant_color, non_dominant_color
 
-
-def compute_dominant(image):
+def compute_average(image):
     image = image.numpy().transpose((1, 2, 0)) * 255
     
-    dominant, nondominant = get_dominant_color(image, k = 3)
-    return dominant
+    average_color = np.round(image.mean(axis=0).mean(axis=0))
+    return average_color
+
+def compute_dominant(image):
+    orig_image = image
+    try:
+        image = image.numpy().transpose((1, 2, 0)) * 255
+        
+        dominant, _ = get_dominant_color(image, k = 3, dominant_only=True)
+        return dominant
+    except ValueError:
+        # In the case dominant color fails use average. TODO find invalid cases
+        return compute_average(orig_image)
