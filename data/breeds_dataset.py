@@ -377,7 +377,7 @@ def load_dataset_values(
     return train_set, test_set
 
 
-def get_dominant_color(image, k=4, image_processing_size=None, dominant_only=False):
+def get_dominant_color(image, k=4):
     """
     takes an image as input
     returns the dominant color of the image as a list
@@ -403,11 +403,6 @@ def get_dominant_color(image, k=4, image_processing_size=None, dominant_only=Fal
     # count labels to find most popular
     label_counts = Counter(labels)
 
-    if dominant_only:
-        top_most_common = label_counts.most_common(1)
-        dominant_color = clt.cluster_centers_[top_most_common[0]]
-        return dominant_color, None
-
     # subset out most popular centroid
     top_most_common, second_most_common = label_counts.most_common(2)
     dominant_color = clt.cluster_centers_[top_most_common[0]]
@@ -425,9 +420,9 @@ def compute_average(image):
 def compute_dominant(image):
     orig_image = image
     try:
-        image = image.numpy().transpose((1, 2, 0)) * 255
+        image_255 = image.numpy().transpose((1, 2, 0)) * 255
 
-        dominant, _ = get_dominant_color(image, k=3, dominant_only=True)
+        dominant, _ = get_dominant_color(image_255, k=3, dominant_only=True)
         return dominant
     except ValueError:
         # In the case dominant color fails use average. TODO find invalid cases
