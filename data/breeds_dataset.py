@@ -55,6 +55,7 @@ class BreedsDataset(ConfounderDataset):
         info_dir = "./data/BREEDS-Benchmarks/imagenet_class_hierarchy/modified"
 
         classes_available = pair.split("-")
+        self.classes_available = classes_available
 
         ret = None
         if breeds_dataset_type == "entity13":
@@ -119,10 +120,11 @@ class BreedsDataset(ConfounderDataset):
 
         print("Realign dataset classes to 0,1")
         self.full_dataset = relabel_dataset_targets(self.full_dataset)
-        self.full_dataset.samples = self.full_dataset.samples[:10]
-        self.full_dataset.targets = self.full_dataset.targets[:10]
-    
-        if not os.path.exists(np_data_groups):
+
+        if not os.path.exists(np_data_groups) or extra_args.reload_breeds_groups is not None:
+            self.full_dataset.groups = np.array([-1] * len(self.full_dataset))
+            self.full_dataset = unisonShuffleDataset(self.full_dataset) # Shuffle dataset before computing groups
+
             groups = compute_groups(self.full_dataset, num_cpus=extra_args.breeds_cpu if extra_args.breeds_cpu else 16)
             with open(np_data_groups, 'wb') as f:
                 np.save(f, groups)
@@ -218,6 +220,7 @@ def compute_groups(full_dataset, num_cpus=16):
     print("Computing labels for dataset")
     clt = KMeans(n_clusters = 2)
     labels = clt.fit_predict(dominant_metrics_computed)
+    print("Cluster centers", clt.cluster_centers_)
 
     print(labels)
     print("Relabeling groups for classification")
