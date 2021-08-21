@@ -422,7 +422,7 @@ def compute_dominant(image):
     try:
         image_255 = image.numpy().transpose((1, 2, 0)) * 255
 
-        dominant, _ = get_dominant_color(image_255, k=3, dominant_only=True)
+        dominant, _ = get_dominant_color(image_255, k=3)
         return dominant
     except ValueError:
         # In the case dominant color fails use average. TODO find invalid cases
