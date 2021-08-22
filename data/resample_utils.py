@@ -40,18 +40,22 @@ def get_counts(split_array, group_array):
 def resample(split_array, group_array, counts):
     """ Resamples within each subgroup."""
     # split_array = split_array.copy()
+    splits = list(set(split_array))
 
-    split_array = np.array([-1 for i in range(len(split_array))])
-    for group_idx in list(set(group_array)):
+    split_array = np.array([-1] * len(group_array))
+    groups = list(set(group_array))
+
+    for group_idx in groups:
         label_mask = group_array == group_idx
         indices = np.where(label_mask)[0]
         random.shuffle(indices)
 
         start_idx, end_idx = 0, 0
-        for split_idx in list(set(split_array)):
+        for split_idx in splits:
             start_idx = end_idx
             end_idx += counts[split_idx][group_idx]
 
             # we set a bunch of indices in that group to a split index (val/test/train split)
             split_array[indices[start_idx:end_idx]] = split_idx
     return split_array
+

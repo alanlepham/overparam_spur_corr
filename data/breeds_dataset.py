@@ -194,17 +194,20 @@ class BreedsDataset(ConfounderDataset):
             if max(breeds_proportions) <= 1:
                 counts = get_counts(self.split_array, self.group_array)
                 for i in range(12):
-                    counts[i / 4][(i / 4) % 4] = (
+                    counts[i // 4][i % 4] = (
                         breeds_proportions[i] * self.split_sizes[i / 4]
                     )
 
             else:
-                counts = defaultdict(defaultdict(int))
+                # truncate_dataset(full_dataset, expected_size=sum(breeds_proportions))
+
+                counts = defaultdict(dict)
                 for i in range(12):
-                    counts[i / 4][(i / 4) % 4] = breeds_proportions[i]
-
+                    counts[i // 4][i % 4] = breeds_proportions[i]
+                print("New Counts", counts)
+            self.split_array = [0, 1, 2]                 
             self.split_array = resample(self.split_array, self.group_array, counts)
-
+            print(get_counts(self.split_array, self.group_array))
         print("Completed initializing breeds")
 
     def __len__(self):
@@ -232,6 +235,11 @@ class BreedsDataset(ConfounderDataset):
         class_num = group_idx
         class_name = self.classes_available[class_num]
         return f"Color 0, Class: f{class_name}"
+
+def truncate_dataset(full_dataset, expected_size=1000):
+    full_dataset.samples = full_dataset.samples[:expected_size]
+    full_dataset.targets = full_dataset.targets[:expected_size]
+    full_dataset.groups = full_dataset.groups[:expected_size]
 
 
 def compute_groups(full_dataset, num_cpus=16):
