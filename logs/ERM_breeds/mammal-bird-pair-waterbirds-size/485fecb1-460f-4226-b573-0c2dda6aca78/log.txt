@@ -1,0 +1,2277 @@
+Dataset: Breeds
+Shift type: confounder
+Target name: breeds
+Confounder names: None
+Resume: False
+Minority fraction: None
+Imbalance ratio: None
+Fraction: 1.0
+Root dir: None
+Subsample to minority: False
+Reweight groups: False
+Augment data: False
+Val fraction: 0.1
+Breeds dataset type: entity13
+Breeds pair: None
+Breeds proportions: 3498,184,56,1057,467,466,133,133,2255,2255,642,642
+Breeds cpu: None
+Reload breeds groups: None
+Robust: False
+Alpha: 0.2
+Generalization adjustment: 0
+Automatic adjustment: False
+Robust step size: 0.01
+Use normalized loss: False
+Btl: False
+Hinge: False
+Model: resnet101
+Train from scratch: True
+Resnet width: None
+N epochs: 100
+Batch size: 128
+Lr: 0.1
+Scheduler: False
+Step scheduler: True
+Scheduler step: 30
+Weight decay: 0.0001
+Gamma: 0.1
+Minimum variational weight: 0
+Seed: 0
+Show progress: False
+Log dir: ./logs/ERM_breeds/mammal-bird-pair-waterbirds-size/485fecb1-460f-4226-b573-0c2dda6aca78
+Log every: 50
+Save step: 10
+Save best: True
+Save last: True
+
+Training Data...
+    Color 0, Class: fmammal: n = 3498
+    Color 0, Class: fbird: n = 184
+    Color 1, Class: fmammal: n = 56
+    Color 1, Class: fbird: n = 1057
+Validation Data...
+    Color 0, Class: fmammal: n = 467
+    Color 0, Class: fbird: n = 466
+    Color 1, Class: fmammal: n = 133
+    Color 1, Class: fbird: n = 133
+Test Data...
+    Color 0, Class: fmammal: n = 2255
+    Color 0, Class: fbird: n = 2255
+    Color 1, Class: fmammal: n = 642
+    Color 1, Class: fbird: n = 642
+
+Epoch [0]:
+Training:
+Average incurred loss: 5.904  
+Average sample loss: 5.835  
+Average acc: 0.508  
+  Color 0, Class: fmammal  [n = 3498]:	loss = 6.373  exp loss = 1.929  adjusted loss = 1.929  adv prob = 0.250000   acc = 0.504
+  Color 0, Class: fbird  [n = 184]:	loss = 8.176  exp loss = 1.732  adjusted loss = 1.732  adv prob = 0.250000   acc = 0.500
+  Color 1, Class: fmammal  [n = 56]:	loss = 3.921  exp loss = 4.997  adjusted loss = 4.997  adv prob = 0.250000   acc = 0.554
+  Color 1, Class: fbird  [n = 1057]:	loss = 4.060  exp loss = 1.582  adjusted loss = 1.582  adv prob = 0.250000   acc = 0.518
+
+Validation:
+Average incurred loss: 7525.208  
+Average sample loss: 7611.639  
+Average acc: 0.480  
+  Color 0, Class: fmammal  [n = 467]:	loss = 6937.619  exp loss = 8099.486  adjusted loss = 8099.486  adv prob = 0.250000   acc = 0.510
+  Color 0, Class: fbird  [n = 466]:	loss = 9003.320  exp loss = 8665.417  adjusted loss = 8665.417  adv prob = 0.250000   acc = 0.438
+  Color 1, Class: fmammal  [n = 133]:	loss = 6155.676  exp loss = 6180.957  adjusted loss = 6180.957  adv prob = 0.250000   acc = 0.526
+  Color 1, Class: fbird  [n = 133]:	loss = 5778.976  exp loss = 5700.877  adjusted loss = 5700.877  adv prob = 0.250000   acc = 0.474
+Current lr: 0.100000
+Current validation accuracy: 0.4795662462711334
+Best model saved at epoch 0
+
+
+Epoch [1]:
+Training:
+Average incurred loss: 0.946  
+Average sample loss: 0.943  
+Average acc: 0.502  
+  Color 0, Class: fmammal  [n = 3498]:	loss = 0.987  exp loss = 0.923  adjusted loss = 0.923  adv prob = 0.250000   acc = 0.503
+  Color 0, Class: fbird  [n = 184]:	loss = 0.865  exp loss = 0.927  adjusted loss = 0.927  adv prob = 0.250000   acc = 0.522
+  Color 1, Class: fmammal  [n = 56]:	loss = 0.743  exp loss = 0.928  adjusted loss = 0.928  adv prob = 0.250000   acc = 0.500
+  Color 1, Class: fbird  [n = 1057]:	loss = 0.837  exp loss = 0.755  adjusted loss = 0.755  adv prob = 0.250000   acc = 0.496
+
+Validation:
+Average incurred loss: 1.218  
+Average sample loss: 1.196  
+Average acc: 0.530  
+  Color 0, Class: fmammal  [n = 467]:	loss = 1.274  exp loss = 1.508  adjusted loss = 1.508  adv prob = 0.250000   acc = 0.529
+  Color 0, Class: fbird  [n = 466]:	loss = 1.173  exp loss = 1.057  adjusted loss = 1.057  adv prob = 0.250000   acc = 0.543
+  Color 1, Class: fmammal  [n = 133]:	loss = 1.412  exp loss = 2.085  adjusted loss = 2.085  adv prob = 0.250000   acc = 0.519
+  Color 1, Class: fbird  [n = 133]:	loss = 0.978  exp loss = 1.160  adjusted loss = 1.160  adv prob = 0.250000   acc = 0.496
+Current lr: 0.100000
+Current validation accuracy: 0.5296080112457275
+Best model saved at epoch 1
+
+
+Epoch [2]:
+Training:
+Average incurred loss: 1.020  
+Average sample loss: 1.021  
+Average acc: 0.509  
+  Color 0, Class: fmammal  [n = 3498]:	loss = 1.032  exp loss = 1.091  adjusted loss = 1.091  adv prob = 0.250000   acc = 0.515
+  Color 0, Class: fbird  [n = 184]:	loss = 0.961  exp loss = 0.734  adjusted loss = 0.734  adv prob = 0.250000   acc = 0.582
+  Color 1, Class: fmammal  [n = 56]:	loss = 0.904  exp loss = 0.900  adjusted loss = 0.900  adv prob = 0.250000   acc = 0.554
+  Color 1, Class: fbird  [n = 1057]:	loss = 0.999  exp loss = 0.981  adjusted loss = 0.981  adv prob = 0.250000   acc = 0.474
+
+Validation:
+Average incurred loss: 1.020  
+Average sample loss: 0.998  
+Average acc: 0.487  
+  Color 0, Class: fmammal  [n = 467]:	loss = 0.941  exp loss = 0.828  adjusted loss = 0.828  adv prob = 0.250000   acc = 0.518
+  Color 0, Class: fbird  [n = 466]:	loss = 1.126  exp loss = 1.099  adjusted loss = 1.099  adv prob = 0.250000   acc = 0.438
+  Color 1, Class: fmammal  [n = 133]:	loss = 0.953  exp loss = 1.387  adjusted loss = 1.387  adv prob = 0.250000   acc = 0.534
+  Color 1, Class: fbird  [n = 133]:	loss = 0.989  exp loss = 0.846  adjusted loss = 0.846  adv prob = 0.250000   acc = 0.504
+Current lr: 0.100000
+Current validation accuracy: 0.48707258701324463
+
+
+Epoch [3]:
+Training:
+Average incurred loss: 0.996  
+Average sample loss: 1.002  
+Average acc: 0.518  
+  Color 0, Class: fmammal  [n = 3498]:	loss = 0.993  exp loss = 0.828  adjusted loss = 0.828  adv prob = 0.250000   acc = 0.524
+  Color 0, Class: fbird  [n = 184]:	loss = 0.960  exp loss = 1.083  adjusted loss = 1.083  adv prob = 0.250000   acc = 0.408
+  Color 1, Class: fmammal  [n = 56]:	loss = 0.686  exp loss = 0.694  adjusted loss = 0.694  adv prob = 0.250000   acc = 0.500
+  Color 1, Class: fbird  [n = 1057]:	loss = 1.027  exp loss = 1.101  adjusted loss = 1.101  adv prob = 0.250000   acc = 0.517
+
+Validation:
+Average incurred loss: 0.715  
+Average sample loss: 0.713  
+Average acc: 0.518  
+  Color 0, Class: fmammal  [n = 467]:	loss = 0.704  exp loss = 0.705  adjusted loss = 0.705  adv prob = 0.250000   acc = 0.499
+  Color 0, Class: fbird  [n = 466]:	loss = 0.694  exp loss = 0.694  adjusted loss = 0.694  adv prob = 0.250000   acc = 0.564
+  Color 1, Class: fmammal  [n = 133]:	loss = 0.752  exp loss = 0.729  adjusted loss = 0.729  adv prob = 0.250000   acc = 0.436
+  Color 1, Class: fbird  [n = 133]:	loss = 0.796  exp loss = 0.746  adjusted loss = 0.746  adv prob = 0.250000   acc = 0.504
+Current lr: 0.100000
+Current validation accuracy: 0.5179315805435181
+
+
+Epoch [4]:
+Training:
+Average incurred loss: 1.075  
+Average sample loss: 1.070  
+Average acc: 0.497  
+  Color 0, Class: fmammal  [n = 3498]:	loss = 1.044  exp loss = 1.116  adjusted loss = 1.116  adv prob = 0.250000   acc = 0.501
+  Color 0, Class: fbird  [n = 184]:	loss = 2.149  exp loss = 2.430  adjusted loss = 2.430  adv prob = 0.250000   acc = 0.467
+  Color 1, Class: fmammal  [n = 56]:	loss = 0.677  exp loss = 0.665  adjusted loss = 0.665  adv prob = 0.250000   acc = 0.518
+  Color 1, Class: fbird  [n = 1057]:	loss = 1.011  exp loss = 1.289  adjusted loss = 1.289  adv prob = 0.250000   acc = 0.487
+
+Validation:
+Average incurred loss: 0.706  
+Average sample loss: 0.705  
+Average acc: 0.495  
+  Color 0, Class: fmammal  [n = 467]:	loss = 0.727  exp loss = 0.722  adjusted loss = 0.722  adv prob = 0.250000   acc = 0.514
+  Color 0, Class: fbird  [n = 466]:	loss = 0.696  exp loss = 0.695  adjusted loss = 0.695  adv prob = 0.250000   acc = 0.442
+  Color 1, Class: fmammal  [n = 133]:	loss = 0.687  exp loss = 0.697  adjusted loss = 0.697  adv prob = 0.250000   acc = 0.579
+  Color 1, Class: fbird  [n = 133]:	loss = 0.688  exp loss = 0.691  adjusted loss = 0.691  adv prob = 0.250000   acc = 0.526
+Current lr: 0.100000
+Current validation accuracy: 0.4945788085460663
+
+
+Epoch [5]:
+Training:
+Average incurred loss: 0.944  
+Average sample loss: 0.945  
+Average acc: 0.501  
+  Color 0, Class: fmammal  [n = 3498]:	loss = 0.920  exp loss = 0.904  adjusted loss = 0.904  adv prob = 0.250000   acc = 0.508
+  Color 0, Class: fbird  [n = 184]:	loss = 1.003  exp loss = 0.993  adjusted loss = 0.993  adv prob = 0.250000   acc = 0.473
+  Color 1, Class: fmammal  [n = 56]:	loss = 2.669  exp loss = 1.415  adjusted loss = 1.415  adv prob = 0.250000   acc = 0.482
+  Color 1, Class: fbird  [n = 1057]:	loss = 0.923  exp loss = 1.074  adjusted loss = 1.074  adv prob = 0.250000   acc = 0.483
+
+Validation:
+Average incurred loss: 0.705  
+Average sample loss: 0.705  
+Average acc: 0.507  
+  Color 0, Class: fmammal  [n = 467]:	loss = 0.721  exp loss = 0.712  adjusted loss = 0.712  adv prob = 0.250000   acc = 0.486
+  Color 0, Class: fbird  [n = 466]:	loss = 0.688  exp loss = 0.691  adjusted loss = 0.691  adv prob = 0.250000   acc = 0.558
+  Color 1, Class: fmammal  [n = 133]:	loss = 0.725  exp loss = 0.711  adjusted loss = 0.711  adv prob = 0.250000   acc = 0.429
+  Color 1, Class: fbird  [n = 133]:	loss = 0.692  exp loss = 0.691  adjusted loss = 0.691  adv prob = 0.250000   acc = 0.481
+Current lr: 0.100000
+Current validation accuracy: 0.5070891976356506
+
+
+Epoch [6]:
+Training:
+Average incurred loss: 0.865  
+Average sample loss: 0.863  
+Average acc: 0.494  
+  Color 0, Class: fmammal  [n = 3498]:	loss = 0.863  exp loss = 0.885  adjusted loss = 0.885  adv prob = 0.250000   acc = 0.503
+  Color 0, Class: fbird  [n = 184]:	loss = 0.917  exp loss = 0.751  adjusted loss = 0.751  adv prob = 0.250000   acc = 0.467
+  Color 1, Class: fmammal  [n = 56]:	loss = 0.687  exp loss = 0.709  adjusted loss = 0.709  adv prob = 0.250000   acc = 0.446
+  Color 1, Class: fbird  [n = 1057]:	loss = 0.870  exp loss = 0.844  adjusted loss = 0.844  adv prob = 0.250000   acc = 0.472
+
+Validation:
+Average incurred loss: 1.038  
+Average sample loss: 1.017  
+Average acc: 0.505  
+  Color 0, Class: fmammal  [n = 467]:	loss = 1.122  exp loss = 0.893  adjusted loss = 0.893  adv prob = 0.250000   acc = 0.486
+  Color 0, Class: fbird  [n = 466]:	loss = 1.153  exp loss = 1.003  adjusted loss = 1.003  adv prob = 0.250000   acc = 0.558
+  Color 1, Class: fmammal  [n = 133]:	loss = 0.690  exp loss = 0.679  adjusted loss = 0.679  adv prob = 0.250000   acc = 0.421
+  Color 1, Class: fbird  [n = 133]:	loss = 0.694  exp loss = 0.692  adjusted loss = 0.692  adv prob = 0.250000   acc = 0.474
+Current lr: 0.100000
+Current validation accuracy: 0.5054211616516113
+
+
+Epoch [7]:
+Training:
+Average incurred loss: 1.041  
+Average sample loss: 1.044  
+Average acc: 0.489  
+  Color 0, Class: fmammal  [n = 3498]:	loss = 1.018  exp loss = 1.090  adjusted loss = 1.090  adv prob = 0.250000   acc = 0.490
+  Color 0, Class: fbird  [n = 184]:	loss = 0.697  exp loss = 0.699  adjusted loss = 0.699  adv prob = 0.250000   acc = 0.462
+  Color 1, Class: fmammal  [n = 56]:	loss = 0.753  exp loss = 0.754  adjusted loss = 0.754  adv prob = 0.250000   acc = 0.518
+  Color 1, Class: fbird  [n = 1057]:	loss = 1.195  exp loss = 0.972  adjusted loss = 0.972  adv prob = 0.250000   acc = 0.489
+
+Validation:
+Average incurred loss: 0.692  
+Average sample loss: 0.692  
+Average acc: 0.526  
+  Color 0, Class: fmammal  [n = 467]:	loss = 0.696  exp loss = 0.695  adjusted loss = 0.695  adv prob = 0.250000   acc = 0.529
+  Color 0, Class: fbird  [n = 466]:	loss = 0.687  exp loss = 0.689  adjusted loss = 0.689  adv prob = 0.250000   acc = 0.515
+  Color 1, Class: fmammal  [n = 133]:	loss = 0.693  exp loss = 0.688  adjusted loss = 0.688  adv prob = 0.250000   acc = 0.519
+  Color 1, Class: fbird  [n = 133]:	loss = 0.692  exp loss = 0.692  adjusted loss = 0.692  adv prob = 0.250000   acc = 0.564
+Current lr: 0.100000
+Current validation accuracy: 0.5262718796730042
+
+
+Epoch [8]:
+Training:
+Average incurred loss: 0.822  
+Average sample loss: 0.821  
+Average acc: 0.508  
+  Color 0, Class: fmammal  [n = 3498]:	loss = 0.810  exp loss = 0.745  adjusted loss = 0.745  adv prob = 0.250000   acc = 0.505
+  Color 0, Class: fbird  [n = 184]:	loss = 0.699  exp loss = 0.711  adjusted loss = 0.711  adv prob = 0.250000   acc = 0.511
+  Color 1, Class: fmammal  [n = 56]:	loss = 0.698  exp loss = 0.695  adjusted loss = 0.695  adv prob = 0.250000   acc = 0.446
+  Color 1, Class: fbird  [n = 1057]:	loss = 0.892  exp loss = 0.785  adjusted loss = 0.785  adv prob = 0.250000   acc = 0.519
+
+Validation:
+Average incurred loss: 0.713  
+Average sample loss: 0.712  
+Average acc: 0.497  
+  Color 0, Class: fmammal  [n = 467]:	loss = 0.685  exp loss = 0.691  adjusted loss = 0.691  adv prob = 0.250000   acc = 0.516
+  Color 0, Class: fbird  [n = 466]:	loss = 0.756  exp loss = 0.738  adjusted loss = 0.738  adv prob = 0.250000   acc = 0.444
+  Color 1, Class: fmammal  [n = 133]:	loss = 0.692  exp loss = 0.688  adjusted loss = 0.688  adv prob = 0.250000   acc = 0.586
+  Color 1, Class: fbird  [n = 133]:	loss = 0.685  exp loss = 0.689  adjusted loss = 0.689  adv prob = 0.250000   acc = 0.526
+Current lr: 0.100000
+Current validation accuracy: 0.49708089232444763
+
+
+Epoch [9]:
+Training:
+Average incurred loss: 0.708  
+Average sample loss: 0.709  
+Average acc: 0.512  
+  Color 0, Class: fmammal  [n = 3498]:	loss = 0.705  exp loss = 0.713  adjusted loss = 0.713  adv prob = 0.250000   acc = 0.509
+  Color 0, Class: fbird  [n = 184]:	loss = 0.689  exp loss = 0.681  adjusted loss = 0.681  adv prob = 0.250000   acc = 0.538
+  Color 1, Class: fmammal  [n = 56]:	loss = 0.756  exp loss = 0.716  adjusted loss = 0.716  adv prob = 0.250000   acc = 0.589
+  Color 1, Class: fbird  [n = 1057]:	loss = 0.720  exp loss = 0.718  adjusted loss = 0.718  adv prob = 0.250000   acc = 0.515
+
+Validation:
+Average incurred loss: 0.785  
+Average sample loss: 0.779  
+Average acc: 0.497  
+  Color 0, Class: fmammal  [n = 467]:	loss = 0.818  exp loss = 0.824  adjusted loss = 0.824  adv prob = 0.250000   acc = 0.514
+  Color 0, Class: fbird  [n = 466]:	loss = 0.811  exp loss = 0.778  adjusted loss = 0.778  adv prob = 0.250000   acc = 0.448
+  Color 1, Class: fmammal  [n = 133]:	loss = 0.682  exp loss = 0.684  adjusted loss = 0.684  adv prob = 0.250000   acc = 0.579
+  Color 1, Class: fbird  [n = 133]:	loss = 0.685  exp loss = 0.693  adjusted loss = 0.693  adv prob = 0.250000   acc = 0.526
+Current lr: 0.100000
+Current validation accuracy: 0.49708089232444763
+
+
+Epoch [10]:
+Training:
+Average incurred loss: 0.713  
+Average sample loss: 0.713  
+Average acc: 0.514  
+  Color 0, Class: fmammal  [n = 3498]:	loss = 0.710  exp loss = 0.705  adjusted loss = 0.705  adv prob = 0.250000   acc = 0.508
+  Color 0, Class: fbird  [n = 184]:	loss = 0.714  exp loss = 0.702  adjusted loss = 0.702  adv prob = 0.250000   acc = 0.495
+  Color 1, Class: fmammal  [n = 56]:	loss = 0.695  exp loss = 0.692  adjusted loss = 0.692  adv prob = 0.250000   acc = 0.536
+  Color 1, Class: fbird  [n = 1057]:	loss = 0.722  exp loss = 0.694  adjusted loss = 0.694  adv prob = 0.250000   acc = 0.535
+
+Validation:
+Average incurred loss: 0.724  
+Average sample loss: 0.722  
+Average acc: 0.528  
+  Color 0, Class: fmammal  [n = 467]:	loss = 0.738  exp loss = 0.744  adjusted loss = 0.744  adv prob = 0.250000   acc = 0.535
+  Color 0, Class: fbird  [n = 466]:	loss = 0.733  exp loss = 0.721  adjusted loss = 0.721  adv prob = 0.250000   acc = 0.474
+  Color 1, Class: fmammal  [n = 133]:	loss = 0.684  exp loss = 0.684  adjusted loss = 0.684  adv prob = 0.250000   acc = 0.609
+  Color 1, Class: fbird  [n = 133]:	loss = 0.684  exp loss = 0.687  adjusted loss = 0.687  adv prob = 0.250000   acc = 0.609
+Current lr: 0.100000
+Current validation accuracy: 0.5279399156570435
+
+
+Epoch [11]:
+Training:
+Average incurred loss: 0.721  
+Average sample loss: 0.720  
+Average acc: 0.522  
+  Color 0, Class: fmammal  [n = 3498]:	loss = 0.720  exp loss = 0.703  adjusted loss = 0.703  adv prob = 0.250000   acc = 0.517
+  Color 0, Class: fbird  [n = 184]:	loss = 0.705  exp loss = 0.706  adjusted loss = 0.706  adv prob = 0.250000   acc = 0.565
+  Color 1, Class: fmammal  [n = 56]:	loss = 0.691  exp loss = 0.695  adjusted loss = 0.695  adv prob = 0.250000   acc = 0.554
+  Color 1, Class: fbird  [n = 1057]:	loss = 0.729  exp loss = 0.699  adjusted loss = 0.699  adv prob = 0.250000   acc = 0.530
+
+Validation:
+Average incurred loss: 1.409  
+Average sample loss: 1.364  
+Average acc: 0.494  
+  Color 0, Class: fmammal  [n = 467]:	loss = 1.881  exp loss = 1.294  adjusted loss = 1.294  adv prob = 0.250000   acc = 0.514
+  Color 0, Class: fbird  [n = 466]:	loss = 0.854  exp loss = 0.803  adjusted loss = 0.803  adv prob = 0.250000   acc = 0.444
+  Color 1, Class: fmammal  [n = 133]:	loss = 1.632  exp loss = 1.564  adjusted loss = 1.564  adv prob = 0.250000   acc = 0.571
+  Color 1, Class: fbird  [n = 133]:	loss = 1.474  exp loss = 0.997  adjusted loss = 0.997  adv prob = 0.250000   acc = 0.519
+Current lr: 0.100000
+Current validation accuracy: 0.49374479055404663
+
+
+Epoch [12]:
+Training:
+Average incurred loss: 0.707  
+Average sample loss: 0.707  
+Average acc: 0.507  
+  Color 0, Class: fmammal  [n = 3498]:	loss = 0.705  exp loss = 0.710  adjusted loss = 0.710  adv prob = 0.250000   acc = 0.494
+  Color 0, Class: fbird  [n = 184]:	loss = 0.707  exp loss = 0.690  adjusted loss = 0.690  adv prob = 0.250000   acc = 0.505
+  Color 1, Class: fmammal  [n = 56]:	loss = 0.686  exp loss = 0.682  adjusted loss = 0.682  adv prob = 0.250000   acc = 0.589
+  Color 1, Class: fbird  [n = 1057]:	loss = 0.711  exp loss = 0.689  adjusted loss = 0.689  adv prob = 0.250000   acc = 0.545
+
+Validation:
+Average incurred loss: 0.738  
+Average sample loss: 0.736  
+Average acc: 0.530  
+  Color 0, Class: fmammal  [n = 467]:	loss = 0.777  exp loss = 0.733  adjusted loss = 0.733  adv prob = 0.250000   acc = 0.503
+  Color 0, Class: fbird  [n = 466]:	loss = 0.703  exp loss = 0.703  adjusted loss = 0.703  adv prob = 0.250000   acc = 0.571
+  Color 1, Class: fmammal  [n = 133]:	loss = 0.779  exp loss = 0.999  adjusted loss = 0.999  adv prob = 0.250000   acc = 0.489
+  Color 1, Class: fbird  [n = 133]:	loss = 0.686  exp loss = 0.681  adjusted loss = 0.681  adv prob = 0.250000   acc = 0.526
+Current lr: 0.100000
+Current validation accuracy: 0.5304419994354248
+Best model saved at epoch 12
+
+
+Epoch [13]:
+Training:
+Average incurred loss: 0.699  
+Average sample loss: 0.700  
+Average acc: 0.539  
+  Color 0, Class: fmammal  [n = 3498]:	loss = 0.693  exp loss = 0.697  adjusted loss = 0.697  adv prob = 0.250000   acc = 0.538
+  Color 0, Class: fbird  [n = 184]:	loss = 0.729  exp loss = 0.866  adjusted loss = 0.866  adv prob = 0.250000   acc = 0.511
+  Color 1, Class: fmammal  [n = 56]:	loss = 0.706  exp loss = 0.715  adjusted loss = 0.715  adv prob = 0.250000   acc = 0.482
+  Color 1, Class: fbird  [n = 1057]:	loss = 0.714  exp loss = 0.724  adjusted loss = 0.724  adv prob = 0.250000   acc = 0.552
+
+Validation:
+Average incurred loss: 0.748  
+Average sample loss: 0.744  
+Average acc: 0.500  
+  Color 0, Class: fmammal  [n = 467]:	loss = 0.839  exp loss = 0.809  adjusted loss = 0.809  adv prob = 0.250000   acc = 0.518
+  Color 0, Class: fbird  [n = 466]:	loss = 0.699  exp loss = 0.698  adjusted loss = 0.698  adv prob = 0.250000   acc = 0.446
+  Color 1, Class: fmammal  [n = 133]:	loss = 0.663  exp loss = 0.659  adjusted loss = 0.659  adv prob = 0.250000   acc = 0.594
+  Color 1, Class: fbird  [n = 133]:	loss = 0.684  exp loss = 0.693  adjusted loss = 0.693  adv prob = 0.250000   acc = 0.526
+Current lr: 0.100000
+Current validation accuracy: 0.4995829463005066
+
+
+Epoch [14]:
+Training:
+Average incurred loss: 0.698  
+Average sample loss: 0.698  
+Average acc: 0.523  
+  Color 0, Class: fmammal  [n = 3498]:	loss = 0.695  exp loss = 0.690  adjusted loss = 0.690  adv prob = 0.250000   acc = 0.529
+  Color 0, Class: fbird  [n = 184]:	loss = 0.707  exp loss = 0.710  adjusted loss = 0.710  adv prob = 0.250000   acc = 0.440
+  Color 1, Class: fmammal  [n = 56]:	loss = 0.699  exp loss = 0.690  adjusted loss = 0.690  adv prob = 0.250000   acc = 0.500
+  Color 1, Class: fbird  [n = 1057]:	loss = 0.709  exp loss = 0.729  adjusted loss = 0.729  adv prob = 0.250000   acc = 0.518
+
+Validation:
+Average incurred loss: 0.910  
+Average sample loss: 0.896  
+Average acc: 0.553  
+  Color 0, Class: fmammal  [n = 467]:	loss = 1.173  exp loss = 0.960  adjusted loss = 0.960  adv prob = 0.250000   acc = 0.544
+  Color 0, Class: fbird  [n = 466]:	loss = 0.700  exp loss = 0.699  adjusted loss = 0.699  adv prob = 0.250000   acc = 0.584
+  Color 1, Class: fmammal  [n = 133]:	loss = 0.921  exp loss = 0.869  adjusted loss = 0.869  adv prob = 0.250000   acc = 0.519
+  Color 1, Class: fbird  [n = 133]:	loss = 0.708  exp loss = 0.692  adjusted loss = 0.692  adv prob = 0.250000   acc = 0.511
+Current lr: 0.100000
+Current validation accuracy: 0.5529607534408569
+Best model saved at epoch 14
+
+
+Epoch [15]:
+Training:
+Average incurred loss: 0.705  
+Average sample loss: 0.705  
+Average acc: 0.541  
+  Color 0, Class: fmammal  [n = 3498]:	loss = 0.700  exp loss = 0.688  adjusted loss = 0.688  adv prob = 0.250000   acc = 0.543
+  Color 0, Class: fbird  [n = 184]:	loss = 0.718  exp loss = 0.700  adjusted loss = 0.700  adv prob = 0.250000   acc = 0.533
+  Color 1, Class: fmammal  [n = 56]:	loss = 0.715  exp loss = 0.686  adjusted loss = 0.686  adv prob = 0.250000   acc = 0.375
+  Color 1, Class: fbird  [n = 1057]:	loss = 0.718  exp loss = 0.712  adjusted loss = 0.712  adv prob = 0.250000   acc = 0.542
+
+Validation:
+Average incurred loss: 0.797  
+Average sample loss: 0.789  
+Average acc: 0.584  
+  Color 0, Class: fmammal  [n = 467]:	loss = 0.747  exp loss = 0.713  adjusted loss = 0.713  adv prob = 0.250000   acc = 0.576
+  Color 0, Class: fbird  [n = 466]:	loss = 0.918  exp loss = 0.847  adjusted loss = 0.847  adv prob = 0.250000   acc = 0.603
+  Color 1, Class: fmammal  [n = 133]:	loss = 0.669  exp loss = 0.655  adjusted loss = 0.655  adv prob = 0.250000   acc = 0.564
+  Color 1, Class: fbird  [n = 133]:	loss = 0.675  exp loss = 0.676  adjusted loss = 0.676  adv prob = 0.250000   acc = 0.564
+Current lr: 0.100000
+Current validation accuracy: 0.5838197469711304
+Best model saved at epoch 15
+
+
+Epoch [16]:
+Training:
+Average incurred loss: 0.686  
+Average sample loss: 0.686  
+Average acc: 0.558  
+  Color 0, Class: fmammal  [n = 3498]:	loss = 0.687  exp loss = 0.681  adjusted loss = 0.681  adv prob = 0.250000   acc = 0.559
+  Color 0, Class: fbird  [n = 184]:	loss = 0.680  exp loss = 0.666  adjusted loss = 0.666  adv prob = 0.250000   acc = 0.565
+  Color 1, Class: fmammal  [n = 56]:	loss = 0.682  exp loss = 0.637  adjusted loss = 0.637  adv prob = 0.250000   acc = 0.589
+  Color 1, Class: fbird  [n = 1057]:	loss = 0.684  exp loss = 0.686  adjusted loss = 0.686  adv prob = 0.250000   acc = 0.551
+
+Validation:
+Average incurred loss: 0.694  
+Average sample loss: 0.691  
+Average acc: 0.591  
+  Color 0, Class: fmammal  [n = 467]:	loss = 0.697  exp loss = 0.683  adjusted loss = 0.683  adv prob = 0.250000   acc = 0.589
+  Color 0, Class: fbird  [n = 466]:	loss = 0.669  exp loss = 0.673  adjusted loss = 0.673  adv prob = 0.250000   acc = 0.597
+  Color 1, Class: fmammal  [n = 133]:	loss = 0.661  exp loss = 0.636  adjusted loss = 0.636  adv prob = 0.250000   acc = 0.594
+  Color 1, Class: fbird  [n = 133]:	loss = 0.801  exp loss = 0.720  adjusted loss = 0.720  adv prob = 0.250000   acc = 0.579
+Current lr: 0.100000
+Current validation accuracy: 0.591326117515564
+Best model saved at epoch 16
+
+
+Epoch [17]:
+Training:
+Average incurred loss: 0.680  
+Average sample loss: 0.681  
+Average acc: 0.586  
+  Color 0, Class: fmammal  [n = 3498]:	loss = 0.674  exp loss = 0.681  adjusted loss = 0.681  adv prob = 0.250000   acc = 0.589
+  Color 0, Class: fbird  [n = 184]:	loss = 0.682  exp loss = 0.670  adjusted loss = 0.670  adv prob = 0.250000   acc = 0.598
+  Color 1, Class: fmammal  [n = 56]:	loss = 0.667  exp loss = 0.630  adjusted loss = 0.630  adv prob = 0.250000   acc = 0.536
+  Color 1, Class: fbird  [n = 1057]:	loss = 0.700  exp loss = 0.713  adjusted loss = 0.713  adv prob = 0.250000   acc = 0.575
+
+Validation:
+Average incurred loss: 0.720  
+Average sample loss: 0.714  
+Average acc: 0.608  
+  Color 0, Class: fmammal  [n = 467]:	loss = 0.778  exp loss = 0.733  adjusted loss = 0.733  adv prob = 0.250000   acc = 0.602
+  Color 0, Class: fbird  [n = 466]:	loss = 0.665  exp loss = 0.663  adjusted loss = 0.663  adv prob = 0.250000   acc = 0.612
+  Color 1, Class: fmammal  [n = 133]:	loss = 0.771  exp loss = 0.689  adjusted loss = 0.689  adv prob = 0.250000   acc = 0.617
+  Color 1, Class: fbird  [n = 133]:	loss = 0.663  exp loss = 0.653  adjusted loss = 0.653  adv prob = 0.250000   acc = 0.609
+Current lr: 0.100000
+Current validation accuracy: 0.6080065965652466
+Best model saved at epoch 17
+
+
+Epoch [18]:
+Training:
+Average incurred loss: 0.675  
+Average sample loss: 0.676  
+Average acc: 0.597  
+  Color 0, Class: fmammal  [n = 3498]:	loss = 0.675  exp loss = 0.666  adjusted loss = 0.666  adv prob = 0.250000   acc = 0.595
+  Color 0, Class: fbird  [n = 184]:	loss = 0.669  exp loss = 0.656  adjusted loss = 0.656  adv prob = 0.250000   acc = 0.636
+  Color 1, Class: fmammal  [n = 56]:	loss = 0.670  exp loss = 0.694  adjusted loss = 0.694  adv prob = 0.250000   acc = 0.518
+  Color 1, Class: fbird  [n = 1057]:	loss = 0.676  exp loss = 0.693  adjusted loss = 0.693  adv prob = 0.250000   acc = 0.605
+
+Validation:
+Average incurred loss: 0.685  
+Average sample loss: 0.679  
+Average acc: 0.604  
+  Color 0, Class: fmammal  [n = 467]:	loss = 0.661  exp loss = 0.667  adjusted loss = 0.667  adv prob = 0.250000   acc = 0.602
+  Color 0, Class: fbird  [n = 466]:	loss = 0.730  exp loss = 0.709  adjusted loss = 0.709  adv prob = 0.250000   acc = 0.605
+  Color 1, Class: fmammal  [n = 133]:	loss = 0.650  exp loss = 0.624  adjusted loss = 0.624  adv prob = 0.250000   acc = 0.579
+  Color 1, Class: fbird  [n = 133]:	loss = 0.644  exp loss = 0.627  adjusted loss = 0.627  adv prob = 0.250000   acc = 0.632
+Current lr: 0.100000
+Current validation accuracy: 0.6038365364074707
+
+
+Epoch [19]:
+Training:
+Average incurred loss: 0.679  
+Average sample loss: 0.677  
+Average acc: 0.600  
+  Color 0, Class: fmammal  [n = 3498]:	loss = 0.683  exp loss = 0.675  adjusted loss = 0.675  adv prob = 0.250000   acc = 0.595
+  Color 0, Class: fbird  [n = 184]:	loss = 0.654  exp loss = 0.676  adjusted loss = 0.676  adv prob = 0.250000   acc = 0.609
+  Color 1, Class: fmammal  [n = 56]:	loss = 0.673  exp loss = 0.686  adjusted loss = 0.686  adv prob = 0.250000   acc = 0.536
+  Color 1, Class: fbird  [n = 1057]:	loss = 0.670  exp loss = 0.665  adjusted loss = 0.665  adv prob = 0.250000   acc = 0.620
+
+Validation:
+Average incurred loss: 0.679  
+Average sample loss: 0.673  
+Average acc: 0.608  
+  Color 0, Class: fmammal  [n = 467]:	loss = 0.648  exp loss = 0.652  adjusted loss = 0.652  adv prob = 0.250000   acc = 0.625
+  Color 0, Class: fbird  [n = 466]:	loss = 0.723  exp loss = 0.701  adjusted loss = 0.701  adv prob = 0.250000   acc = 0.571
+  Color 1, Class: fmammal  [n = 133]:	loss = 0.635  exp loss = 0.667  adjusted loss = 0.667  adv prob = 0.250000   acc = 0.654
+  Color 1, Class: fbird  [n = 133]:	loss = 0.678  exp loss = 0.669  adjusted loss = 0.669  adv prob = 0.250000   acc = 0.632
+Current lr: 0.100000
+Current validation accuracy: 0.6080066561698914
+Best model saved at epoch 19
+
+
+Epoch [20]:
+Training:
+Average incurred loss: 0.681  
+Average sample loss: 0.681  
+Average acc: 0.617  
+  Color 0, Class: fmammal  [n = 3498]:	loss = 0.680  exp loss = 0.694  adjusted loss = 0.694  adv prob = 0.250000   acc = 0.615
+  Color 0, Class: fbird  [n = 184]:	loss = 0.671  exp loss = 0.668  adjusted loss = 0.668  adv prob = 0.250000   acc = 0.630
+  Color 1, Class: fmammal  [n = 56]:	loss = 0.650  exp loss = 0.649  adjusted loss = 0.649  adv prob = 0.250000   acc = 0.643
+  Color 1, Class: fbird  [n = 1057]:	loss = 0.689  exp loss = 0.689  adjusted loss = 0.689  adv prob = 0.250000   acc = 0.619
+
+Validation:
+Average incurred loss: 0.664  
+Average sample loss: 0.659  
+Average acc: 0.622  
+  Color 0, Class: fmammal  [n = 467]:	loss = 0.676  exp loss = 0.667  adjusted loss = 0.667  adv prob = 0.250000   acc = 0.627
+  Color 0, Class: fbird  [n = 466]:	loss = 0.672  exp loss = 0.666  adjusted loss = 0.666  adv prob = 0.250000   acc = 0.594
+  Color 1, Class: fmammal  [n = 133]:	loss = 0.602  exp loss = 0.594  adjusted loss = 0.594  adv prob = 0.250000   acc = 0.692
+  Color 1, Class: fbird  [n = 133]:	loss = 0.653  exp loss = 0.658  adjusted loss = 0.658  adv prob = 0.250000   acc = 0.632
+Current lr: 0.100000
+Current validation accuracy: 0.6221851706504822
+Best model saved at epoch 20
+
+
+Epoch [21]:
+Training:
+Average incurred loss: 0.669  
+Average sample loss: 0.669  
+Average acc: 0.618  
+  Color 0, Class: fmammal  [n = 3498]:	loss = 0.675  exp loss = 0.654  adjusted loss = 0.654  adv prob = 0.250000   acc = 0.613
+  Color 0, Class: fbird  [n = 184]:	loss = 0.634  exp loss = 0.605  adjusted loss = 0.605  adv prob = 0.250000   acc = 0.647
+  Color 1, Class: fmammal  [n = 56]:	loss = 0.693  exp loss = 0.743  adjusted loss = 0.743  adv prob = 0.250000   acc = 0.625
+  Color 1, Class: fbird  [n = 1057]:	loss = 0.654  exp loss = 0.622  adjusted loss = 0.622  adv prob = 0.250000   acc = 0.629
+
+Validation:
+Average incurred loss: 0.720  
+Average sample loss: 0.710  
+Average acc: 0.605  
+  Color 0, Class: fmammal  [n = 467]:	loss = 0.638  exp loss = 0.662  adjusted loss = 0.662  adv prob = 0.250000   acc = 0.630
+  Color 0, Class: fbird  [n = 466]:	loss = 0.857  exp loss = 0.814  adjusted loss = 0.814  adv prob = 0.250000   acc = 0.567
+  Color 1, Class: fmammal  [n = 133]:	loss = 0.612  exp loss = 0.604  adjusted loss = 0.604  adv prob = 0.250000   acc = 0.647
+  Color 1, Class: fbird  [n = 133]:	loss = 0.636  exp loss = 0.626  adjusted loss = 0.626  adv prob = 0.250000   acc = 0.609
+Current lr: 0.100000
+Current validation accuracy: 0.6046705842018127
+
+
+Epoch [22]:
+Training:
+Average incurred loss: 0.658  
+Average sample loss: 0.658  
+Average acc: 0.625  
+  Color 0, Class: fmammal  [n = 3498]:	loss = 0.660  exp loss = 0.662  adjusted loss = 0.662  adv prob = 0.250000   acc = 0.621
+  Color 0, Class: fbird  [n = 184]:	loss = 0.632  exp loss = 0.603  adjusted loss = 0.603  adv prob = 0.250000   acc = 0.658
+  Color 1, Class: fmammal  [n = 56]:	loss = 0.643  exp loss = 0.635  adjusted loss = 0.635  adv prob = 0.250000   acc = 0.661
+  Color 1, Class: fbird  [n = 1057]:	loss = 0.657  exp loss = 0.667  adjusted loss = 0.667  adv prob = 0.250000   acc = 0.633
+
+Validation:
+Average incurred loss: 0.643  
+Average sample loss: 0.639  
+Average acc: 0.641  
+  Color 0, Class: fmammal  [n = 467]:	loss = 0.626  exp loss = 0.648  adjusted loss = 0.648  adv prob = 0.250000   acc = 0.657
+  Color 0, Class: fbird  [n = 466]:	loss = 0.656  exp loss = 0.654  adjusted loss = 0.654  adv prob = 0.250000   acc = 0.620
+  Color 1, Class: fmammal  [n = 133]:	loss = 0.638  exp loss = 0.632  adjusted loss = 0.632  adv prob = 0.250000   acc = 0.699
+  Color 1, Class: fbird  [n = 133]:	loss = 0.665  exp loss = 0.637  adjusted loss = 0.637  adv prob = 0.250000   acc = 0.602
+Current lr: 0.100000
+Current validation accuracy: 0.6413677930831909
+Best model saved at epoch 22
+
+
+Epoch [23]:
+Training:
+Average incurred loss: 0.646  
+Average sample loss: 0.646  
+Average acc: 0.639  
+  Color 0, Class: fmammal  [n = 3498]:	loss = 0.647  exp loss = 0.639  adjusted loss = 0.639  adv prob = 0.250000   acc = 0.639
+  Color 0, Class: fbird  [n = 184]:	loss = 0.646  exp loss = 0.647  adjusted loss = 0.647  adv prob = 0.250000   acc = 0.647
+  Color 1, Class: fmammal  [n = 56]:	loss = 0.635  exp loss = 0.742  adjusted loss = 0.742  adv prob = 0.250000   acc = 0.661
+  Color 1, Class: fbird  [n = 1057]:	loss = 0.646  exp loss = 0.640  adjusted loss = 0.640  adv prob = 0.250000   acc = 0.634
+
+Validation:
+Average incurred loss: 0.697  
+Average sample loss: 0.689  
+Average acc: 0.621  
+  Color 0, Class: fmammal  [n = 467]:	loss = 0.726  exp loss = 0.704  adjusted loss = 0.704  adv prob = 0.250000   acc = 0.634
+  Color 0, Class: fbird  [n = 466]:	loss = 0.642  exp loss = 0.645  adjusted loss = 0.645  adv prob = 0.250000   acc = 0.631
+  Color 1, Class: fmammal  [n = 133]:	loss = 0.659  exp loss = 0.629  adjusted loss = 0.629  adv prob = 0.250000   acc = 0.602
+  Color 1, Class: fbird  [n = 133]:	loss = 0.833  exp loss = 0.685  adjusted loss = 0.685  adv prob = 0.250000   acc = 0.556
+Current lr: 0.100000
+Current validation accuracy: 0.6205171346664429
+
+
+Epoch [24]:
+Training:
+Average incurred loss: 0.648  
+Average sample loss: 0.648  
+Average acc: 0.634  
+  Color 0, Class: fmammal  [n = 3498]:	loss = 0.650  exp loss = 0.653  adjusted loss = 0.653  adv prob = 0.250000   acc = 0.633
+  Color 0, Class: fbird  [n = 184]:	loss = 0.632  exp loss = 0.643  adjusted loss = 0.643  adv prob = 0.250000   acc = 0.630
+  Color 1, Class: fmammal  [n = 56]:	loss = 0.693  exp loss = 0.643  adjusted loss = 0.643  adv prob = 0.250000   acc = 0.571
+  Color 1, Class: fbird  [n = 1057]:	loss = 0.642  exp loss = 0.643  adjusted loss = 0.643  adv prob = 0.250000   acc = 0.644
+
+Validation:
+Average incurred loss: 0.643  
+Average sample loss: 0.637  
+Average acc: 0.629  
+  Color 0, Class: fmammal  [n = 467]:	loss = 0.648  exp loss = 0.659  adjusted loss = 0.659  adv prob = 0.250000   acc = 0.625
+  Color 0, Class: fbird  [n = 466]:	loss = 0.643  exp loss = 0.637  adjusted loss = 0.637  adv prob = 0.250000   acc = 0.633
+  Color 1, Class: fmammal  [n = 133]:	loss = 0.640  exp loss = 0.650  adjusted loss = 0.650  adv prob = 0.250000   acc = 0.632
+  Color 1, Class: fbird  [n = 133]:	loss = 0.631  exp loss = 0.590  adjusted loss = 0.590  adv prob = 0.250000   acc = 0.624
+Current lr: 0.100000
+Current validation accuracy: 0.6288573741912842
+
+
+Epoch [25]:
+Training:
+Average incurred loss: 0.666  
+Average sample loss: 0.665  
+Average acc: 0.629  
+  Color 0, Class: fmammal  [n = 3498]:	loss = 0.663  exp loss = 0.649  adjusted loss = 0.649  adv prob = 0.250000   acc = 0.626
+  Color 0, Class: fbird  [n = 184]:	loss = 0.679  exp loss = 0.805  adjusted loss = 0.805  adv prob = 0.250000   acc = 0.663
+  Color 1, Class: fmammal  [n = 56]:	loss = 0.679  exp loss = 0.667  adjusted loss = 0.667  adv prob = 0.250000   acc = 0.589
+  Color 1, Class: fbird  [n = 1057]:	loss = 0.675  exp loss = 0.650  adjusted loss = 0.650  adv prob = 0.250000   acc = 0.632
+
+Validation:
+Average incurred loss: 0.654  
+Average sample loss: 0.650  
+Average acc: 0.628  
+  Color 0, Class: fmammal  [n = 467]:	loss = 0.639  exp loss = 0.637  adjusted loss = 0.637  adv prob = 0.250000   acc = 0.632
+  Color 0, Class: fbird  [n = 466]:	loss = 0.665  exp loss = 0.663  adjusted loss = 0.663  adv prob = 0.250000   acc = 0.635
+  Color 1, Class: fmammal  [n = 133]:	loss = 0.649  exp loss = 0.643  adjusted loss = 0.643  adv prob = 0.250000   acc = 0.602
+  Color 1, Class: fbird  [n = 133]:	loss = 0.674  exp loss = 0.628  adjusted loss = 0.628  adv prob = 0.250000   acc = 0.617
+Current lr: 0.100000
+Current validation accuracy: 0.6280233263969421
+
+
+Epoch [26]:
+Training:
+Average incurred loss: 0.646  
+Average sample loss: 0.648  
+Average acc: 0.636  
+  Color 0, Class: fmammal  [n = 3498]:	loss = 0.646  exp loss = 0.664  adjusted loss = 0.664  adv prob = 0.250000   acc = 0.636
+  Color 0, Class: fbird  [n = 184]:	loss = 0.645  exp loss = 0.679  adjusted loss = 0.679  adv prob = 0.250000   acc = 0.625
+  Color 1, Class: fmammal  [n = 56]:	loss = 0.645  exp loss = 0.669  adjusted loss = 0.669  adv prob = 0.250000   acc = 0.643
+  Color 1, Class: fbird  [n = 1057]:	loss = 0.646  exp loss = 0.638  adjusted loss = 0.638  adv prob = 0.250000   acc = 0.637
+
+Validation:
+Average incurred loss: 0.653  
+Average sample loss: 0.649  
+Average acc: 0.642  
+  Color 0, Class: fmammal  [n = 467]:	loss = 0.703  exp loss = 0.698  adjusted loss = 0.698  adv prob = 0.250000   acc = 0.617
+  Color 0, Class: fbird  [n = 466]:	loss = 0.630  exp loss = 0.633  adjusted loss = 0.633  adv prob = 0.250000   acc = 0.648
+  Color 1, Class: fmammal  [n = 133]:	loss = 0.600  exp loss = 0.602  adjusted loss = 0.602  adv prob = 0.250000   acc = 0.692
+  Color 1, Class: fbird  [n = 133]:	loss = 0.613  exp loss = 0.559  adjusted loss = 0.559  adv prob = 0.250000   acc = 0.662
+Current lr: 0.100000
+Current validation accuracy: 0.642201840877533
+Best model saved at epoch 26
+
+
+Epoch [27]:
+Training:
+Average incurred loss: 0.642  
+Average sample loss: 0.642  
+Average acc: 0.642  
+  Color 0, Class: fmammal  [n = 3498]:	loss = 0.643  exp loss = 0.637  adjusted loss = 0.637  adv prob = 0.250000   acc = 0.638
+  Color 0, Class: fbird  [n = 184]:	loss = 0.635  exp loss = 0.650  adjusted loss = 0.650  adv prob = 0.250000   acc = 0.679
+  Color 1, Class: fmammal  [n = 56]:	loss = 0.650  exp loss = 0.580  adjusted loss = 0.580  adv prob = 0.250000   acc = 0.679
+  Color 1, Class: fbird  [n = 1057]:	loss = 0.640  exp loss = 0.652  adjusted loss = 0.652  adv prob = 0.250000   acc = 0.645
+
+Validation:
+Average incurred loss: 0.669  
+Average sample loss: 0.661  
+Average acc: 0.649  
+  Color 0, Class: fmammal  [n = 467]:	loss = 0.718  exp loss = 0.702  adjusted loss = 0.702  adv prob = 0.250000   acc = 0.642
+  Color 0, Class: fbird  [n = 466]:	loss = 0.635  exp loss = 0.630  adjusted loss = 0.630  adv prob = 0.250000   acc = 0.657
+  Color 1, Class: fmammal  [n = 133]:	loss = 0.642  exp loss = 0.763  adjusted loss = 0.763  adv prob = 0.250000   acc = 0.654
+  Color 1, Class: fbird  [n = 133]:	loss = 0.639  exp loss = 0.635  adjusted loss = 0.635  adv prob = 0.250000   acc = 0.639
+Current lr: 0.100000
+Current validation accuracy: 0.648874044418335
+Best model saved at epoch 27
+
+
+Epoch [28]:
+Training:
+Average incurred loss: 0.646  
+Average sample loss: 0.646  
+Average acc: 0.643  
+  Color 0, Class: fmammal  [n = 3498]:	loss = 0.646  exp loss = 0.653  adjusted loss = 0.653  adv prob = 0.250000   acc = 0.640
+  Color 0, Class: fbird  [n = 184]:	loss = 0.640  exp loss = 0.642  adjusted loss = 0.642  adv prob = 0.250000   acc = 0.636
+  Color 1, Class: fmammal  [n = 56]:	loss = 0.641  exp loss = 0.636  adjusted loss = 0.636  adv prob = 0.250000   acc = 0.607
+  Color 1, Class: fbird  [n = 1057]:	loss = 0.646  exp loss = 0.655  adjusted loss = 0.655  adv prob = 0.250000   acc = 0.659
+
+Validation:
+Average incurred loss: 0.670  
+Average sample loss: 0.665  
+Average acc: 0.628  
+  Color 0, Class: fmammal  [n = 467]:	loss = 0.652  exp loss = 0.654  adjusted loss = 0.654  adv prob = 0.250000   acc = 0.619
+  Color 0, Class: fbird  [n = 466]:	loss = 0.668  exp loss = 0.655  adjusted loss = 0.655  adv prob = 0.250000   acc = 0.627
+  Color 1, Class: fmammal  [n = 133]:	loss = 0.756  exp loss = 1.080  adjusted loss = 1.080  adv prob = 0.250000   acc = 0.692
+  Color 1, Class: fbird  [n = 133]:	loss = 0.659  exp loss = 0.642  adjusted loss = 0.642  adv prob = 0.250000   acc = 0.602
+Current lr: 0.100000
+Current validation accuracy: 0.6280233263969421
+
+
+Epoch [29]:
+Training:
+Average incurred loss: 0.643  
+Average sample loss: 0.642  
+Average acc: 0.648  
+  Color 0, Class: fmammal  [n = 3498]:	loss = 0.652  exp loss = 0.655  adjusted loss = 0.655  adv prob = 0.250000   acc = 0.639
+  Color 0, Class: fbird  [n = 184]:	loss = 0.629  exp loss = 0.622  adjusted loss = 0.622  adv prob = 0.250000   acc = 0.625
+  Color 1, Class: fmammal  [n = 56]:	loss = 0.634  exp loss = 0.627  adjusted loss = 0.627  adv prob = 0.250000   acc = 0.625
+  Color 1, Class: fbird  [n = 1057]:	loss = 0.616  exp loss = 0.605  adjusted loss = 0.605  adv prob = 0.250000   acc = 0.682
+
+Validation:
+Average incurred loss: 0.693  
+Average sample loss: 0.685  
+Average acc: 0.641  
+  Color 0, Class: fmammal  [n = 467]:	loss = 0.670  exp loss = 0.656  adjusted loss = 0.656  adv prob = 0.250000   acc = 0.630
+  Color 0, Class: fbird  [n = 466]:	loss = 0.625  exp loss = 0.629  adjusted loss = 0.629  adv prob = 0.250000   acc = 0.655
+  Color 1, Class: fmammal  [n = 133]:	loss = 1.068  exp loss = 0.840  adjusted loss = 0.840  adv prob = 0.250000   acc = 0.624
+  Color 1, Class: fbird  [n = 133]:	loss = 0.640  exp loss = 0.649  adjusted loss = 0.649  adv prob = 0.250000   acc = 0.647
+Current lr: 0.010000
+Current validation accuracy: 0.6405337452888489
+
+
+Epoch [30]:
+Training:
+Average incurred loss: 0.634  
+Average sample loss: 0.633  
+Average acc: 0.654  
+  Color 0, Class: fmammal  [n = 3498]:	loss = 0.631  exp loss = 0.625  adjusted loss = 0.625  adv prob = 0.250000   acc = 0.657
+  Color 0, Class: fbird  [n = 184]:	loss = 0.677  exp loss = 0.648  adjusted loss = 0.648  adv prob = 0.250000   acc = 0.630
+  Color 1, Class: fmammal  [n = 56]:	loss = 0.654  exp loss = 0.772  adjusted loss = 0.772  adv prob = 0.250000   acc = 0.643
+  Color 1, Class: fbird  [n = 1057]:	loss = 0.635  exp loss = 0.611  adjusted loss = 0.611  adv prob = 0.250000   acc = 0.647
+
+Validation:
+Average incurred loss: 0.627  
+Average sample loss: 0.623  
+Average acc: 0.646  
+  Color 0, Class: fmammal  [n = 467]:	loss = 0.621  exp loss = 0.617  adjusted loss = 0.617  adv prob = 0.250000   acc = 0.662
+  Color 0, Class: fbird  [n = 466]:	loss = 0.639  exp loss = 0.640  adjusted loss = 0.640  adv prob = 0.250000   acc = 0.639
+  Color 1, Class: fmammal  [n = 133]:	loss = 0.614  exp loss = 0.670  adjusted loss = 0.670  adv prob = 0.250000   acc = 0.654
+  Color 1, Class: fbird  [n = 133]:	loss = 0.618  exp loss = 0.613  adjusted loss = 0.613  adv prob = 0.250000   acc = 0.609
+Current lr: 0.010000
+Current validation accuracy: 0.6463719606399536
+
+
+Epoch [31]:
+Training:
+Average incurred loss: 0.626  
+Average sample loss: 0.626  
+Average acc: 0.653  
+  Color 0, Class: fmammal  [n = 3498]:	loss = 0.628  exp loss = 0.626  adjusted loss = 0.626  adv prob = 0.250000   acc = 0.654
+  Color 0, Class: fbird  [n = 184]:	loss = 0.624  exp loss = 0.561  adjusted loss = 0.561  adv prob = 0.250000   acc = 0.663
+  Color 1, Class: fmammal  [n = 56]:	loss = 0.634  exp loss = 0.690  adjusted loss = 0.690  adv prob = 0.250000   acc = 0.696
+  Color 1, Class: fbird  [n = 1057]:	loss = 0.621  exp loss = 0.613  adjusted loss = 0.613  adv prob = 0.250000   acc = 0.646
+
+Validation:
+Average incurred loss: 0.622  
+Average sample loss: 0.619  
+Average acc: 0.666  
+  Color 0, Class: fmammal  [n = 467]:	loss = 0.615  exp loss = 0.623  adjusted loss = 0.623  adv prob = 0.250000   acc = 0.670
+  Color 0, Class: fbird  [n = 466]:	loss = 0.631  exp loss = 0.630  adjusted loss = 0.630  adv prob = 0.250000   acc = 0.663
+  Color 1, Class: fmammal  [n = 133]:	loss = 0.567  exp loss = 0.559  adjusted loss = 0.559  adv prob = 0.250000   acc = 0.714
+  Color 1, Class: fbird  [n = 133]:	loss = 0.672  exp loss = 0.643  adjusted loss = 0.643  adv prob = 0.250000   acc = 0.617
+Current lr: 0.010000
+Current validation accuracy: 0.6663886308670044
+Best model saved at epoch 31
+
+
+Epoch [32]:
+Training:
+Average incurred loss: 0.624  
+Average sample loss: 0.624  
+Average acc: 0.655  
+  Color 0, Class: fmammal  [n = 3498]:	loss = 0.627  exp loss = 0.630  adjusted loss = 0.630  adv prob = 0.250000   acc = 0.650
+  Color 0, Class: fbird  [n = 184]:	loss = 0.634  exp loss = 0.623  adjusted loss = 0.623  adv prob = 0.250000   acc = 0.647
+  Color 1, Class: fmammal  [n = 56]:	loss = 0.612  exp loss = 0.610  adjusted loss = 0.610  adv prob = 0.250000   acc = 0.696
+  Color 1, Class: fbird  [n = 1057]:	loss = 0.611  exp loss = 0.613  adjusted loss = 0.613  adv prob = 0.250000   acc = 0.671
+
+Validation:
+Average incurred loss: 0.637  
+Average sample loss: 0.633  
+Average acc: 0.638  
+  Color 0, Class: fmammal  [n = 467]:	loss = 0.638  exp loss = 0.643  adjusted loss = 0.643  adv prob = 0.250000   acc = 0.623
+  Color 0, Class: fbird  [n = 466]:	loss = 0.653  exp loss = 0.644  adjusted loss = 0.644  adv prob = 0.250000   acc = 0.637
+  Color 1, Class: fmammal  [n = 133]:	loss = 0.605  exp loss = 0.604  adjusted loss = 0.604  adv prob = 0.250000   acc = 0.662
+  Color 1, Class: fbird  [n = 133]:	loss = 0.607  exp loss = 0.563  adjusted loss = 0.563  adv prob = 0.250000   acc = 0.669
+Current lr: 0.010000
+Current validation accuracy: 0.6380317211151123
+
+
+Epoch [33]:
+Training:
+Average incurred loss: 0.624  
+Average sample loss: 0.624  
+Average acc: 0.657  
+  Color 0, Class: fmammal  [n = 3498]:	loss = 0.624  exp loss = 0.620  adjusted loss = 0.620  adv prob = 0.250000   acc = 0.659
+  Color 0, Class: fbird  [n = 184]:	loss = 0.631  exp loss = 0.613  adjusted loss = 0.613  adv prob = 0.250000   acc = 0.652
+  Color 1, Class: fmammal  [n = 56]:	loss = 0.627  exp loss = 0.727  adjusted loss = 0.727  adv prob = 0.250000   acc = 0.625
+  Color 1, Class: fbird  [n = 1057]:	loss = 0.625  exp loss = 0.645  adjusted loss = 0.645  adv prob = 0.250000   acc = 0.654
+
+Validation:
+Average incurred loss: 0.616  
+Average sample loss: 0.610  
+Average acc: 0.661  
+  Color 0, Class: fmammal  [n = 467]:	loss = 0.604  exp loss = 0.614  adjusted loss = 0.614  adv prob = 0.250000   acc = 0.679
+  Color 0, Class: fbird  [n = 466]:	loss = 0.627  exp loss = 0.620  adjusted loss = 0.620  adv prob = 0.250000   acc = 0.652
+  Color 1, Class: fmammal  [n = 133]:	loss = 0.594  exp loss = 0.603  adjusted loss = 0.603  adv prob = 0.250000   acc = 0.669
+  Color 1, Class: fbird  [n = 133]:	loss = 0.636  exp loss = 0.587  adjusted loss = 0.587  adv prob = 0.250000   acc = 0.617
+Current lr: 0.010000
+Current validation accuracy: 0.6605504751205444
+
+
+Epoch [34]:
+Training:
+Average incurred loss: 0.626  
+Average sample loss: 0.626  
+Average acc: 0.659  
+  Color 0, Class: fmammal  [n = 3498]:	loss = 0.628  exp loss = 0.628  adjusted loss = 0.628  adv prob = 0.250000   acc = 0.657
+  Color 0, Class: fbird  [n = 184]:	loss = 0.616  exp loss = 0.666  adjusted loss = 0.666  adv prob = 0.250000   acc = 0.658
+  Color 1, Class: fmammal  [n = 56]:	loss = 0.650  exp loss = 0.650  adjusted loss = 0.650  adv prob = 0.250000   acc = 0.625
+  Color 1, Class: fbird  [n = 1057]:	loss = 0.620  exp loss = 0.625  adjusted loss = 0.625  adv prob = 0.250000   acc = 0.670
+
+Validation:
+Average incurred loss: 0.619  
+Average sample loss: 0.616  
+Average acc: 0.657  
+  Color 0, Class: fmammal  [n = 467]:	loss = 0.612  exp loss = 0.607  adjusted loss = 0.607  adv prob = 0.250000   acc = 0.668
+  Color 0, Class: fbird  [n = 466]:	loss = 0.637  exp loss = 0.628  adjusted loss = 0.628  adv prob = 0.250000   acc = 0.646
+  Color 1, Class: fmammal  [n = 133]:	loss = 0.577  exp loss = 0.573  adjusted loss = 0.573  adv prob = 0.250000   acc = 0.677
+  Color 1, Class: fbird  [n = 133]:	loss = 0.624  exp loss = 0.628  adjusted loss = 0.628  adv prob = 0.250000   acc = 0.639
+Current lr: 0.010000
+Current validation accuracy: 0.6572142839431763
+
+
+Epoch [35]:
+Training:
+Average incurred loss: 0.625  
+Average sample loss: 0.624  
+Average acc: 0.664  
+  Color 0, Class: fmammal  [n = 3498]:	loss = 0.625  exp loss = 0.619  adjusted loss = 0.619  adv prob = 0.250000   acc = 0.668
+  Color 0, Class: fbird  [n = 184]:	loss = 0.606  exp loss = 0.631  adjusted loss = 0.631  adv prob = 0.250000   acc = 0.674
+  Color 1, Class: fmammal  [n = 56]:	loss = 0.678  exp loss = 0.662  adjusted loss = 0.662  adv prob = 0.250000   acc = 0.571
+  Color 1, Class: fbird  [n = 1057]:	loss = 0.628  exp loss = 0.626  adjusted loss = 0.626  adv prob = 0.250000   acc = 0.653
+
+Validation:
+Average incurred loss: 0.632  
+Average sample loss: 0.628  
+Average acc: 0.647  
+  Color 0, Class: fmammal  [n = 467]:	loss = 0.637  exp loss = 0.670  adjusted loss = 0.670  adv prob = 0.250000   acc = 0.651
+  Color 0, Class: fbird  [n = 466]:	loss = 0.651  exp loss = 0.646  adjusted loss = 0.646  adv prob = 0.250000   acc = 0.620
+  Color 1, Class: fmammal  [n = 133]:	loss = 0.582  exp loss = 0.598  adjusted loss = 0.598  adv prob = 0.250000   acc = 0.699
+  Color 1, Class: fbird  [n = 133]:	loss = 0.601  exp loss = 0.595  adjusted loss = 0.595  adv prob = 0.250000   acc = 0.677
+Current lr: 0.010000
+Current validation accuracy: 0.6472059488296509
+
+
+Epoch [36]:
+Training:
+Average incurred loss: 0.626  
+Average sample loss: 0.627  
+Average acc: 0.654  
+  Color 0, Class: fmammal  [n = 3498]:	loss = 0.627  exp loss = 0.635  adjusted loss = 0.635  adv prob = 0.250000   acc = 0.654
+  Color 0, Class: fbird  [n = 184]:	loss = 0.623  exp loss = 0.674  adjusted loss = 0.674  adv prob = 0.250000   acc = 0.636
+  Color 1, Class: fmammal  [n = 56]:	loss = 0.606  exp loss = 0.704  adjusted loss = 0.704  adv prob = 0.250000   acc = 0.679
+  Color 1, Class: fbird  [n = 1057]:	loss = 0.623  exp loss = 0.611  adjusted loss = 0.611  adv prob = 0.250000   acc = 0.656
+
+Validation:
+Average incurred loss: 0.637  
+Average sample loss: 0.633  
+Average acc: 0.647  
+  Color 0, Class: fmammal  [n = 467]:	loss = 0.640  exp loss = 0.649  adjusted loss = 0.649  adv prob = 0.250000   acc = 0.625
+  Color 0, Class: fbird  [n = 466]:	loss = 0.639  exp loss = 0.633  adjusted loss = 0.633  adv prob = 0.250000   acc = 0.648
+  Color 1, Class: fmammal  [n = 133]:	loss = 0.661  exp loss = 0.802  adjusted loss = 0.802  adv prob = 0.250000   acc = 0.684
+  Color 1, Class: fbird  [n = 133]:	loss = 0.593  exp loss = 0.582  adjusted loss = 0.582  adv prob = 0.250000   acc = 0.684
+Current lr: 0.010000
+Current validation accuracy: 0.6472060084342957
+
+
+Epoch [37]:
+Training:
+Average incurred loss: 0.624  
+Average sample loss: 0.625  
+Average acc: 0.662  
+  Color 0, Class: fmammal  [n = 3498]:	loss = 0.623  exp loss = 0.626  adjusted loss = 0.626  adv prob = 0.250000   acc = 0.666
+  Color 0, Class: fbird  [n = 184]:	loss = 0.623  exp loss = 0.627  adjusted loss = 0.627  adv prob = 0.250000   acc = 0.625
+  Color 1, Class: fmammal  [n = 56]:	loss = 0.620  exp loss = 0.588  adjusted loss = 0.588  adv prob = 0.250000   acc = 0.661
+  Color 1, Class: fbird  [n = 1057]:	loss = 0.627  exp loss = 0.635  adjusted loss = 0.635  adv prob = 0.250000   acc = 0.655
+
+Validation:
+Average incurred loss: 0.623  
+Average sample loss: 0.622  
+Average acc: 0.659  
+  Color 0, Class: fmammal  [n = 467]:	loss = 0.611  exp loss = 0.629  adjusted loss = 0.629  adv prob = 0.250000   acc = 0.666
+  Color 0, Class: fbird  [n = 466]:	loss = 0.648  exp loss = 0.646  adjusted loss = 0.646  adv prob = 0.250000   acc = 0.631
+  Color 1, Class: fmammal  [n = 133]:	loss = 0.580  exp loss = 0.572  adjusted loss = 0.572  adv prob = 0.250000   acc = 0.714
+  Color 1, Class: fbird  [n = 133]:	loss = 0.624  exp loss = 0.579  adjusted loss = 0.579  adv prob = 0.250000   acc = 0.677
+Current lr: 0.010000
+Current validation accuracy: 0.6588823795318604
+
+
+Epoch [38]:
+Training:
+Average incurred loss: 0.621  
+Average sample loss: 0.621  
+Average acc: 0.659  
+  Color 0, Class: fmammal  [n = 3498]:	loss = 0.621  exp loss = 0.622  adjusted loss = 0.622  adv prob = 0.250000   acc = 0.661
+  Color 0, Class: fbird  [n = 184]:	loss = 0.637  exp loss = 0.674  adjusted loss = 0.674  adv prob = 0.250000   acc = 0.620
+  Color 1, Class: fmammal  [n = 56]:	loss = 0.598  exp loss = 0.562  adjusted loss = 0.562  adv prob = 0.250000   acc = 0.661
+  Color 1, Class: fbird  [n = 1057]:	loss = 0.619  exp loss = 0.619  adjusted loss = 0.619  adv prob = 0.250000   acc = 0.660
+
+Validation:
+Average incurred loss: 0.635  
+Average sample loss: 0.630  
+Average acc: 0.666  
+  Color 0, Class: fmammal  [n = 467]:	loss = 0.623  exp loss = 0.609  adjusted loss = 0.609  adv prob = 0.250000   acc = 0.668
+  Color 0, Class: fbird  [n = 466]:	loss = 0.638  exp loss = 0.641  adjusted loss = 0.641  adv prob = 0.250000   acc = 0.650
+  Color 1, Class: fmammal  [n = 133]:	loss = 0.619  exp loss = 0.631  adjusted loss = 0.631  adv prob = 0.250000   acc = 0.707
+  Color 1, Class: fbird  [n = 133]:	loss = 0.683  exp loss = 0.658  adjusted loss = 0.658  adv prob = 0.250000   acc = 0.677
+Current lr: 0.010000
+Current validation accuracy: 0.6663886308670044
+
+
+Epoch [39]:
+Training:
+Average incurred loss: 0.630  
+Average sample loss: 0.631  
+Average acc: 0.653  
+  Color 0, Class: fmammal  [n = 3498]:	loss = 0.633  exp loss = 0.632  adjusted loss = 0.632  adv prob = 0.250000   acc = 0.650
+  Color 0, Class: fbird  [n = 184]:	loss = 0.632  exp loss = 0.656  adjusted loss = 0.656  adv prob = 0.250000   acc = 0.668
+  Color 1, Class: fmammal  [n = 56]:	loss = 0.637  exp loss = 0.635  adjusted loss = 0.635  adv prob = 0.250000   acc = 0.679
+  Color 1, Class: fbird  [n = 1057]:	loss = 0.621  exp loss = 0.637  adjusted loss = 0.637  adv prob = 0.250000   acc = 0.657
+
+Validation:
+Average incurred loss: 0.626  
+Average sample loss: 0.618  
+Average acc: 0.660  
+  Color 0, Class: fmammal  [n = 467]:	loss = 0.633  exp loss = 0.635  adjusted loss = 0.635  adv prob = 0.250000   acc = 0.677
+  Color 0, Class: fbird  [n = 466]:	loss = 0.621  exp loss = 0.625  adjusted loss = 0.625  adv prob = 0.250000   acc = 0.655
+  Color 1, Class: fmammal  [n = 133]:	loss = 0.627  exp loss = 0.580  adjusted loss = 0.580  adv prob = 0.250000   acc = 0.639
+  Color 1, Class: fbird  [n = 133]:	loss = 0.616  exp loss = 0.596  adjusted loss = 0.596  adv prob = 0.250000   acc = 0.639
+Current lr: 0.010000
+Current validation accuracy: 0.6597164273262024
+
+
+Epoch [40]:
+Training:
+Average incurred loss: 0.622  
+Average sample loss: 0.622  
+Average acc: 0.658  
+  Color 0, Class: fmammal  [n = 3498]:	loss = 0.620  exp loss = 0.613  adjusted loss = 0.613  adv prob = 0.250000   acc = 0.663
+  Color 0, Class: fbird  [n = 184]:	loss = 0.628  exp loss = 0.582  adjusted loss = 0.582  adv prob = 0.250000   acc = 0.636
+  Color 1, Class: fmammal  [n = 56]:	loss = 0.674  exp loss = 0.686  adjusted loss = 0.686  adv prob = 0.250000   acc = 0.625
+  Color 1, Class: fbird  [n = 1057]:	loss = 0.623  exp loss = 0.609  adjusted loss = 0.609  adv prob = 0.250000   acc = 0.646
+
+Validation:
+Average incurred loss: 0.626  
+Average sample loss: 0.621  
+Average acc: 0.646  
+  Color 0, Class: fmammal  [n = 467]:	loss = 0.627  exp loss = 0.642  adjusted loss = 0.642  adv prob = 0.250000   acc = 0.630
+  Color 0, Class: fbird  [n = 466]:	loss = 0.633  exp loss = 0.617  adjusted loss = 0.617  adv prob = 0.250000   acc = 0.646
+  Color 1, Class: fmammal  [n = 133]:	loss = 0.614  exp loss = 0.607  adjusted loss = 0.607  adv prob = 0.250000   acc = 0.677
+  Color 1, Class: fbird  [n = 133]:	loss = 0.615  exp loss = 0.623  adjusted loss = 0.623  adv prob = 0.250000   acc = 0.677
+Current lr: 0.010000
+Current validation accuracy: 0.6463719606399536
+
+
+Epoch [41]:
+Training:
+Average incurred loss: 0.624  
+Average sample loss: 0.625  
+Average acc: 0.659  
+  Color 0, Class: fmammal  [n = 3498]:	loss = 0.625  exp loss = 0.636  adjusted loss = 0.636  adv prob = 0.250000   acc = 0.666
+  Color 0, Class: fbird  [n = 184]:	loss = 0.640  exp loss = 0.601  adjusted loss = 0.601  adv prob = 0.250000   acc = 0.641
+  Color 1, Class: fmammal  [n = 56]:	loss = 0.634  exp loss = 0.644  adjusted loss = 0.644  adv prob = 0.250000   acc = 0.625
+  Color 1, Class: fbird  [n = 1057]:	loss = 0.617  exp loss = 0.639  adjusted loss = 0.639  adv prob = 0.250000   acc = 0.641
+
+Validation:
+Average incurred loss: 0.637  
+Average sample loss: 0.632  
+Average acc: 0.641  
+  Color 0, Class: fmammal  [n = 467]:	loss = 0.650  exp loss = 0.649  adjusted loss = 0.649  adv prob = 0.250000   acc = 0.632
+  Color 0, Class: fbird  [n = 466]:	loss = 0.634  exp loss = 0.624  adjusted loss = 0.624  adv prob = 0.250000   acc = 0.639
+  Color 1, Class: fmammal  [n = 133]:	loss = 0.628  exp loss = 0.679  adjusted loss = 0.679  adv prob = 0.250000   acc = 0.677
+  Color 1, Class: fbird  [n = 133]:	loss = 0.608  exp loss = 0.606  adjusted loss = 0.606  adv prob = 0.250000   acc = 0.639
+Current lr: 0.010000
+Current validation accuracy: 0.6405337452888489
+
+
+Epoch [42]:
+Training:
+Average incurred loss: 0.619  
+Average sample loss: 0.620  
+Average acc: 0.662  
+  Color 0, Class: fmammal  [n = 3498]:	loss = 0.622  exp loss = 0.631  adjusted loss = 0.631  adv prob = 0.250000   acc = 0.662
+  Color 0, Class: fbird  [n = 184]:	loss = 0.608  exp loss = 0.608  adjusted loss = 0.608  adv prob = 0.250000   acc = 0.674
+  Color 1, Class: fmammal  [n = 56]:	loss = 0.612  exp loss = 0.571  adjusted loss = 0.571  adv prob = 0.250000   acc = 0.607
+  Color 1, Class: fbird  [n = 1057]:	loss = 0.612  exp loss = 0.621  adjusted loss = 0.621  adv prob = 0.250000   acc = 0.661
+
+Validation:
+Average incurred loss: 0.636  
+Average sample loss: 0.630  
+Average acc: 0.647  
+  Color 0, Class: fmammal  [n = 467]:	loss = 0.633  exp loss = 0.632  adjusted loss = 0.632  adv prob = 0.250000   acc = 0.642
+  Color 0, Class: fbird  [n = 466]:	loss = 0.643  exp loss = 0.641  adjusted loss = 0.641  adv prob = 0.250000   acc = 0.635
+  Color 1, Class: fmammal  [n = 133]:	loss = 0.582  exp loss = 0.564  adjusted loss = 0.564  adv prob = 0.250000   acc = 0.707
+  Color 1, Class: fbird  [n = 133]:	loss = 0.683  exp loss = 0.613  adjusted loss = 0.613  adv prob = 0.250000   acc = 0.647
+Current lr: 0.010000
+Current validation accuracy: 0.6472059488296509
+
+
+Epoch [43]:
+Training:
+Average incurred loss: 0.616  
+Average sample loss: 0.616  
+Average acc: 0.669  
+  Color 0, Class: fmammal  [n = 3498]:	loss = 0.619  exp loss = 0.623  adjusted loss = 0.623  adv prob = 0.250000   acc = 0.668
+  Color 0, Class: fbird  [n = 184]:	loss = 0.596  exp loss = 0.611  adjusted loss = 0.611  adv prob = 0.250000   acc = 0.685
+  Color 1, Class: fmammal  [n = 56]:	loss = 0.590  exp loss = 0.625  adjusted loss = 0.625  adv prob = 0.250000   acc = 0.714
+  Color 1, Class: fbird  [n = 1057]:	loss = 0.611  exp loss = 0.601  adjusted loss = 0.601  adv prob = 0.250000   acc = 0.669
+
+Validation:
+Average incurred loss: 0.631  
+Average sample loss: 0.624  
+Average acc: 0.653  
+  Color 0, Class: fmammal  [n = 467]:	loss = 0.647  exp loss = 0.655  adjusted loss = 0.655  adv prob = 0.250000   acc = 0.642
+  Color 0, Class: fbird  [n = 466]:	loss = 0.630  exp loss = 0.618  adjusted loss = 0.618  adv prob = 0.250000   acc = 0.648
+  Color 1, Class: fmammal  [n = 133]:	loss = 0.573  exp loss = 0.574  adjusted loss = 0.574  adv prob = 0.250000   acc = 0.699
+  Color 1, Class: fbird  [n = 133]:	loss = 0.638  exp loss = 0.634  adjusted loss = 0.634  adv prob = 0.250000   acc = 0.662
+Current lr: 0.010000
+Current validation accuracy: 0.6530442237854004
+
+
+Epoch [44]:
+Training:
+Average incurred loss: 0.629  
+Average sample loss: 0.631  
+Average acc: 0.651  
+  Color 0, Class: fmammal  [n = 3498]:	loss = 0.628  exp loss = 0.640  adjusted loss = 0.640  adv prob = 0.250000   acc = 0.652
+  Color 0, Class: fbird  [n = 184]:	loss = 0.634  exp loss = 0.574  adjusted loss = 0.574  adv prob = 0.250000   acc = 0.674
+  Color 1, Class: fmammal  [n = 56]:	loss = 0.652  exp loss = 0.705  adjusted loss = 0.705  adv prob = 0.250000   acc = 0.607
+  Color 1, Class: fbird  [n = 1057]:	loss = 0.629  exp loss = 0.655  adjusted loss = 0.655  adv prob = 0.250000   acc = 0.645
+
+Validation:
+Average incurred loss: 0.634  
+Average sample loss: 0.629  
+Average acc: 0.646  
+  Color 0, Class: fmammal  [n = 467]:	loss = 0.619  exp loss = 0.613  adjusted loss = 0.613  adv prob = 0.250000   acc = 0.655
+  Color 0, Class: fbird  [n = 466]:	loss = 0.644  exp loss = 0.649  adjusted loss = 0.649  adv prob = 0.250000   acc = 0.646
+  Color 1, Class: fmammal  [n = 133]:	loss = 0.629  exp loss = 0.629  adjusted loss = 0.629  adv prob = 0.250000   acc = 0.639
+  Color 1, Class: fbird  [n = 133]:	loss = 0.658  exp loss = 0.628  adjusted loss = 0.628  adv prob = 0.250000   acc = 0.617
+Current lr: 0.010000
+Current validation accuracy: 0.6455379128456116
+
+
+Epoch [45]:
+Training:
+Average incurred loss: 0.620  
+Average sample loss: 0.621  
+Average acc: 0.664  
+  Color 0, Class: fmammal  [n = 3498]:	loss = 0.621  exp loss = 0.634  adjusted loss = 0.634  adv prob = 0.250000   acc = 0.664
+  Color 0, Class: fbird  [n = 184]:	loss = 0.606  exp loss = 0.630  adjusted loss = 0.630  adv prob = 0.250000   acc = 0.674
+  Color 1, Class: fmammal  [n = 56]:	loss = 0.648  exp loss = 0.554  adjusted loss = 0.554  adv prob = 0.250000   acc = 0.625
+  Color 1, Class: fbird  [n = 1057]:	loss = 0.619  exp loss = 0.626  adjusted loss = 0.626  adv prob = 0.250000   acc = 0.663
+
+Validation:
+Average incurred loss: 0.629  
+Average sample loss: 0.626  
+Average acc: 0.649  
+  Color 0, Class: fmammal  [n = 467]:	loss = 0.631  exp loss = 0.635  adjusted loss = 0.635  adv prob = 0.250000   acc = 0.638
+  Color 0, Class: fbird  [n = 466]:	loss = 0.639  exp loss = 0.646  adjusted loss = 0.646  adv prob = 0.250000   acc = 0.646
+  Color 1, Class: fmammal  [n = 133]:	loss = 0.572  exp loss = 0.591  adjusted loss = 0.591  adv prob = 0.250000   acc = 0.699
+  Color 1, Class: fbird  [n = 133]:	loss = 0.646  exp loss = 0.651  adjusted loss = 0.651  adv prob = 0.250000   acc = 0.647
+Current lr: 0.010000
+Current validation accuracy: 0.6488741636276245
+
+
+Epoch [46]:
+Training:
+Average incurred loss: 0.620  
+Average sample loss: 0.621  
+Average acc: 0.660  
+  Color 0, Class: fmammal  [n = 3498]:	loss = 0.621  exp loss = 0.625  adjusted loss = 0.625  adv prob = 0.250000   acc = 0.663
+  Color 0, Class: fbird  [n = 184]:	loss = 0.631  exp loss = 0.705  adjusted loss = 0.705  adv prob = 0.250000   acc = 0.630
+  Color 1, Class: fmammal  [n = 56]:	loss = 0.631  exp loss = 0.560  adjusted loss = 0.560  adv prob = 0.250000   acc = 0.679
+  Color 1, Class: fbird  [n = 1057]:	loss = 0.613  exp loss = 0.623  adjusted loss = 0.623  adv prob = 0.250000   acc = 0.656
+
+Validation:
+Average incurred loss: 0.618  
+Average sample loss: 0.614  
+Average acc: 0.663  
+  Color 0, Class: fmammal  [n = 467]:	loss = 0.610  exp loss = 0.615  adjusted loss = 0.615  adv prob = 0.250000   acc = 0.690
+  Color 0, Class: fbird  [n = 466]:	loss = 0.627  exp loss = 0.621  adjusted loss = 0.621  adv prob = 0.250000   acc = 0.646
+  Color 1, Class: fmammal  [n = 133]:	loss = 0.619  exp loss = 0.634  adjusted loss = 0.634  adv prob = 0.250000   acc = 0.639
+  Color 1, Class: fbird  [n = 133]:	loss = 0.619  exp loss = 0.631  adjusted loss = 0.631  adv prob = 0.250000   acc = 0.654
+Current lr: 0.010000
+Current validation accuracy: 0.6630524396896362
+
+
+Epoch [47]:
+Training:
+Average incurred loss: 0.622  
+Average sample loss: 0.623  
+Average acc: 0.658  
+  Color 0, Class: fmammal  [n = 3498]:	loss = 0.623  exp loss = 0.630  adjusted loss = 0.630  adv prob = 0.250000   acc = 0.656
+  Color 0, Class: fbird  [n = 184]:	loss = 0.615  exp loss = 0.609  adjusted loss = 0.609  adv prob = 0.250000   acc = 0.674
+  Color 1, Class: fmammal  [n = 56]:	loss = 0.628  exp loss = 0.645  adjusted loss = 0.645  adv prob = 0.250000   acc = 0.643
+  Color 1, Class: fbird  [n = 1057]:	loss = 0.619  exp loss = 0.612  adjusted loss = 0.612  adv prob = 0.250000   acc = 0.664
+
+Validation:
+Average incurred loss: 0.635  
+Average sample loss: 0.627  
+Average acc: 0.664  
+  Color 0, Class: fmammal  [n = 467]:	loss = 0.616  exp loss = 0.628  adjusted loss = 0.628  adv prob = 0.250000   acc = 0.666
+  Color 0, Class: fbird  [n = 466]:	loss = 0.642  exp loss = 0.627  adjusted loss = 0.627  adv prob = 0.250000   acc = 0.642
+  Color 1, Class: fmammal  [n = 133]:	loss = 0.582  exp loss = 0.565  adjusted loss = 0.565  adv prob = 0.250000   acc = 0.684
+  Color 1, Class: fbird  [n = 133]:	loss = 0.728  exp loss = 0.646  adjusted loss = 0.646  adv prob = 0.250000   acc = 0.714
+Current lr: 0.010000
+Current validation accuracy: 0.663886547088623
+
+
+Epoch [48]:
+Training:
+Average incurred loss: 0.610  
+Average sample loss: 0.610  
+Average acc: 0.677  
+  Color 0, Class: fmammal  [n = 3498]:	loss = 0.615  exp loss = 0.613  adjusted loss = 0.613  adv prob = 0.250000   acc = 0.678
+  Color 0, Class: fbird  [n = 184]:	loss = 0.590  exp loss = 0.595  adjusted loss = 0.595  adv prob = 0.250000   acc = 0.696
+  Color 1, Class: fmammal  [n = 56]:	loss = 0.622  exp loss = 0.613  adjusted loss = 0.613  adv prob = 0.250000   acc = 0.643
+  Color 1, Class: fbird  [n = 1057]:	loss = 0.597  exp loss = 0.598  adjusted loss = 0.598  adv prob = 0.250000   acc = 0.672
+
+Validation:
+Average incurred loss: 0.628  
+Average sample loss: 0.619  
+Average acc: 0.639  
+  Color 0, Class: fmammal  [n = 467]:	loss = 0.630  exp loss = 0.620  adjusted loss = 0.620  adv prob = 0.250000   acc = 0.645
+  Color 0, Class: fbird  [n = 466]:	loss = 0.655  exp loss = 0.640  adjusted loss = 0.640  adv prob = 0.250000   acc = 0.605
+  Color 1, Class: fmammal  [n = 133]:	loss = 0.562  exp loss = 0.584  adjusted loss = 0.584  adv prob = 0.250000   acc = 0.692
+  Color 1, Class: fbird  [n = 133]:	loss = 0.593  exp loss = 0.610  adjusted loss = 0.610  adv prob = 0.250000   acc = 0.684
+Current lr: 0.010000
+Current validation accuracy: 0.6388656497001648
+
+
+Epoch [49]:
+Training:
+Average incurred loss: 0.620  
+Average sample loss: 0.622  
+Average acc: 0.654  
+  Color 0, Class: fmammal  [n = 3498]:	loss = 0.622  exp loss = 0.639  adjusted loss = 0.639  adv prob = 0.250000   acc = 0.656
+  Color 0, Class: fbird  [n = 184]:	loss = 0.622  exp loss = 0.578  adjusted loss = 0.578  adv prob = 0.250000   acc = 0.641
+  Color 1, Class: fmammal  [n = 56]:	loss = 0.554  exp loss = 0.533  adjusted loss = 0.533  adv prob = 0.250000   acc = 0.732
+  Color 1, Class: fbird  [n = 1057]:	loss = 0.617  exp loss = 0.625  adjusted loss = 0.625  adv prob = 0.250000   acc = 0.643
+
+Validation:
+Average incurred loss: 0.647  
+Average sample loss: 0.641  
+Average acc: 0.647  
+  Color 0, Class: fmammal  [n = 467]:	loss = 0.648  exp loss = 0.632  adjusted loss = 0.632  adv prob = 0.250000   acc = 0.655
+  Color 0, Class: fbird  [n = 466]:	loss = 0.642  exp loss = 0.617  adjusted loss = 0.617  adv prob = 0.250000   acc = 0.648
+  Color 1, Class: fmammal  [n = 133]:	loss = 0.628  exp loss = 0.704  adjusted loss = 0.704  adv prob = 0.250000   acc = 0.654
+  Color 1, Class: fbird  [n = 133]:	loss = 0.683  exp loss = 0.630  adjusted loss = 0.630  adv prob = 0.250000   acc = 0.609
+Current lr: 0.010000
+Current validation accuracy: 0.6472059488296509
+
+
+Epoch [50]:
+Training:
+Average incurred loss: 0.617  
+Average sample loss: 0.618  
+Average acc: 0.662  
+  Color 0, Class: fmammal  [n = 3498]:	loss = 0.617  exp loss = 0.621  adjusted loss = 0.621  adv prob = 0.250000   acc = 0.662
+  Color 0, Class: fbird  [n = 184]:	loss = 0.613  exp loss = 0.559  adjusted loss = 0.559  adv prob = 0.250000   acc = 0.685
+  Color 1, Class: fmammal  [n = 56]:	loss = 0.642  exp loss = 0.790  adjusted loss = 0.790  adv prob = 0.250000   acc = 0.661
+  Color 1, Class: fbird  [n = 1057]:	loss = 0.616  exp loss = 0.597  adjusted loss = 0.597  adv prob = 0.250000   acc = 0.657
+
+Validation:
+Average incurred loss: 0.617  
+Average sample loss: 0.610  
+Average acc: 0.656  
+  Color 0, Class: fmammal  [n = 467]:	loss = 0.617  exp loss = 0.618  adjusted loss = 0.618  adv prob = 0.250000   acc = 0.651
+  Color 0, Class: fbird  [n = 466]:	loss = 0.612  exp loss = 0.605  adjusted loss = 0.605  adv prob = 0.250000   acc = 0.665
+  Color 1, Class: fmammal  [n = 133]:	loss = 0.624  exp loss = 0.722  adjusted loss = 0.722  adv prob = 0.250000   acc = 0.662
+  Color 1, Class: fbird  [n = 133]:	loss = 0.624  exp loss = 0.611  adjusted loss = 0.611  adv prob = 0.250000   acc = 0.639
+Current lr: 0.010000
+Current validation accuracy: 0.656380295753479
+
+
+Epoch [51]:
+Training:
+Average incurred loss: 0.622  
+Average sample loss: 0.623  
+Average acc: 0.660  
+  Color 0, Class: fmammal  [n = 3498]:	loss = 0.625  exp loss = 0.632  adjusted loss = 0.632  adv prob = 0.250000   acc = 0.658
+  Color 0, Class: fbird  [n = 184]:	loss = 0.635  exp loss = 0.522  adjusted loss = 0.522  adv prob = 0.250000   acc = 0.658
+  Color 1, Class: fmammal  [n = 56]:	loss = 0.617  exp loss = 0.648  adjusted loss = 0.648  adv prob = 0.250000   acc = 0.679
+  Color 1, Class: fbird  [n = 1057]:	loss = 0.613  exp loss = 0.616  adjusted loss = 0.616  adv prob = 0.250000   acc = 0.667
+
+Validation:
+Average incurred loss: 0.608  
+Average sample loss: 0.603  
+Average acc: 0.662  
+  Color 0, Class: fmammal  [n = 467]:	loss = 0.595  exp loss = 0.601  adjusted loss = 0.601  adv prob = 0.250000   acc = 0.675
+  Color 0, Class: fbird  [n = 466]:	loss = 0.629  exp loss = 0.630  adjusted loss = 0.630  adv prob = 0.250000   acc = 0.648
+  Color 1, Class: fmammal  [n = 133]:	loss = 0.592  exp loss = 0.575  adjusted loss = 0.575  adv prob = 0.250000   acc = 0.654
+  Color 1, Class: fbird  [n = 133]:	loss = 0.595  exp loss = 0.573  adjusted loss = 0.573  adv prob = 0.250000   acc = 0.677
+Current lr: 0.010000
+Current validation accuracy: 0.662218451499939
+
+
+Epoch [52]:
+Training:
+Average incurred loss: 0.621  
+Average sample loss: 0.621  
+Average acc: 0.658  
+  Color 0, Class: fmammal  [n = 3498]:	loss = 0.622  exp loss = 0.633  adjusted loss = 0.633  adv prob = 0.250000   acc = 0.660
+  Color 0, Class: fbird  [n = 184]:	loss = 0.604  exp loss = 0.602  adjusted loss = 0.602  adv prob = 0.250000   acc = 0.674
+  Color 1, Class: fmammal  [n = 56]:	loss = 0.636  exp loss = 0.625  adjusted loss = 0.625  adv prob = 0.250000   acc = 0.679
+  Color 1, Class: fbird  [n = 1057]:	loss = 0.622  exp loss = 0.610  adjusted loss = 0.610  adv prob = 0.250000   acc = 0.646
+
+Validation:
+Average incurred loss: 0.624  
+Average sample loss: 0.618  
+Average acc: 0.657  
+  Color 0, Class: fmammal  [n = 467]:	loss = 0.626  exp loss = 0.634  adjusted loss = 0.634  adv prob = 0.250000   acc = 0.660
+  Color 0, Class: fbird  [n = 466]:	loss = 0.637  exp loss = 0.626  adjusted loss = 0.626  adv prob = 0.250000   acc = 0.639
+  Color 1, Class: fmammal  [n = 133]:	loss = 0.594  exp loss = 0.600  adjusted loss = 0.600  adv prob = 0.250000   acc = 0.692
+  Color 1, Class: fbird  [n = 133]:	loss = 0.598  exp loss = 0.569  adjusted loss = 0.569  adv prob = 0.250000   acc = 0.677
+Current lr: 0.010000
+Current validation accuracy: 0.6572144031524658
+
+
+Epoch [53]:
+Training:
+Average incurred loss: 0.617  
+Average sample loss: 0.617  
+Average acc: 0.663  
+  Color 0, Class: fmammal  [n = 3498]:	loss = 0.619  exp loss = 0.612  adjusted loss = 0.612  adv prob = 0.250000   acc = 0.662
+  Color 0, Class: fbird  [n = 184]:	loss = 0.616  exp loss = 0.665  adjusted loss = 0.665  adv prob = 0.250000   acc = 0.658
+  Color 1, Class: fmammal  [n = 56]:	loss = 0.660  exp loss = 0.763  adjusted loss = 0.763  adv prob = 0.250000   acc = 0.696
+  Color 1, Class: fbird  [n = 1057]:	loss = 0.605  exp loss = 0.624  adjusted loss = 0.624  adv prob = 0.250000   acc = 0.667
+
+Validation:
+Average incurred loss: 0.619  
+Average sample loss: 0.610  
+Average acc: 0.667  
+  Color 0, Class: fmammal  [n = 467]:	loss = 0.618  exp loss = 0.614  adjusted loss = 0.614  adv prob = 0.250000   acc = 0.670
+  Color 0, Class: fbird  [n = 466]:	loss = 0.638  exp loss = 0.628  adjusted loss = 0.628  adv prob = 0.250000   acc = 0.650
+  Color 1, Class: fmammal  [n = 133]:	loss = 0.559  exp loss = 0.551  adjusted loss = 0.551  adv prob = 0.250000   acc = 0.729
+  Color 1, Class: fbird  [n = 133]:	loss = 0.615  exp loss = 0.577  adjusted loss = 0.577  adv prob = 0.250000   acc = 0.654
+Current lr: 0.010000
+Current validation accuracy: 0.6672226786613464
+Best model saved at epoch 53
+
+
+Epoch [54]:
+Training:
+Average incurred loss: 0.616  
+Average sample loss: 0.615  
+Average acc: 0.664  
+  Color 0, Class: fmammal  [n = 3498]:	loss = 0.620  exp loss = 0.611  adjusted loss = 0.611  adv prob = 0.250000   acc = 0.662
+  Color 0, Class: fbird  [n = 184]:	loss = 0.562  exp loss = 0.554  adjusted loss = 0.554  adv prob = 0.250000   acc = 0.750
+  Color 1, Class: fmammal  [n = 56]:	loss = 0.616  exp loss = 0.654  adjusted loss = 0.654  adv prob = 0.250000   acc = 0.589
+  Color 1, Class: fbird  [n = 1057]:	loss = 0.612  exp loss = 0.599  adjusted loss = 0.599  adv prob = 0.250000   acc = 0.661
+
+Validation:
+Average incurred loss: 0.626  
+Average sample loss: 0.622  
+Average acc: 0.656  
+  Color 0, Class: fmammal  [n = 467]:	loss = 0.621  exp loss = 0.641  adjusted loss = 0.641  adv prob = 0.250000   acc = 0.651
+  Color 0, Class: fbird  [n = 466]:	loss = 0.648  exp loss = 0.636  adjusted loss = 0.636  adv prob = 0.250000   acc = 0.637
+  Color 1, Class: fmammal  [n = 133]:	loss = 0.566  exp loss = 0.587  adjusted loss = 0.587  adv prob = 0.250000   acc = 0.722
+  Color 1, Class: fbird  [n = 133]:	loss = 0.628  exp loss = 0.609  adjusted loss = 0.609  adv prob = 0.250000   acc = 0.677
+Current lr: 0.010000
+Current validation accuracy: 0.656380295753479
+
+
+Epoch [55]:
+Training:
+Average incurred loss: 0.621  
+Average sample loss: 0.621  
+Average acc: 0.659  
+  Color 0, Class: fmammal  [n = 3498]:	loss = 0.620  exp loss = 0.636  adjusted loss = 0.636  adv prob = 0.250000   acc = 0.662
+  Color 0, Class: fbird  [n = 184]:	loss = 0.633  exp loss = 0.592  adjusted loss = 0.592  adv prob = 0.250000   acc = 0.647
+  Color 1, Class: fmammal  [n = 56]:	loss = 0.653  exp loss = 0.759  adjusted loss = 0.759  adv prob = 0.250000   acc = 0.571
+  Color 1, Class: fbird  [n = 1057]:	loss = 0.618  exp loss = 0.611  adjusted loss = 0.611  adv prob = 0.250000   acc = 0.656
+
+Validation:
+Average incurred loss: 0.632  
+Average sample loss: 0.625  
+Average acc: 0.641  
+  Color 0, Class: fmammal  [n = 467]:	loss = 0.617  exp loss = 0.619  adjusted loss = 0.619  adv prob = 0.250000   acc = 0.638
+  Color 0, Class: fbird  [n = 466]:	loss = 0.667  exp loss = 0.638  adjusted loss = 0.638  adv prob = 0.250000   acc = 0.629
+  Color 1, Class: fmammal  [n = 133]:	loss = 0.578  exp loss = 0.562  adjusted loss = 0.562  adv prob = 0.250000   acc = 0.714
+  Color 1, Class: fbird  [n = 133]:	loss = 0.619  exp loss = 0.589  adjusted loss = 0.589  adv prob = 0.250000   acc = 0.624
+Current lr: 0.010000
+Current validation accuracy: 0.6413677334785461
+
+
+Epoch [56]:
+Training:
+Average incurred loss: 0.618  
+Average sample loss: 0.619  
+Average acc: 0.660  
+  Color 0, Class: fmammal  [n = 3498]:	loss = 0.620  exp loss = 0.612  adjusted loss = 0.612  adv prob = 0.250000   acc = 0.659
+  Color 0, Class: fbird  [n = 184]:	loss = 0.600  exp loss = 0.583  adjusted loss = 0.583  adv prob = 0.250000   acc = 0.663
+  Color 1, Class: fmammal  [n = 56]:	loss = 0.602  exp loss = 0.581  adjusted loss = 0.581  adv prob = 0.250000   acc = 0.696
+  Color 1, Class: fbird  [n = 1057]:	loss = 0.616  exp loss = 0.600  adjusted loss = 0.600  adv prob = 0.250000   acc = 0.662
+
+Validation:
+Average incurred loss: 0.625  
+Average sample loss: 0.620  
+Average acc: 0.663  
+  Color 0, Class: fmammal  [n = 467]:	loss = 0.618  exp loss = 0.632  adjusted loss = 0.632  adv prob = 0.250000   acc = 0.651
+  Color 0, Class: fbird  [n = 466]:	loss = 0.652  exp loss = 0.656  adjusted loss = 0.656  adv prob = 0.250000   acc = 0.650
+  Color 1, Class: fmammal  [n = 133]:	loss = 0.574  exp loss = 0.555  adjusted loss = 0.555  adv prob = 0.250000   acc = 0.692
+  Color 1, Class: fbird  [n = 133]:	loss = 0.608  exp loss = 0.570  adjusted loss = 0.570  adv prob = 0.250000   acc = 0.722
+Current lr: 0.010000
+Current validation accuracy: 0.6630525588989258
+
+
+Epoch [57]:
+Training:
+Average incurred loss: 0.616  
+Average sample loss: 0.616  
+Average acc: 0.669  
+  Color 0, Class: fmammal  [n = 3498]:	loss = 0.620  exp loss = 0.623  adjusted loss = 0.623  adv prob = 0.250000   acc = 0.668
+  Color 0, Class: fbird  [n = 184]:	loss = 0.628  exp loss = 0.589  adjusted loss = 0.589  adv prob = 0.250000   acc = 0.614
+  Color 1, Class: fmammal  [n = 56]:	loss = 0.615  exp loss = 0.544  adjusted loss = 0.544  adv prob = 0.250000   acc = 0.696
+  Color 1, Class: fbird  [n = 1057]:	loss = 0.600  exp loss = 0.601  adjusted loss = 0.601  adv prob = 0.250000   acc = 0.684
+
+Validation:
+Average incurred loss: 0.614  
+Average sample loss: 0.609  
+Average acc: 0.668  
+  Color 0, Class: fmammal  [n = 467]:	loss = 0.609  exp loss = 0.637  adjusted loss = 0.637  adv prob = 0.250000   acc = 0.681
+  Color 0, Class: fbird  [n = 466]:	loss = 0.633  exp loss = 0.632  adjusted loss = 0.632  adv prob = 0.250000   acc = 0.633
+  Color 1, Class: fmammal  [n = 133]:	loss = 0.556  exp loss = 0.564  adjusted loss = 0.564  adv prob = 0.250000   acc = 0.744
+  Color 1, Class: fbird  [n = 133]:	loss = 0.620  exp loss = 0.613  adjusted loss = 0.613  adv prob = 0.250000   acc = 0.669
+Current lr: 0.010000
+Current validation accuracy: 0.6680567264556885
+Best model saved at epoch 57
+
+
+Epoch [58]:
+Training:
+Average incurred loss: 0.616  
+Average sample loss: 0.615  
+Average acc: 0.659  
+  Color 0, Class: fmammal  [n = 3498]:	loss = 0.613  exp loss = 0.611  adjusted loss = 0.611  adv prob = 0.250000   acc = 0.659
+  Color 0, Class: fbird  [n = 184]:	loss = 0.605  exp loss = 0.624  adjusted loss = 0.624  adv prob = 0.250000   acc = 0.652
+  Color 1, Class: fmammal  [n = 56]:	loss = 0.672  exp loss = 0.650  adjusted loss = 0.650  adv prob = 0.250000   acc = 0.625
+  Color 1, Class: fbird  [n = 1057]:	loss = 0.622  exp loss = 0.629  adjusted loss = 0.629  adv prob = 0.250000   acc = 0.663
+
+Validation:
+Average incurred loss: 0.614  
+Average sample loss: 0.608  
+Average acc: 0.651  
+  Color 0, Class: fmammal  [n = 467]:	loss = 0.618  exp loss = 0.627  adjusted loss = 0.627  adv prob = 0.250000   acc = 0.627
+  Color 0, Class: fbird  [n = 466]:	loss = 0.614  exp loss = 0.605  adjusted loss = 0.605  adv prob = 0.250000   acc = 0.667
+  Color 1, Class: fmammal  [n = 133]:	loss = 0.593  exp loss = 0.553  adjusted loss = 0.553  adv prob = 0.250000   acc = 0.662
+  Color 1, Class: fbird  [n = 133]:	loss = 0.618  exp loss = 0.618  adjusted loss = 0.618  adv prob = 0.250000   acc = 0.662
+Current lr: 0.010000
+Current validation accuracy: 0.6505420804023743
+
+
+Epoch [59]:
+Training:
+Average incurred loss: 0.620  
+Average sample loss: 0.619  
+Average acc: 0.656  
+  Color 0, Class: fmammal  [n = 3498]:	loss = 0.622  exp loss = 0.626  adjusted loss = 0.626  adv prob = 0.250000   acc = 0.654
+  Color 0, Class: fbird  [n = 184]:	loss = 0.615  exp loss = 0.602  adjusted loss = 0.602  adv prob = 0.250000   acc = 0.668
+  Color 1, Class: fmammal  [n = 56]:	loss = 0.605  exp loss = 0.539  adjusted loss = 0.539  adv prob = 0.250000   acc = 0.661
+  Color 1, Class: fbird  [n = 1057]:	loss = 0.615  exp loss = 0.605  adjusted loss = 0.605  adv prob = 0.250000   acc = 0.660
+
+Validation:
+Average incurred loss: 0.608  
+Average sample loss: 0.604  
+Average acc: 0.686  
+  Color 0, Class: fmammal  [n = 467]:	loss = 0.598  exp loss = 0.626  adjusted loss = 0.626  adv prob = 0.250000   acc = 0.694
+  Color 0, Class: fbird  [n = 466]:	loss = 0.640  exp loss = 0.621  adjusted loss = 0.621  adv prob = 0.250000   acc = 0.676
+  Color 1, Class: fmammal  [n = 133]:	loss = 0.547  exp loss = 0.544  adjusted loss = 0.544  adv prob = 0.250000   acc = 0.707
+  Color 1, Class: fbird  [n = 133]:	loss = 0.590  exp loss = 0.580  adjusted loss = 0.580  adv prob = 0.250000   acc = 0.677
+Current lr: 0.001000
+Current validation accuracy: 0.6864053010940552
+Best model saved at epoch 59
+
+
+Epoch [60]:
+Training:
+Average incurred loss: 0.617  
+Average sample loss: 0.617  
+Average acc: 0.659  
+  Color 0, Class: fmammal  [n = 3498]:	loss = 0.619  exp loss = 0.621  adjusted loss = 0.621  adv prob = 0.250000   acc = 0.658
+  Color 0, Class: fbird  [n = 184]:	loss = 0.628  exp loss = 0.568  adjusted loss = 0.568  adv prob = 0.250000   acc = 0.674
+  Color 1, Class: fmammal  [n = 56]:	loss = 0.645  exp loss = 0.694  adjusted loss = 0.694  adv prob = 0.250000   acc = 0.589
+  Color 1, Class: fbird  [n = 1057]:	loss = 0.609  exp loss = 0.634  adjusted loss = 0.634  adv prob = 0.250000   acc = 0.665
+
+Validation:
+Average incurred loss: 0.620  
+Average sample loss: 0.616  
+Average acc: 0.658  
+  Color 0, Class: fmammal  [n = 467]:	loss = 0.620  exp loss = 0.626  adjusted loss = 0.626  adv prob = 0.250000   acc = 0.660
+  Color 0, Class: fbird  [n = 466]:	loss = 0.641  exp loss = 0.634  adjusted loss = 0.634  adv prob = 0.250000   acc = 0.639
+  Color 1, Class: fmammal  [n = 133]:	loss = 0.579  exp loss = 0.573  adjusted loss = 0.573  adv prob = 0.250000   acc = 0.692
+  Color 1, Class: fbird  [n = 133]:	loss = 0.588  exp loss = 0.576  adjusted loss = 0.576  adv prob = 0.250000   acc = 0.684
+Current lr: 0.001000
+Current validation accuracy: 0.6580483913421631
+
+
+Epoch [61]:
+Training:
+Average incurred loss: 0.615  
+Average sample loss: 0.615  
+Average acc: 0.659  
+  Color 0, Class: fmammal  [n = 3498]:	loss = 0.619  exp loss = 0.623  adjusted loss = 0.623  adv prob = 0.250000   acc = 0.661
+  Color 0, Class: fbird  [n = 184]:	loss = 0.593  exp loss = 0.593  adjusted loss = 0.593  adv prob = 0.250000   acc = 0.690
+  Color 1, Class: fmammal  [n = 56]:	loss = 0.642  exp loss = 0.614  adjusted loss = 0.614  adv prob = 0.250000   acc = 0.607
+  Color 1, Class: fbird  [n = 1057]:	loss = 0.604  exp loss = 0.594  adjusted loss = 0.594  adv prob = 0.250000   acc = 0.650
+
+Validation:
+Average incurred loss: 0.625  
+Average sample loss: 0.618  
+Average acc: 0.665  
+  Color 0, Class: fmammal  [n = 467]:	loss = 0.622  exp loss = 0.635  adjusted loss = 0.635  adv prob = 0.250000   acc = 0.664
+  Color 0, Class: fbird  [n = 466]:	loss = 0.647  exp loss = 0.623  adjusted loss = 0.623  adv prob = 0.250000   acc = 0.650
+  Color 1, Class: fmammal  [n = 133]:	loss = 0.541  exp loss = 0.518  adjusted loss = 0.518  adv prob = 0.250000   acc = 0.707
+  Color 1, Class: fbird  [n = 133]:	loss = 0.646  exp loss = 0.626  adjusted loss = 0.626  adv prob = 0.250000   acc = 0.677
+Current lr: 0.001000
+Current validation accuracy: 0.6647205948829651
+
+
+Epoch [62]:
+Training:
+Average incurred loss: 0.613  
+Average sample loss: 0.612  
+Average acc: 0.668  
+  Color 0, Class: fmammal  [n = 3498]:	loss = 0.618  exp loss = 0.615  adjusted loss = 0.615  adv prob = 0.250000   acc = 0.665
+  Color 0, Class: fbird  [n = 184]:	loss = 0.586  exp loss = 0.548  adjusted loss = 0.548  adv prob = 0.250000   acc = 0.674
+  Color 1, Class: fmammal  [n = 56]:	loss = 0.641  exp loss = 0.663  adjusted loss = 0.663  adv prob = 0.250000   acc = 0.589
+  Color 1, Class: fbird  [n = 1057]:	loss = 0.598  exp loss = 0.601  adjusted loss = 0.601  adv prob = 0.250000   acc = 0.682
+
+Validation:
+Average incurred loss: 0.623  
+Average sample loss: 0.618  
+Average acc: 0.655  
+  Color 0, Class: fmammal  [n = 467]:	loss = 0.615  exp loss = 0.613  adjusted loss = 0.613  adv prob = 0.250000   acc = 0.651
+  Color 0, Class: fbird  [n = 466]:	loss = 0.647  exp loss = 0.645  adjusted loss = 0.645  adv prob = 0.250000   acc = 0.631
+  Color 1, Class: fmammal  [n = 133]:	loss = 0.592  exp loss = 0.583  adjusted loss = 0.583  adv prob = 0.250000   acc = 0.707
+  Color 1, Class: fbird  [n = 133]:	loss = 0.598  exp loss = 0.560  adjusted loss = 0.560  adv prob = 0.250000   acc = 0.699
+Current lr: 0.001000
+Current validation accuracy: 0.6547123193740845
+
+
+Epoch [63]:
+Training:
+Average incurred loss: 0.612  
+Average sample loss: 0.612  
+Average acc: 0.663  
+  Color 0, Class: fmammal  [n = 3498]:	loss = 0.612  exp loss = 0.602  adjusted loss = 0.602  adv prob = 0.250000   acc = 0.666
+  Color 0, Class: fbird  [n = 184]:	loss = 0.639  exp loss = 0.691  adjusted loss = 0.691  adv prob = 0.250000   acc = 0.614
+  Color 1, Class: fmammal  [n = 56]:	loss = 0.648  exp loss = 0.628  adjusted loss = 0.628  adv prob = 0.250000   acc = 0.661
+  Color 1, Class: fbird  [n = 1057]:	loss = 0.608  exp loss = 0.603  adjusted loss = 0.603  adv prob = 0.250000   acc = 0.659
+
+Validation:
+Average incurred loss: 0.612  
+Average sample loss: 0.608  
+Average acc: 0.666  
+  Color 0, Class: fmammal  [n = 467]:	loss = 0.615  exp loss = 0.614  adjusted loss = 0.614  adv prob = 0.250000   acc = 0.662
+  Color 0, Class: fbird  [n = 466]:	loss = 0.617  exp loss = 0.607  adjusted loss = 0.607  adv prob = 0.250000   acc = 0.650
+  Color 1, Class: fmammal  [n = 133]:	loss = 0.581  exp loss = 0.567  adjusted loss = 0.567  adv prob = 0.250000   acc = 0.699
+  Color 1, Class: fbird  [n = 133]:	loss = 0.610  exp loss = 0.525  adjusted loss = 0.525  adv prob = 0.250000   acc = 0.707
+Current lr: 0.001000
+Current validation accuracy: 0.6663886308670044
+
+
+Epoch [64]:
+Training:
+Average incurred loss: 0.612  
+Average sample loss: 0.611  
+Average acc: 0.673  
+  Color 0, Class: fmammal  [n = 3498]:	loss = 0.613  exp loss = 0.608  adjusted loss = 0.608  adv prob = 0.250000   acc = 0.672
+  Color 0, Class: fbird  [n = 184]:	loss = 0.619  exp loss = 0.663  adjusted loss = 0.663  adv prob = 0.250000   acc = 0.668
+  Color 1, Class: fmammal  [n = 56]:	loss = 0.609  exp loss = 0.601  adjusted loss = 0.601  adv prob = 0.250000   acc = 0.643
+  Color 1, Class: fbird  [n = 1057]:	loss = 0.607  exp loss = 0.600  adjusted loss = 0.600  adv prob = 0.250000   acc = 0.680
+
+Validation:
+Average incurred loss: 0.614  
+Average sample loss: 0.610  
+Average acc: 0.666  
+  Color 0, Class: fmammal  [n = 467]:	loss = 0.605  exp loss = 0.625  adjusted loss = 0.625  adv prob = 0.250000   acc = 0.670
+  Color 0, Class: fbird  [n = 466]:	loss = 0.624  exp loss = 0.610  adjusted loss = 0.610  adv prob = 0.250000   acc = 0.676
+  Color 1, Class: fmammal  [n = 133]:	loss = 0.607  exp loss = 0.616  adjusted loss = 0.616  adv prob = 0.250000   acc = 0.647
+  Color 1, Class: fbird  [n = 133]:	loss = 0.620  exp loss = 0.577  adjusted loss = 0.577  adv prob = 0.250000   acc = 0.639
+Current lr: 0.001000
+Current validation accuracy: 0.6663886308670044
+
+
+Epoch [65]:
+Training:
+Average incurred loss: 0.617  
+Average sample loss: 0.618  
+Average acc: 0.664  
+  Color 0, Class: fmammal  [n = 3498]:	loss = 0.620  exp loss = 0.617  adjusted loss = 0.617  adv prob = 0.250000   acc = 0.662
+  Color 0, Class: fbird  [n = 184]:	loss = 0.609  exp loss = 0.558  adjusted loss = 0.558  adv prob = 0.250000   acc = 0.630
+  Color 1, Class: fmammal  [n = 56]:	loss = 0.671  exp loss = 0.815  adjusted loss = 0.815  adv prob = 0.250000   acc = 0.679
+  Color 1, Class: fbird  [n = 1057]:	loss = 0.607  exp loss = 0.616  adjusted loss = 0.616  adv prob = 0.250000   acc = 0.678
+
+Validation:
+Average incurred loss: 0.617  
+Average sample loss: 0.612  
+Average acc: 0.649  
+  Color 0, Class: fmammal  [n = 467]:	loss = 0.620  exp loss = 0.615  adjusted loss = 0.615  adv prob = 0.250000   acc = 0.647
+  Color 0, Class: fbird  [n = 466]:	loss = 0.629  exp loss = 0.624  adjusted loss = 0.624  adv prob = 0.250000   acc = 0.639
+  Color 1, Class: fmammal  [n = 133]:	loss = 0.606  exp loss = 0.596  adjusted loss = 0.596  adv prob = 0.250000   acc = 0.654
+  Color 1, Class: fbird  [n = 133]:	loss = 0.576  exp loss = 0.554  adjusted loss = 0.554  adv prob = 0.250000   acc = 0.684
+Current lr: 0.001000
+Current validation accuracy: 0.648874044418335
+
+
+Epoch [66]:
+Training:
+Average incurred loss: 0.615  
+Average sample loss: 0.615  
+Average acc: 0.655  
+  Color 0, Class: fmammal  [n = 3498]:	loss = 0.620  exp loss = 0.625  adjusted loss = 0.625  adv prob = 0.250000   acc = 0.650
+  Color 0, Class: fbird  [n = 184]:	loss = 0.610  exp loss = 0.694  adjusted loss = 0.694  adv prob = 0.250000   acc = 0.647
+  Color 1, Class: fmammal  [n = 56]:	loss = 0.607  exp loss = 0.559  adjusted loss = 0.559  adv prob = 0.250000   acc = 0.661
+  Color 1, Class: fbird  [n = 1057]:	loss = 0.601  exp loss = 0.596  adjusted loss = 0.596  adv prob = 0.250000   acc = 0.672
+
+Validation:
+Average incurred loss: 0.614  
+Average sample loss: 0.608  
+Average acc: 0.654  
+  Color 0, Class: fmammal  [n = 467]:	loss = 0.624  exp loss = 0.646  adjusted loss = 0.646  adv prob = 0.250000   acc = 0.640
+  Color 0, Class: fbird  [n = 466]:	loss = 0.624  exp loss = 0.632  adjusted loss = 0.632  adv prob = 0.250000   acc = 0.650
+  Color 1, Class: fmammal  [n = 133]:	loss = 0.539  exp loss = 0.557  adjusted loss = 0.557  adv prob = 0.250000   acc = 0.722
+  Color 1, Class: fbird  [n = 133]:	loss = 0.618  exp loss = 0.604  adjusted loss = 0.604  adv prob = 0.250000   acc = 0.647
+Current lr: 0.001000
+Current validation accuracy: 0.6538782119750977
+
+
+Epoch [67]:
+Training:
+Average incurred loss: 0.615  
+Average sample loss: 0.616  
+Average acc: 0.669  
+  Color 0, Class: fmammal  [n = 3498]:	loss = 0.618  exp loss = 0.622  adjusted loss = 0.622  adv prob = 0.250000   acc = 0.665
+  Color 0, Class: fbird  [n = 184]:	loss = 0.596  exp loss = 0.555  adjusted loss = 0.555  adv prob = 0.250000   acc = 0.696
+  Color 1, Class: fmammal  [n = 56]:	loss = 0.631  exp loss = 0.613  adjusted loss = 0.613  adv prob = 0.250000   acc = 0.679
+  Color 1, Class: fbird  [n = 1057]:	loss = 0.607  exp loss = 0.619  adjusted loss = 0.619  adv prob = 0.250000   acc = 0.677
+
+Validation:
+Average incurred loss: 0.628  
+Average sample loss: 0.620  
+Average acc: 0.664  
+  Color 0, Class: fmammal  [n = 467]:	loss = 0.607  exp loss = 0.616  adjusted loss = 0.616  adv prob = 0.250000   acc = 0.668
+  Color 0, Class: fbird  [n = 466]:	loss = 0.618  exp loss = 0.609  adjusted loss = 0.609  adv prob = 0.250000   acc = 0.652
+  Color 1, Class: fmammal  [n = 133]:	loss = 0.697  exp loss = 0.989  adjusted loss = 0.989  adv prob = 0.250000   acc = 0.699
+  Color 1, Class: fbird  [n = 133]:	loss = 0.671  exp loss = 0.606  adjusted loss = 0.606  adv prob = 0.250000   acc = 0.654
+Current lr: 0.001000
+Current validation accuracy: 0.663886547088623
+
+
+Epoch [68]:
+Training:
+Average incurred loss: 0.615  
+Average sample loss: 0.616  
+Average acc: 0.663  
+  Color 0, Class: fmammal  [n = 3498]:	loss = 0.615  exp loss = 0.621  adjusted loss = 0.621  adv prob = 0.250000   acc = 0.667
+  Color 0, Class: fbird  [n = 184]:	loss = 0.622  exp loss = 0.662  adjusted loss = 0.662  adv prob = 0.250000   acc = 0.658
+  Color 1, Class: fmammal  [n = 56]:	loss = 0.626  exp loss = 0.590  adjusted loss = 0.590  adv prob = 0.250000   acc = 0.679
+  Color 1, Class: fbird  [n = 1057]:	loss = 0.614  exp loss = 0.620  adjusted loss = 0.620  adv prob = 0.250000   acc = 0.649
+
+Validation:
+Average incurred loss: 0.619  
+Average sample loss: 0.615  
+Average acc: 0.671  
+  Color 0, Class: fmammal  [n = 467]:	loss = 0.616  exp loss = 0.620  adjusted loss = 0.620  adv prob = 0.250000   acc = 0.675
+  Color 0, Class: fbird  [n = 466]:	loss = 0.636  exp loss = 0.627  adjusted loss = 0.627  adv prob = 0.250000   acc = 0.650
+  Color 1, Class: fmammal  [n = 133]:	loss = 0.569  exp loss = 0.568  adjusted loss = 0.568  adv prob = 0.250000   acc = 0.707
+  Color 1, Class: fbird  [n = 133]:	loss = 0.625  exp loss = 0.586  adjusted loss = 0.586  adv prob = 0.250000   acc = 0.692
+Current lr: 0.001000
+Current validation accuracy: 0.6705588102340698
+
+
+Epoch [69]:
+Training:
+Average incurred loss: 0.612  
+Average sample loss: 0.613  
+Average acc: 0.666  
+  Color 0, Class: fmammal  [n = 3498]:	loss = 0.616  exp loss = 0.619  adjusted loss = 0.619  adv prob = 0.250000   acc = 0.665
+  Color 0, Class: fbird  [n = 184]:	loss = 0.604  exp loss = 0.644  adjusted loss = 0.644  adv prob = 0.250000   acc = 0.641
+  Color 1, Class: fmammal  [n = 56]:	loss = 0.585  exp loss = 0.500  adjusted loss = 0.500  adv prob = 0.250000   acc = 0.696
+  Color 1, Class: fbird  [n = 1057]:	loss = 0.602  exp loss = 0.651  adjusted loss = 0.651  adv prob = 0.250000   acc = 0.675
+
+Validation:
+Average incurred loss: 0.612  
+Average sample loss: 0.604  
+Average acc: 0.681  
+  Color 0, Class: fmammal  [n = 467]:	loss = 0.607  exp loss = 0.617  adjusted loss = 0.617  adv prob = 0.250000   acc = 0.677
+  Color 0, Class: fbird  [n = 466]:	loss = 0.637  exp loss = 0.628  adjusted loss = 0.628  adv prob = 0.250000   acc = 0.672
+  Color 1, Class: fmammal  [n = 133]:	loss = 0.563  exp loss = 0.553  adjusted loss = 0.553  adv prob = 0.250000   acc = 0.722
+  Color 1, Class: fbird  [n = 133]:	loss = 0.585  exp loss = 0.574  adjusted loss = 0.574  adv prob = 0.250000   acc = 0.692
+Current lr: 0.001000
+Current validation accuracy: 0.6814011335372925
+
+
+Epoch [70]:
+Training:
+Average incurred loss: 0.613  
+Average sample loss: 0.614  
+Average acc: 0.660  
+  Color 0, Class: fmammal  [n = 3498]:	loss = 0.615  exp loss = 0.618  adjusted loss = 0.618  adv prob = 0.250000   acc = 0.662
+  Color 0, Class: fbird  [n = 184]:	loss = 0.611  exp loss = 0.587  adjusted loss = 0.587  adv prob = 0.250000   acc = 0.647
+  Color 1, Class: fmammal  [n = 56]:	loss = 0.611  exp loss = 0.565  adjusted loss = 0.565  adv prob = 0.250000   acc = 0.643
+  Color 1, Class: fbird  [n = 1057]:	loss = 0.609  exp loss = 0.635  adjusted loss = 0.635  adv prob = 0.250000   acc = 0.657
+
+Validation:
+Average incurred loss: 0.607  
+Average sample loss: 0.603  
+Average acc: 0.671  
+  Color 0, Class: fmammal  [n = 467]:	loss = 0.606  exp loss = 0.608  adjusted loss = 0.608  adv prob = 0.250000   acc = 0.660
+  Color 0, Class: fbird  [n = 466]:	loss = 0.623  exp loss = 0.605  adjusted loss = 0.605  adv prob = 0.250000   acc = 0.661
+  Color 1, Class: fmammal  [n = 133]:	loss = 0.559  exp loss = 0.516  adjusted loss = 0.516  adv prob = 0.250000   acc = 0.714
+  Color 1, Class: fbird  [n = 133]:	loss = 0.605  exp loss = 0.579  adjusted loss = 0.579  adv prob = 0.250000   acc = 0.707
+Current lr: 0.001000
+Current validation accuracy: 0.6713927984237671
+
+
+Epoch [71]:
+Training:
+Average incurred loss: 0.611  
+Average sample loss: 0.611  
+Average acc: 0.668  
+  Color 0, Class: fmammal  [n = 3498]:	loss = 0.616  exp loss = 0.609  adjusted loss = 0.609  adv prob = 0.250000   acc = 0.665
+  Color 0, Class: fbird  [n = 184]:	loss = 0.607  exp loss = 0.594  adjusted loss = 0.594  adv prob = 0.250000   acc = 0.641
+  Color 1, Class: fmammal  [n = 56]:	loss = 0.618  exp loss = 0.501  adjusted loss = 0.501  adv prob = 0.250000   acc = 0.661
+  Color 1, Class: fbird  [n = 1057]:	loss = 0.594  exp loss = 0.611  adjusted loss = 0.611  adv prob = 0.250000   acc = 0.680
+
+Validation:
+Average incurred loss: 0.620  
+Average sample loss: 0.616  
+Average acc: 0.651  
+  Color 0, Class: fmammal  [n = 467]:	loss = 0.614  exp loss = 0.630  adjusted loss = 0.630  adv prob = 0.250000   acc = 0.668
+  Color 0, Class: fbird  [n = 466]:	loss = 0.639  exp loss = 0.634  adjusted loss = 0.634  adv prob = 0.250000   acc = 0.616
+  Color 1, Class: fmammal  [n = 133]:	loss = 0.586  exp loss = 0.592  adjusted loss = 0.592  adv prob = 0.250000   acc = 0.722
+  Color 1, Class: fbird  [n = 133]:	loss = 0.613  exp loss = 0.623  adjusted loss = 0.623  adv prob = 0.250000   acc = 0.647
+Current lr: 0.001000
+Current validation accuracy: 0.6513761281967163
+
+
+Epoch [72]:
+Training:
+Average incurred loss: 0.620  
+Average sample loss: 0.619  
+Average acc: 0.665  
+  Color 0, Class: fmammal  [n = 3498]:	loss = 0.623  exp loss = 0.633  adjusted loss = 0.633  adv prob = 0.250000   acc = 0.663
+  Color 0, Class: fbird  [n = 184]:	loss = 0.642  exp loss = 0.601  adjusted loss = 0.601  adv prob = 0.250000   acc = 0.641
+  Color 1, Class: fmammal  [n = 56]:	loss = 0.632  exp loss = 0.672  adjusted loss = 0.672  adv prob = 0.250000   acc = 0.679
+  Color 1, Class: fbird  [n = 1057]:	loss = 0.607  exp loss = 0.608  adjusted loss = 0.608  adv prob = 0.250000   acc = 0.675
+
+Validation:
+Average incurred loss: 0.615  
+Average sample loss: 0.609  
+Average acc: 0.668  
+  Color 0, Class: fmammal  [n = 467]:	loss = 0.605  exp loss = 0.605  adjusted loss = 0.605  adv prob = 0.250000   acc = 0.681
+  Color 0, Class: fbird  [n = 466]:	loss = 0.619  exp loss = 0.604  adjusted loss = 0.604  adv prob = 0.250000   acc = 0.670
+  Color 1, Class: fmammal  [n = 133]:	loss = 0.601  exp loss = 0.565  adjusted loss = 0.565  adv prob = 0.250000   acc = 0.654
+  Color 1, Class: fbird  [n = 133]:	loss = 0.652  exp loss = 0.632  adjusted loss = 0.632  adv prob = 0.250000   acc = 0.632
+Current lr: 0.001000
+Current validation accuracy: 0.6680567264556885
+
+
+Epoch [73]:
+Training:
+Average incurred loss: 0.608  
+Average sample loss: 0.607  
+Average acc: 0.672  
+  Color 0, Class: fmammal  [n = 3498]:	loss = 0.611  exp loss = 0.601  adjusted loss = 0.601  adv prob = 0.250000   acc = 0.669
+  Color 0, Class: fbird  [n = 184]:	loss = 0.600  exp loss = 0.565  adjusted loss = 0.565  adv prob = 0.250000   acc = 0.679
+  Color 1, Class: fmammal  [n = 56]:	loss = 0.623  exp loss = 0.701  adjusted loss = 0.701  adv prob = 0.250000   acc = 0.589
+  Color 1, Class: fbird  [n = 1057]:	loss = 0.599  exp loss = 0.579  adjusted loss = 0.579  adv prob = 0.250000   acc = 0.683
+
+Validation:
+Average incurred loss: 0.615  
+Average sample loss: 0.609  
+Average acc: 0.670  
+  Color 0, Class: fmammal  [n = 467]:	loss = 0.622  exp loss = 0.617  adjusted loss = 0.617  adv prob = 0.250000   acc = 0.666
+  Color 0, Class: fbird  [n = 466]:	loss = 0.619  exp loss = 0.602  adjusted loss = 0.602  adv prob = 0.250000   acc = 0.659
+  Color 1, Class: fmammal  [n = 133]:	loss = 0.585  exp loss = 0.578  adjusted loss = 0.578  adv prob = 0.250000   acc = 0.699
+  Color 1, Class: fbird  [n = 133]:	loss = 0.608  exp loss = 0.612  adjusted loss = 0.612  adv prob = 0.250000   acc = 0.692
+Current lr: 0.001000
+Current validation accuracy: 0.6697247624397278
+
+
+Epoch [74]:
+Training:
+Average incurred loss: 0.617  
+Average sample loss: 0.617  
+Average acc: 0.665  
+  Color 0, Class: fmammal  [n = 3498]:	loss = 0.619  exp loss = 0.626  adjusted loss = 0.626  adv prob = 0.250000   acc = 0.662
+  Color 0, Class: fbird  [n = 184]:	loss = 0.638  exp loss = 0.616  adjusted loss = 0.616  adv prob = 0.250000   acc = 0.652
+  Color 1, Class: fmammal  [n = 56]:	loss = 0.627  exp loss = 0.605  adjusted loss = 0.605  adv prob = 0.250000   acc = 0.696
+  Color 1, Class: fbird  [n = 1057]:	loss = 0.604  exp loss = 0.592  adjusted loss = 0.592  adv prob = 0.250000   acc = 0.675
+
+Validation:
+Average incurred loss: 0.623  
+Average sample loss: 0.616  
+Average acc: 0.654  
+  Color 0, Class: fmammal  [n = 467]:	loss = 0.628  exp loss = 0.629  adjusted loss = 0.629  adv prob = 0.250000   acc = 0.657
+  Color 0, Class: fbird  [n = 466]:	loss = 0.617  exp loss = 0.610  adjusted loss = 0.610  adv prob = 0.250000   acc = 0.639
+  Color 1, Class: fmammal  [n = 133]:	loss = 0.590  exp loss = 0.596  adjusted loss = 0.596  adv prob = 0.250000   acc = 0.684
+  Color 1, Class: fbird  [n = 133]:	loss = 0.656  exp loss = 0.596  adjusted loss = 0.596  adv prob = 0.250000   acc = 0.662
+Current lr: 0.001000
+Current validation accuracy: 0.6538782715797424
+
+
+Epoch [75]:
+Training:
+Average incurred loss: 0.613  
+Average sample loss: 0.614  
+Average acc: 0.668  
+  Color 0, Class: fmammal  [n = 3498]:	loss = 0.616  exp loss = 0.624  adjusted loss = 0.624  adv prob = 0.250000   acc = 0.668
+  Color 0, Class: fbird  [n = 184]:	loss = 0.598  exp loss = 0.590  adjusted loss = 0.590  adv prob = 0.250000   acc = 0.685
+  Color 1, Class: fmammal  [n = 56]:	loss = 0.638  exp loss = 0.726  adjusted loss = 0.726  adv prob = 0.250000   acc = 0.625
+  Color 1, Class: fbird  [n = 1057]:	loss = 0.608  exp loss = 0.621  adjusted loss = 0.621  adv prob = 0.250000   acc = 0.669
+
+Validation:
+Average incurred loss: 0.619  
+Average sample loss: 0.613  
+Average acc: 0.669  
+  Color 0, Class: fmammal  [n = 467]:	loss = 0.622  exp loss = 0.625  adjusted loss = 0.625  adv prob = 0.250000   acc = 0.664
+  Color 0, Class: fbird  [n = 466]:	loss = 0.635  exp loss = 0.637  adjusted loss = 0.637  adv prob = 0.250000   acc = 0.657
+  Color 1, Class: fmammal  [n = 133]:	loss = 0.571  exp loss = 0.575  adjusted loss = 0.575  adv prob = 0.250000   acc = 0.729
+  Color 1, Class: fbird  [n = 133]:	loss = 0.606  exp loss = 0.573  adjusted loss = 0.573  adv prob = 0.250000   acc = 0.669
+Current lr: 0.001000
+Current validation accuracy: 0.6688907742500305
+
+
+Epoch [76]:
+Training:
+Average incurred loss: 0.610  
+Average sample loss: 0.610  
+Average acc: 0.678  
+  Color 0, Class: fmammal  [n = 3498]:	loss = 0.611  exp loss = 0.621  adjusted loss = 0.621  adv prob = 0.250000   acc = 0.679
+  Color 0, Class: fbird  [n = 184]:	loss = 0.613  exp loss = 0.530  adjusted loss = 0.530  adv prob = 0.250000   acc = 0.647
+  Color 1, Class: fmammal  [n = 56]:	loss = 0.663  exp loss = 0.677  adjusted loss = 0.677  adv prob = 0.250000   acc = 0.571
+  Color 1, Class: fbird  [n = 1057]:	loss = 0.602  exp loss = 0.608  adjusted loss = 0.608  adv prob = 0.250000   acc = 0.685
+
+Validation:
+Average incurred loss: 0.607  
+Average sample loss: 0.603  
+Average acc: 0.676  
+  Color 0, Class: fmammal  [n = 467]:	loss = 0.616  exp loss = 0.625  adjusted loss = 0.625  adv prob = 0.250000   acc = 0.664
+  Color 0, Class: fbird  [n = 466]:	loss = 0.620  exp loss = 0.622  adjusted loss = 0.622  adv prob = 0.250000   acc = 0.657
+  Color 1, Class: fmammal  [n = 133]:	loss = 0.519  exp loss = 0.504  adjusted loss = 0.504  adv prob = 0.250000   acc = 0.782
+  Color 1, Class: fbird  [n = 133]:	loss = 0.620  exp loss = 0.628  adjusted loss = 0.628  adv prob = 0.250000   acc = 0.684
+Current lr: 0.001000
+Current validation accuracy: 0.6763969659805298
+
+
+Epoch [77]:
+Training:
+Average incurred loss: 0.613  
+Average sample loss: 0.614  
+Average acc: 0.669  
+  Color 0, Class: fmammal  [n = 3498]:	loss = 0.617  exp loss = 0.627  adjusted loss = 0.627  adv prob = 0.250000   acc = 0.664
+  Color 0, Class: fbird  [n = 184]:	loss = 0.600  exp loss = 0.635  adjusted loss = 0.635  adv prob = 0.250000   acc = 0.690
+  Color 1, Class: fmammal  [n = 56]:	loss = 0.631  exp loss = 0.791  adjusted loss = 0.791  adv prob = 0.250000   acc = 0.696
+  Color 1, Class: fbird  [n = 1057]:	loss = 0.603  exp loss = 0.604  adjusted loss = 0.604  adv prob = 0.250000   acc = 0.679
+
+Validation:
+Average incurred loss: 0.614  
+Average sample loss: 0.606  
+Average acc: 0.662  
+  Color 0, Class: fmammal  [n = 467]:	loss = 0.611  exp loss = 0.611  adjusted loss = 0.611  adv prob = 0.250000   acc = 0.649
+  Color 0, Class: fbird  [n = 466]:	loss = 0.621  exp loss = 0.611  adjusted loss = 0.611  adv prob = 0.250000   acc = 0.665
+  Color 1, Class: fmammal  [n = 133]:	loss = 0.616  exp loss = 0.606  adjusted loss = 0.606  adv prob = 0.250000   acc = 0.692
+  Color 1, Class: fbird  [n = 133]:	loss = 0.599  exp loss = 0.604  adjusted loss = 0.604  adv prob = 0.250000   acc = 0.669
+Current lr: 0.001000
+Current validation accuracy: 0.6622185111045837
+
+
+Epoch [78]:
+Training:
+Average incurred loss: 0.610  
+Average sample loss: 0.611  
+Average acc: 0.671  
+  Color 0, Class: fmammal  [n = 3498]:	loss = 0.613  exp loss = 0.636  adjusted loss = 0.636  adv prob = 0.250000   acc = 0.669
+  Color 0, Class: fbird  [n = 184]:	loss = 0.612  exp loss = 0.591  adjusted loss = 0.591  adv prob = 0.250000   acc = 0.636
+  Color 1, Class: fmammal  [n = 56]:	loss = 0.571  exp loss = 0.559  adjusted loss = 0.559  adv prob = 0.250000   acc = 0.732
+  Color 1, Class: fbird  [n = 1057]:	loss = 0.604  exp loss = 0.619  adjusted loss = 0.619  adv prob = 0.250000   acc = 0.681
+
+Validation:
+Average incurred loss: 0.617  
+Average sample loss: 0.611  
+Average acc: 0.659  
+  Color 0, Class: fmammal  [n = 467]:	loss = 0.638  exp loss = 0.639  adjusted loss = 0.639  adv prob = 0.250000   acc = 0.634
+  Color 0, Class: fbird  [n = 466]:	loss = 0.627  exp loss = 0.623  adjusted loss = 0.623  adv prob = 0.250000   acc = 0.648
+  Color 1, Class: fmammal  [n = 133]:	loss = 0.545  exp loss = 0.550  adjusted loss = 0.550  adv prob = 0.250000   acc = 0.737
+  Color 1, Class: fbird  [n = 133]:	loss = 0.579  exp loss = 0.542  adjusted loss = 0.542  adv prob = 0.250000   acc = 0.707
+Current lr: 0.001000
+Current validation accuracy: 0.6588824391365051
+
+
+Epoch [79]:
+Training:
+Average incurred loss: 0.612  
+Average sample loss: 0.611  
+Average acc: 0.669  
+  Color 0, Class: fmammal  [n = 3498]:	loss = 0.613  exp loss = 0.608  adjusted loss = 0.608  adv prob = 0.250000   acc = 0.669
+  Color 0, Class: fbird  [n = 184]:	loss = 0.599  exp loss = 0.561  adjusted loss = 0.561  adv prob = 0.250000   acc = 0.668
+  Color 1, Class: fmammal  [n = 56]:	loss = 0.723  exp loss = 0.697  adjusted loss = 0.697  adv prob = 0.250000   acc = 0.536
+  Color 1, Class: fbird  [n = 1057]:	loss = 0.603  exp loss = 0.599  adjusted loss = 0.599  adv prob = 0.250000   acc = 0.674
+
+Validation:
+Average incurred loss: 0.626  
+Average sample loss: 0.618  
+Average acc: 0.666  
+  Color 0, Class: fmammal  [n = 467]:	loss = 0.612  exp loss = 0.611  adjusted loss = 0.611  adv prob = 0.250000   acc = 0.664
+  Color 0, Class: fbird  [n = 466]:	loss = 0.625  exp loss = 0.596  adjusted loss = 0.596  adv prob = 0.250000   acc = 0.650
+  Color 1, Class: fmammal  [n = 133]:	loss = 0.629  exp loss = 0.641  adjusted loss = 0.641  adv prob = 0.250000   acc = 0.737
+  Color 1, Class: fbird  [n = 133]:	loss = 0.675  exp loss = 0.601  adjusted loss = 0.601  adv prob = 0.250000   acc = 0.654
+Current lr: 0.001000
+Current validation accuracy: 0.6655546426773071
+
+
+Epoch [80]:
+Training:
+Average incurred loss: 0.614  
+Average sample loss: 0.614  
+Average acc: 0.669  
+  Color 0, Class: fmammal  [n = 3498]:	loss = 0.618  exp loss = 0.612  adjusted loss = 0.612  adv prob = 0.250000   acc = 0.666
+  Color 0, Class: fbird  [n = 184]:	loss = 0.602  exp loss = 0.584  adjusted loss = 0.584  adv prob = 0.250000   acc = 0.712
+  Color 1, Class: fmammal  [n = 56]:	loss = 0.633  exp loss = 0.626  adjusted loss = 0.626  adv prob = 0.250000   acc = 0.643
+  Color 1, Class: fbird  [n = 1057]:	loss = 0.602  exp loss = 0.616  adjusted loss = 0.616  adv prob = 0.250000   acc = 0.675
+
+Validation:
+Average incurred loss: 0.616  
+Average sample loss: 0.608  
+Average acc: 0.660  
+  Color 0, Class: fmammal  [n = 467]:	loss = 0.612  exp loss = 0.611  adjusted loss = 0.611  adv prob = 0.250000   acc = 0.664
+  Color 0, Class: fbird  [n = 466]:	loss = 0.630  exp loss = 0.606  adjusted loss = 0.606  adv prob = 0.250000   acc = 0.629
+  Color 1, Class: fmammal  [n = 133]:	loss = 0.574  exp loss = 0.571  adjusted loss = 0.571  adv prob = 0.250000   acc = 0.722
+  Color 1, Class: fbird  [n = 133]:	loss = 0.622  exp loss = 0.539  adjusted loss = 0.539  adv prob = 0.250000   acc = 0.692
+Current lr: 0.001000
+Current validation accuracy: 0.6597163677215576
+
+
+Epoch [81]:
+Training:
+Average incurred loss: 0.614  
+Average sample loss: 0.615  
+Average acc: 0.667  
+  Color 0, Class: fmammal  [n = 3498]:	loss = 0.616  exp loss = 0.622  adjusted loss = 0.622  adv prob = 0.250000   acc = 0.663
+  Color 0, Class: fbird  [n = 184]:	loss = 0.626  exp loss = 0.607  adjusted loss = 0.607  adv prob = 0.250000   acc = 0.663
+  Color 1, Class: fmammal  [n = 56]:	loss = 0.683  exp loss = 0.770  adjusted loss = 0.770  adv prob = 0.250000   acc = 0.571
+  Color 1, Class: fbird  [n = 1057]:	loss = 0.600  exp loss = 0.614  adjusted loss = 0.614  adv prob = 0.250000   acc = 0.684
+
+Validation:
+Average incurred loss: 0.609  
+Average sample loss: 0.602  
+Average acc: 0.671  
+  Color 0, Class: fmammal  [n = 467]:	loss = 0.598  exp loss = 0.604  adjusted loss = 0.604  adv prob = 0.250000   acc = 0.685
+  Color 0, Class: fbird  [n = 466]:	loss = 0.632  exp loss = 0.612  adjusted loss = 0.612  adv prob = 0.250000   acc = 0.644
+  Color 1, Class: fmammal  [n = 133]:	loss = 0.545  exp loss = 0.540  adjusted loss = 0.540  adv prob = 0.250000   acc = 0.722
+  Color 1, Class: fbird  [n = 133]:	loss = 0.631  exp loss = 0.589  adjusted loss = 0.589  adv prob = 0.250000   acc = 0.669
+Current lr: 0.001000
+Current validation accuracy: 0.6713927984237671
+
+
+Epoch [82]:
+Training:
+Average incurred loss: 0.609  
+Average sample loss: 0.609  
+Average acc: 0.672  
+  Color 0, Class: fmammal  [n = 3498]:	loss = 0.610  exp loss = 0.606  adjusted loss = 0.606  adv prob = 0.250000   acc = 0.674
+  Color 0, Class: fbird  [n = 184]:	loss = 0.622  exp loss = 0.668  adjusted loss = 0.668  adv prob = 0.250000   acc = 0.647
+  Color 1, Class: fmammal  [n = 56]:	loss = 0.659  exp loss = 0.644  adjusted loss = 0.644  adv prob = 0.250000   acc = 0.625
+  Color 1, Class: fbird  [n = 1057]:	loss = 0.604  exp loss = 0.599  adjusted loss = 0.599  adv prob = 0.250000   acc = 0.671
+
+Validation:
+Average incurred loss: 0.622  
+Average sample loss: 0.614  
+Average acc: 0.657  
+  Color 0, Class: fmammal  [n = 467]:	loss = 0.613  exp loss = 0.612  adjusted loss = 0.612  adv prob = 0.250000   acc = 0.664
+  Color 0, Class: fbird  [n = 466]:	loss = 0.631  exp loss = 0.635  adjusted loss = 0.635  adv prob = 0.250000   acc = 0.646
+  Color 1, Class: fmammal  [n = 133]:	loss = 0.605  exp loss = 0.586  adjusted loss = 0.586  adv prob = 0.250000   acc = 0.662
+  Color 1, Class: fbird  [n = 133]:	loss = 0.636  exp loss = 0.588  adjusted loss = 0.588  adv prob = 0.250000   acc = 0.669
+Current lr: 0.001000
+Current validation accuracy: 0.6572142839431763
+
+
+Epoch [83]:
+Training:
+Average incurred loss: 0.615  
+Average sample loss: 0.614  
+Average acc: 0.660  
+  Color 0, Class: fmammal  [n = 3498]:	loss = 0.615  exp loss = 0.606  adjusted loss = 0.606  adv prob = 0.250000   acc = 0.662
+  Color 0, Class: fbird  [n = 184]:	loss = 0.620  exp loss = 0.636  adjusted loss = 0.636  adv prob = 0.250000   acc = 0.636
+  Color 1, Class: fmammal  [n = 56]:	loss = 0.638  exp loss = 0.627  adjusted loss = 0.627  adv prob = 0.250000   acc = 0.661
+  Color 1, Class: fbird  [n = 1057]:	loss = 0.611  exp loss = 0.615  adjusted loss = 0.615  adv prob = 0.250000   acc = 0.656
+
+Validation:
+Average incurred loss: 0.661  
+Average sample loss: 0.653  
+Average acc: 0.656  
+  Color 0, Class: fmammal  [n = 467]:	loss = 0.617  exp loss = 0.630  adjusted loss = 0.630  adv prob = 0.250000   acc = 0.647
+  Color 0, Class: fbird  [n = 466]:	loss = 0.625  exp loss = 0.615  adjusted loss = 0.615  adv prob = 0.250000   acc = 0.655
+  Color 1, Class: fmammal  [n = 133]:	loss = 0.873  exp loss = 0.797  adjusted loss = 0.797  adv prob = 0.250000   acc = 0.684
+  Color 1, Class: fbird  [n = 133]:	loss = 0.731  exp loss = 0.592  adjusted loss = 0.592  adv prob = 0.250000   acc = 0.669
+Current lr: 0.001000
+Current validation accuracy: 0.656380295753479
+
+
+Epoch [84]:
+Training:
+Average incurred loss: 0.610  
+Average sample loss: 0.610  
+Average acc: 0.668  
+  Color 0, Class: fmammal  [n = 3498]:	loss = 0.612  exp loss = 0.601  adjusted loss = 0.601  adv prob = 0.250000   acc = 0.662
+  Color 0, Class: fbird  [n = 184]:	loss = 0.627  exp loss = 0.606  adjusted loss = 0.606  adv prob = 0.250000   acc = 0.658
+  Color 1, Class: fmammal  [n = 56]:	loss = 0.615  exp loss = 0.555  adjusted loss = 0.555  adv prob = 0.250000   acc = 0.643
+  Color 1, Class: fbird  [n = 1057]:	loss = 0.599  exp loss = 0.595  adjusted loss = 0.595  adv prob = 0.250000   acc = 0.693
+
+Validation:
+Average incurred loss: 0.635  
+Average sample loss: 0.628  
+Average acc: 0.679  
+  Color 0, Class: fmammal  [n = 467]:	loss = 0.673  exp loss = 0.645  adjusted loss = 0.645  adv prob = 0.250000   acc = 0.677
+  Color 0, Class: fbird  [n = 466]:	loss = 0.622  exp loss = 0.623  adjusted loss = 0.623  adv prob = 0.250000   acc = 0.672
+  Color 1, Class: fmammal  [n = 133]:	loss = 0.597  exp loss = 0.556  adjusted loss = 0.556  adv prob = 0.250000   acc = 0.669
+  Color 1, Class: fbird  [n = 133]:	loss = 0.581  exp loss = 0.527  adjusted loss = 0.527  adv prob = 0.250000   acc = 0.722
+Current lr: 0.001000
+Current validation accuracy: 0.6788990497589111
+
+
+Epoch [85]:
+Training:
+Average incurred loss: 0.612  
+Average sample loss: 0.611  
+Average acc: 0.671  
+  Color 0, Class: fmammal  [n = 3498]:	loss = 0.613  exp loss = 0.606  adjusted loss = 0.606  adv prob = 0.250000   acc = 0.671
+  Color 0, Class: fbird  [n = 184]:	loss = 0.608  exp loss = 0.597  adjusted loss = 0.597  adv prob = 0.250000   acc = 0.663
+  Color 1, Class: fmammal  [n = 56]:	loss = 0.625  exp loss = 0.731  adjusted loss = 0.731  adv prob = 0.250000   acc = 0.696
+  Color 1, Class: fbird  [n = 1057]:	loss = 0.608  exp loss = 0.596  adjusted loss = 0.596  adv prob = 0.250000   acc = 0.671
+
+Validation:
+Average incurred loss: 0.623  
+Average sample loss: 0.616  
+Average acc: 0.645  
+  Color 0, Class: fmammal  [n = 467]:	loss = 0.615  exp loss = 0.621  adjusted loss = 0.621  adv prob = 0.250000   acc = 0.660
+  Color 0, Class: fbird  [n = 466]:	loss = 0.633  exp loss = 0.604  adjusted loss = 0.604  adv prob = 0.250000   acc = 0.620
+  Color 1, Class: fmammal  [n = 133]:	loss = 0.579  exp loss = 0.573  adjusted loss = 0.573  adv prob = 0.250000   acc = 0.692
+  Color 1, Class: fbird  [n = 133]:	loss = 0.659  exp loss = 0.598  adjusted loss = 0.598  adv prob = 0.250000   acc = 0.632
+Current lr: 0.001000
+Current validation accuracy: 0.6447038650512695
+
+
+Epoch [86]:
+Training:
+Average incurred loss: 0.614  
+Average sample loss: 0.614  
+Average acc: 0.665  
+  Color 0, Class: fmammal  [n = 3498]:	loss = 0.616  exp loss = 0.624  adjusted loss = 0.624  adv prob = 0.250000   acc = 0.663
+  Color 0, Class: fbird  [n = 184]:	loss = 0.612  exp loss = 0.574  adjusted loss = 0.574  adv prob = 0.250000   acc = 0.663
+  Color 1, Class: fmammal  [n = 56]:	loss = 0.598  exp loss = 0.611  adjusted loss = 0.611  adv prob = 0.250000   acc = 0.696
+  Color 1, Class: fbird  [n = 1057]:	loss = 0.608  exp loss = 0.607  adjusted loss = 0.607  adv prob = 0.250000   acc = 0.670
+
+Validation:
+Average incurred loss: 0.634  
+Average sample loss: 0.632  
+Average acc: 0.659  
+  Color 0, Class: fmammal  [n = 467]:	loss = 0.610  exp loss = 0.615  adjusted loss = 0.615  adv prob = 0.250000   acc = 0.655
+  Color 0, Class: fbird  [n = 466]:	loss = 0.675  exp loss = 0.665  adjusted loss = 0.665  adv prob = 0.250000   acc = 0.637
+  Color 1, Class: fmammal  [n = 133]:	loss = 0.566  exp loss = 0.603  adjusted loss = 0.603  adv prob = 0.250000   acc = 0.752
+  Color 1, Class: fbird  [n = 133]:	loss = 0.643  exp loss = 0.605  adjusted loss = 0.605  adv prob = 0.250000   acc = 0.654
+Current lr: 0.001000
+Current validation accuracy: 0.6588823795318604
+
+
+Epoch [87]:
+Training:
+Average incurred loss: 0.613  
+Average sample loss: 0.612  
+Average acc: 0.671  
+  Color 0, Class: fmammal  [n = 3498]:	loss = 0.611  exp loss = 0.607  adjusted loss = 0.607  adv prob = 0.250000   acc = 0.669
+  Color 0, Class: fbird  [n = 184]:	loss = 0.621  exp loss = 0.640  adjusted loss = 0.640  adv prob = 0.250000   acc = 0.625
+  Color 1, Class: fmammal  [n = 56]:	loss = 0.685  exp loss = 0.656  adjusted loss = 0.656  adv prob = 0.250000   acc = 0.554
+  Color 1, Class: fbird  [n = 1057]:	loss = 0.611  exp loss = 0.613  adjusted loss = 0.613  adv prob = 0.250000   acc = 0.690
+
+Validation:
+Average incurred loss: 0.612  
+Average sample loss: 0.608  
+Average acc: 0.661  
+  Color 0, Class: fmammal  [n = 467]:	loss = 0.620  exp loss = 0.642  adjusted loss = 0.642  adv prob = 0.250000   acc = 0.651
+  Color 0, Class: fbird  [n = 466]:	loss = 0.630  exp loss = 0.609  adjusted loss = 0.609  adv prob = 0.250000   acc = 0.642
+  Color 1, Class: fmammal  [n = 133]:	loss = 0.523  exp loss = 0.517  adjusted loss = 0.517  adv prob = 0.250000   acc = 0.759
+  Color 1, Class: fbird  [n = 133]:	loss = 0.611  exp loss = 0.572  adjusted loss = 0.572  adv prob = 0.250000   acc = 0.662
+Current lr: 0.001000
+Current validation accuracy: 0.6605504751205444
+
+
+Epoch [88]:
+Training:
+Average incurred loss: 0.608  
+Average sample loss: 0.607  
+Average acc: 0.673  
+  Color 0, Class: fmammal  [n = 3498]:	loss = 0.612  exp loss = 0.604  adjusted loss = 0.604  adv prob = 0.250000   acc = 0.670
+  Color 0, Class: fbird  [n = 184]:	loss = 0.619  exp loss = 0.603  adjusted loss = 0.603  adv prob = 0.250000   acc = 0.679
+  Color 1, Class: fmammal  [n = 56]:	loss = 0.610  exp loss = 0.485  adjusted loss = 0.485  adv prob = 0.250000   acc = 0.589
+  Color 1, Class: fbird  [n = 1057]:	loss = 0.593  exp loss = 0.569  adjusted loss = 0.569  adv prob = 0.250000   acc = 0.689
+
+Validation:
+Average incurred loss: 0.610  
+Average sample loss: 0.607  
+Average acc: 0.681  
+  Color 0, Class: fmammal  [n = 467]:	loss = 0.615  exp loss = 0.615  adjusted loss = 0.615  adv prob = 0.250000   acc = 0.681
+  Color 0, Class: fbird  [n = 466]:	loss = 0.619  exp loss = 0.618  adjusted loss = 0.618  adv prob = 0.250000   acc = 0.663
+  Color 1, Class: fmammal  [n = 133]:	loss = 0.558  exp loss = 0.571  adjusted loss = 0.571  adv prob = 0.250000   acc = 0.744
+  Color 1, Class: fbird  [n = 133]:	loss = 0.611  exp loss = 0.584  adjusted loss = 0.584  adv prob = 0.250000   acc = 0.684
+Current lr: 0.001000
+Current validation accuracy: 0.6814011335372925
+
+
+Epoch [89]:
+Training:
+Average incurred loss: 0.612  
+Average sample loss: 0.611  
+Average acc: 0.669  
+  Color 0, Class: fmammal  [n = 3498]:	loss = 0.617  exp loss = 0.621  adjusted loss = 0.621  adv prob = 0.250000   acc = 0.666
+  Color 0, Class: fbird  [n = 184]:	loss = 0.600  exp loss = 0.644  adjusted loss = 0.644  adv prob = 0.250000   acc = 0.652
+  Color 1, Class: fmammal  [n = 56]:	loss = 0.572  exp loss = 0.598  adjusted loss = 0.598  adv prob = 0.250000   acc = 0.714
+  Color 1, Class: fbird  [n = 1057]:	loss = 0.599  exp loss = 0.584  adjusted loss = 0.584  adv prob = 0.250000   acc = 0.681
+
+Validation:
+Average incurred loss: 0.605  
+Average sample loss: 0.601  
+Average acc: 0.674  
+  Color 0, Class: fmammal  [n = 467]:	loss = 0.608  exp loss = 0.606  adjusted loss = 0.606  adv prob = 0.250000   acc = 0.677
+  Color 0, Class: fbird  [n = 466]:	loss = 0.618  exp loss = 0.597  adjusted loss = 0.597  adv prob = 0.250000   acc = 0.661
+  Color 1, Class: fmammal  [n = 133]:	loss = 0.558  exp loss = 0.563  adjusted loss = 0.563  adv prob = 0.250000   acc = 0.714
+  Color 1, Class: fbird  [n = 133]:	loss = 0.593  exp loss = 0.557  adjusted loss = 0.557  adv prob = 0.250000   acc = 0.669
+Current lr: 0.000100
+Current validation accuracy: 0.6738948822021484
+
+
+Epoch [90]:
+Training:
+Average incurred loss: 0.616  
+Average sample loss: 0.615  
+Average acc: 0.668  
+  Color 0, Class: fmammal  [n = 3498]:	loss = 0.619  exp loss = 0.612  adjusted loss = 0.612  adv prob = 0.250000   acc = 0.668
+  Color 0, Class: fbird  [n = 184]:	loss = 0.635  exp loss = 0.661  adjusted loss = 0.661  adv prob = 0.250000   acc = 0.663
+  Color 1, Class: fmammal  [n = 56]:	loss = 0.624  exp loss = 0.547  adjusted loss = 0.547  adv prob = 0.250000   acc = 0.643
+  Color 1, Class: fbird  [n = 1057]:	loss = 0.604  exp loss = 0.605  adjusted loss = 0.605  adv prob = 0.250000   acc = 0.671
+
+Validation:
+Average incurred loss: 0.653  
+Average sample loss: 0.645  
+Average acc: 0.668  
+  Color 0, Class: fmammal  [n = 467]:	loss = 0.700  exp loss = 0.635  adjusted loss = 0.635  adv prob = 0.250000   acc = 0.660
+  Color 0, Class: fbird  [n = 466]:	loss = 0.637  exp loss = 0.625  adjusted loss = 0.625  adv prob = 0.250000   acc = 0.646
+  Color 1, Class: fmammal  [n = 133]:	loss = 0.549  exp loss = 0.538  adjusted loss = 0.538  adv prob = 0.250000   acc = 0.722
+  Color 1, Class: fbird  [n = 133]:	loss = 0.651  exp loss = 0.611  adjusted loss = 0.611  adv prob = 0.250000   acc = 0.722
+Current lr: 0.000100
+Current validation accuracy: 0.6680566668510437
+
+
+Epoch [91]:
+Training:
+Average incurred loss: 0.611  
+Average sample loss: 0.611  
+Average acc: 0.666  
+  Color 0, Class: fmammal  [n = 3498]:	loss = 0.615  exp loss = 0.612  adjusted loss = 0.612  adv prob = 0.250000   acc = 0.660
+  Color 0, Class: fbird  [n = 184]:	loss = 0.601  exp loss = 0.569  adjusted loss = 0.569  adv prob = 0.250000   acc = 0.652
+  Color 1, Class: fmammal  [n = 56]:	loss = 0.667  exp loss = 0.639  adjusted loss = 0.639  adv prob = 0.250000   acc = 0.643
+  Color 1, Class: fbird  [n = 1057]:	loss = 0.596  exp loss = 0.591  adjusted loss = 0.591  adv prob = 0.250000   acc = 0.689
+
+Validation:
+Average incurred loss: 0.614  
+Average sample loss: 0.609  
+Average acc: 0.672  
+  Color 0, Class: fmammal  [n = 467]:	loss = 0.619  exp loss = 0.626  adjusted loss = 0.626  adv prob = 0.250000   acc = 0.657
+  Color 0, Class: fbird  [n = 466]:	loss = 0.627  exp loss = 0.621  adjusted loss = 0.621  adv prob = 0.250000   acc = 0.674
+  Color 1, Class: fmammal  [n = 133]:	loss = 0.546  exp loss = 0.541  adjusted loss = 0.541  adv prob = 0.250000   acc = 0.692
+  Color 1, Class: fbird  [n = 133]:	loss = 0.615  exp loss = 0.628  adjusted loss = 0.628  adv prob = 0.250000   acc = 0.699
+Current lr: 0.000100
+Current validation accuracy: 0.6722268462181091
+
+
+Epoch [92]:
+Training:
+Average incurred loss: 0.611  
+Average sample loss: 0.611  
+Average acc: 0.672  
+  Color 0, Class: fmammal  [n = 3498]:	loss = 0.612  exp loss = 0.602  adjusted loss = 0.602  adv prob = 0.250000   acc = 0.673
+  Color 0, Class: fbird  [n = 184]:	loss = 0.623  exp loss = 0.644  adjusted loss = 0.644  adv prob = 0.250000   acc = 0.674
+  Color 1, Class: fmammal  [n = 56]:	loss = 0.709  exp loss = 0.763  adjusted loss = 0.763  adv prob = 0.250000   acc = 0.571
+  Color 1, Class: fbird  [n = 1057]:	loss = 0.602  exp loss = 0.601  adjusted loss = 0.601  adv prob = 0.250000   acc = 0.675
+
+Validation:
+Average incurred loss: 0.615  
+Average sample loss: 0.610  
+Average acc: 0.671  
+  Color 0, Class: fmammal  [n = 467]:	loss = 0.617  exp loss = 0.641  adjusted loss = 0.641  adv prob = 0.250000   acc = 0.683
+  Color 0, Class: fbird  [n = 466]:	loss = 0.621  exp loss = 0.603  adjusted loss = 0.603  adv prob = 0.250000   acc = 0.646
+  Color 1, Class: fmammal  [n = 133]:	loss = 0.602  exp loss = 0.617  adjusted loss = 0.617  adv prob = 0.250000   acc = 0.692
+  Color 1, Class: fbird  [n = 133]:	loss = 0.598  exp loss = 0.583  adjusted loss = 0.583  adv prob = 0.250000   acc = 0.699
+Current lr: 0.000100
+Current validation accuracy: 0.6713927984237671
+
+
+Epoch [93]:
+Training:
+Average incurred loss: 0.617  
+Average sample loss: 0.618  
+Average acc: 0.665  
+  Color 0, Class: fmammal  [n = 3498]:	loss = 0.617  exp loss = 0.622  adjusted loss = 0.622  adv prob = 0.250000   acc = 0.667
+  Color 0, Class: fbird  [n = 184]:	loss = 0.652  exp loss = 0.683  adjusted loss = 0.683  adv prob = 0.250000   acc = 0.592
+  Color 1, Class: fmammal  [n = 56]:	loss = 0.604  exp loss = 0.692  adjusted loss = 0.692  adv prob = 0.250000   acc = 0.679
+  Color 1, Class: fbird  [n = 1057]:	loss = 0.610  exp loss = 0.623  adjusted loss = 0.623  adv prob = 0.250000   acc = 0.668
+
+Validation:
+Average incurred loss: 0.628  
+Average sample loss: 0.627  
+Average acc: 0.667  
+  Color 0, Class: fmammal  [n = 467]:	loss = 0.605  exp loss = 0.619  adjusted loss = 0.619  adv prob = 0.250000   acc = 0.666
+  Color 0, Class: fbird  [n = 466]:	loss = 0.637  exp loss = 0.623  adjusted loss = 0.623  adv prob = 0.250000   acc = 0.648
+  Color 1, Class: fmammal  [n = 133]:	loss = 0.627  exp loss = 0.599  adjusted loss = 0.599  adv prob = 0.250000   acc = 0.744
+  Color 1, Class: fbird  [n = 133]:	loss = 0.677  exp loss = 0.581  adjusted loss = 0.581  adv prob = 0.250000   acc = 0.662
+Current lr: 0.000100
+Current validation accuracy: 0.6672226786613464
+
+
+Epoch [94]:
+Training:
+Average incurred loss: 0.612  
+Average sample loss: 0.612  
+Average acc: 0.671  
+  Color 0, Class: fmammal  [n = 3498]:	loss = 0.615  exp loss = 0.617  adjusted loss = 0.617  adv prob = 0.250000   acc = 0.667
+  Color 0, Class: fbird  [n = 184]:	loss = 0.630  exp loss = 0.566  adjusted loss = 0.566  adv prob = 0.250000   acc = 0.658
+  Color 1, Class: fmammal  [n = 56]:	loss = 0.607  exp loss = 0.643  adjusted loss = 0.643  adv prob = 0.250000   acc = 0.625
+  Color 1, Class: fbird  [n = 1057]:	loss = 0.601  exp loss = 0.619  adjusted loss = 0.619  adv prob = 0.250000   acc = 0.690
+
+Validation:
+Average incurred loss: 0.608  
+Average sample loss: 0.605  
+Average acc: 0.661  
+  Color 0, Class: fmammal  [n = 467]:	loss = 0.604  exp loss = 0.611  adjusted loss = 0.611  adv prob = 0.250000   acc = 0.668
+  Color 0, Class: fbird  [n = 466]:	loss = 0.606  exp loss = 0.583  adjusted loss = 0.583  adv prob = 0.250000   acc = 0.652
+  Color 1, Class: fmammal  [n = 133]:	loss = 0.622  exp loss = 0.629  adjusted loss = 0.629  adv prob = 0.250000   acc = 0.647
+  Color 1, Class: fbird  [n = 133]:	loss = 0.614  exp loss = 0.552  adjusted loss = 0.552  adv prob = 0.250000   acc = 0.684
+Current lr: 0.000100
+Current validation accuracy: 0.6613845229148865
+
+
+Epoch [95]:
+Training:
+Average incurred loss: 0.612  
+Average sample loss: 0.614  
+Average acc: 0.667  
+  Color 0, Class: fmammal  [n = 3498]:	loss = 0.616  exp loss = 0.636  adjusted loss = 0.636  adv prob = 0.250000   acc = 0.662
+  Color 0, Class: fbird  [n = 184]:	loss = 0.596  exp loss = 0.738  adjusted loss = 0.738  adv prob = 0.250000   acc = 0.690
+  Color 1, Class: fmammal  [n = 56]:	loss = 0.602  exp loss = 0.558  adjusted loss = 0.558  adv prob = 0.250000   acc = 0.714
+  Color 1, Class: fbird  [n = 1057]:	loss = 0.603  exp loss = 0.603  adjusted loss = 0.603  adv prob = 0.250000   acc = 0.674
+
+Validation:
+Average incurred loss: 0.618  
+Average sample loss: 0.616  
+Average acc: 0.663  
+  Color 0, Class: fmammal  [n = 467]:	loss = 0.615  exp loss = 0.620  adjusted loss = 0.620  adv prob = 0.250000   acc = 0.666
+  Color 0, Class: fbird  [n = 466]:	loss = 0.632  exp loss = 0.648  adjusted loss = 0.648  adv prob = 0.250000   acc = 0.646
+  Color 1, Class: fmammal  [n = 133]:	loss = 0.579  exp loss = 0.581  adjusted loss = 0.581  adv prob = 0.250000   acc = 0.699
+  Color 1, Class: fbird  [n = 133]:	loss = 0.618  exp loss = 0.627  adjusted loss = 0.627  adv prob = 0.250000   acc = 0.677
+Current lr: 0.000100
+Current validation accuracy: 0.663052499294281
+
+
+Epoch [96]:
+Training:
+Average incurred loss: 0.603  
+Average sample loss: 0.604  
+Average acc: 0.682  
+  Color 0, Class: fmammal  [n = 3498]:	loss = 0.607  exp loss = 0.630  adjusted loss = 0.630  adv prob = 0.250000   acc = 0.677
+  Color 0, Class: fbird  [n = 184]:	loss = 0.597  exp loss = 0.643  adjusted loss = 0.643  adv prob = 0.250000   acc = 0.663
+  Color 1, Class: fmammal  [n = 56]:	loss = 0.596  exp loss = 0.572  adjusted loss = 0.572  adv prob = 0.250000   acc = 0.661
+  Color 1, Class: fbird  [n = 1057]:	loss = 0.589  exp loss = 0.574  adjusted loss = 0.574  adv prob = 0.250000   acc = 0.702
+
+Validation:
+Average incurred loss: 0.609  
+Average sample loss: 0.603  
+Average acc: 0.679  
+  Color 0, Class: fmammal  [n = 467]:	loss = 0.614  exp loss = 0.613  adjusted loss = 0.613  adv prob = 0.250000   acc = 0.690
+  Color 0, Class: fbird  [n = 466]:	loss = 0.618  exp loss = 0.619  adjusted loss = 0.619  adv prob = 0.250000   acc = 0.661
+  Color 1, Class: fmammal  [n = 133]:	loss = 0.557  exp loss = 0.545  adjusted loss = 0.545  adv prob = 0.250000   acc = 0.692
+  Color 1, Class: fbird  [n = 133]:	loss = 0.610  exp loss = 0.541  adjusted loss = 0.541  adv prob = 0.250000   acc = 0.692
+Current lr: 0.000100
+Current validation accuracy: 0.6788991093635559
+
+
+Epoch [97]:
+Training:
+Average incurred loss: 0.609  
+Average sample loss: 0.609  
+Average acc: 0.674  
+  Color 0, Class: fmammal  [n = 3498]:	loss = 0.612  exp loss = 0.623  adjusted loss = 0.623  adv prob = 0.250000   acc = 0.672
+  Color 0, Class: fbird  [n = 184]:	loss = 0.623  exp loss = 0.664  adjusted loss = 0.664  adv prob = 0.250000   acc = 0.636
+  Color 1, Class: fmammal  [n = 56]:	loss = 0.640  exp loss = 0.573  adjusted loss = 0.573  adv prob = 0.250000   acc = 0.661
+  Color 1, Class: fbird  [n = 1057]:	loss = 0.593  exp loss = 0.579  adjusted loss = 0.579  adv prob = 0.250000   acc = 0.689
+
+Validation:
+Average incurred loss: 0.599  
+Average sample loss: 0.594  
+Average acc: 0.675  
+  Color 0, Class: fmammal  [n = 467]:	loss = 0.576  exp loss = 0.590  adjusted loss = 0.590  adv prob = 0.250000   acc = 0.687
+  Color 0, Class: fbird  [n = 466]:	loss = 0.628  exp loss = 0.624  adjusted loss = 0.624  adv prob = 0.250000   acc = 0.648
+  Color 1, Class: fmammal  [n = 133]:	loss = 0.568  exp loss = 0.559  adjusted loss = 0.559  adv prob = 0.250000   acc = 0.707
+  Color 1, Class: fbird  [n = 133]:	loss = 0.612  exp loss = 0.607  adjusted loss = 0.607  adv prob = 0.250000   acc = 0.692
+Current lr: 0.000100
+Current validation accuracy: 0.6747289299964905
+
+
+Epoch [98]:
+Training:
+Average incurred loss: 0.614  
+Average sample loss: 0.613  
+Average acc: 0.665  
+  Color 0, Class: fmammal  [n = 3498]:	loss = 0.614  exp loss = 0.614  adjusted loss = 0.614  adv prob = 0.250000   acc = 0.666
+  Color 0, Class: fbird  [n = 184]:	loss = 0.618  exp loss = 0.668  adjusted loss = 0.668  adv prob = 0.250000   acc = 0.658
+  Color 1, Class: fmammal  [n = 56]:	loss = 0.630  exp loss = 0.644  adjusted loss = 0.644  adv prob = 0.250000   acc = 0.571
+  Color 1, Class: fbird  [n = 1057]:	loss = 0.610  exp loss = 0.625  adjusted loss = 0.625  adv prob = 0.250000   acc = 0.668
+
+Validation:
+Average incurred loss: 0.635  
+Average sample loss: 0.626  
+Average acc: 0.663  
+  Color 0, Class: fmammal  [n = 467]:	loss = 0.649  exp loss = 0.639  adjusted loss = 0.639  adv prob = 0.250000   acc = 0.645
+  Color 0, Class: fbird  [n = 466]:	loss = 0.645  exp loss = 0.617  adjusted loss = 0.617  adv prob = 0.250000   acc = 0.665
+  Color 1, Class: fmammal  [n = 133]:	loss = 0.545  exp loss = 0.535  adjusted loss = 0.535  adv prob = 0.250000   acc = 0.737
+  Color 1, Class: fbird  [n = 133]:	loss = 0.645  exp loss = 0.621  adjusted loss = 0.621  adv prob = 0.250000   acc = 0.647
+Current lr: 0.000100
+Current validation accuracy: 0.6630525588989258
+
+
+Epoch [99]:
+Training:
+Average incurred loss: 0.614  
+Average sample loss: 0.614  
+Average acc: 0.666  
+  Color 0, Class: fmammal  [n = 3498]:	loss = 0.615  exp loss = 0.622  adjusted loss = 0.622  adv prob = 0.250000   acc = 0.662
+  Color 0, Class: fbird  [n = 184]:	loss = 0.611  exp loss = 0.494  adjusted loss = 0.494  adv prob = 0.250000   acc = 0.685
+  Color 1, Class: fmammal  [n = 56]:	loss = 0.609  exp loss = 0.581  adjusted loss = 0.581  adv prob = 0.250000   acc = 0.679
+  Color 1, Class: fbird  [n = 1057]:	loss = 0.608  exp loss = 0.613  adjusted loss = 0.613  adv prob = 0.250000   acc = 0.677
+
+Validation:
+Average incurred loss: 0.613  
+Average sample loss: 0.607  
+Average acc: 0.666  
+  Color 0, Class: fmammal  [n = 467]:	loss = 0.624  exp loss = 0.631  adjusted loss = 0.631  adv prob = 0.250000   acc = 0.649
+  Color 0, Class: fbird  [n = 466]:	loss = 0.629  exp loss = 0.617  adjusted loss = 0.617  adv prob = 0.250000   acc = 0.655
+  Color 1, Class: fmammal  [n = 133]:	loss = 0.552  exp loss = 0.525  adjusted loss = 0.525  adv prob = 0.250000   acc = 0.699
+  Color 1, Class: fbird  [n = 133]:	loss = 0.576  exp loss = 0.537  adjusted loss = 0.537  adv prob = 0.250000   acc = 0.729
+Current lr: 0.000100
+Current validation accuracy: 0.6655545830726624
+
