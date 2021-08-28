@@ -41,7 +41,7 @@ def main():
     parser.add_argument("--breeds_pair",  type=str)
     parser.add_argument("--breeds_proportions",  type=str)
     parser.add_argument("--breeds_cpu",  type=int)
-    parser.add_argument("--reload_breeds_groups",  type=bool)
+    parser.add_argument("--reload_breeds_groups", default=False, action="store_true")
 
 
     # Objective

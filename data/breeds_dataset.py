@@ -139,10 +139,9 @@ class BreedsDataset(ConfounderDataset):
 
         print("Realign dataset classes to 0,1")
         self.full_dataset = relabel_dataset_targets(self.full_dataset)
-
         if (
             not os.path.exists(np_data_groups)
-            or extra_args.reload_breeds_groups is not None
+            or extra_args.reload_breeds_groups
         ):
             self.full_dataset.groups = np.array([-1] * len(self.full_dataset))
             self.full_dataset = unisonShuffleDataset(

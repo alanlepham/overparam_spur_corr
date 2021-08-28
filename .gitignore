@@ -1,6 +1,7 @@
 __pycache__/
+*.pth
 celebA/
 cub/
 data/__pycache__/
-log*
+logs/*.pth
 slurm-*.out
