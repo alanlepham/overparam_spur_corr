@@ -1,0 +1,80 @@
+Dataset: Breeds
+Shift type: confounder
+Target name: breeds
+Confounder names: None
+Resume: False
+Minority fraction: None
+Imbalance ratio: None
+Fraction: 1.0
+Root dir: None
+Subsample to minority: False
+Reweight groups: False
+Augment data: False
+Val fraction: 0.1
+Breeds dataset type: entity13
+Breeds pair: None
+Breeds proportions: 3498,184,56,1057,467,466,133,133,2255,2255,642,642
+Breeds cpu: None
+Reload breeds groups: None
+Robust: False
+Alpha: 0.2
+Generalization adjustment: 0.0
+Automatic adjustment: False
+Robust step size: 0.01
+Use normalized loss: False
+Btl: False
+Hinge: False
+Model: resnet18
+Train from scratch: True
+Resnet width: None
+N epochs: 100
+Batch size: 128
+Lr: 0.1
+Scheduler: False
+Step scheduler: False
+Scheduler step: 30
+Weight decay: 0.0001
+Gamma: 0.1
+Minimum variational weight: 0
+Seed: 0
+Show progress: False
+Log dir: ./log/basic_breeds
+Log every: 50
+Save step: 50
+Save best: False
+Save last: False
+
+Training Data...
+    Color 0, Class: fmammal: n = 3498
+    Color 0, Class: fbird: n = 184
+    Color 1, Class: fmammal: n = 56
+    Color 1, Class: fbird: n = 1057
+Validation Data...
+    Color 0, Class: fmammal: n = 467
+    Color 0, Class: fbird: n = 466
+    Color 1, Class: fmammal: n = 133
+    Color 1, Class: fbird: n = 133
+Test Data...
+    Color 0, Class: fmammal: n = 2255
+    Color 0, Class: fbird: n = 2255
+    Color 1, Class: fmammal: n = 642
+    Color 1, Class: fbird: n = 642
+
+Epoch [0]:
+Training:
+Average incurred loss: 1.961  
+Average sample loss: 1.943  
+Average acc: 0.502  
+  Color 0, Class: fmammal  [n = 3498]:	loss = 1.937  exp loss = 1.030  adjusted loss = 1.030  adv prob = 0.250000   acc = 0.507
+  Color 0, Class: fbird  [n = 184]:	loss = 2.620  exp loss = 1.205  adjusted loss = 1.205  adv prob = 0.250000   acc = 0.462
+  Color 1, Class: fmammal  [n = 56]:	loss = 2.592  exp loss = 1.090  adjusted loss = 1.090  adv prob = 0.250000   acc = 0.446
+  Color 1, Class: fbird  [n = 1057]:	loss = 1.893  exp loss = 1.048  adjusted loss = 1.048  adv prob = 0.250000   acc = 0.497
+
+Validation:
+Average incurred loss: 9.698  
+Average sample loss: 9.655  
+Average acc: 0.515  
+  Color 0, Class: fmammal  [n = 467]:	loss = 9.627  exp loss = 11.349  adjusted loss = 11.349  adv prob = 0.250000   acc = 0.514
+  Color 0, Class: fbird  [n = 466]:	loss = 8.346  exp loss = 8.094  adjusted loss = 8.094  adv prob = 0.250000   acc = 0.511
+  Color 1, Class: fmammal  [n = 133]:	loss = 11.425  exp loss = 9.586  adjusted loss = 9.586  adv prob = 0.250000   acc = 0.564
+  Color 1, Class: fbird  [n = 133]:	loss = 12.954  exp loss = 18.393  adjusted loss = 18.393  adv prob = 0.250000   acc = 0.481

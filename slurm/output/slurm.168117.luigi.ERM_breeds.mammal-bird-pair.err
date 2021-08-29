@@ -1,0 +1,5 @@
+srun: got SIGCONT
+srun: Job step aborted: Waiting up to 32 seconds for job step to finish.
+slurmstepd-luigi: error: *** STEP 168117.0 ON luigi CANCELLED AT 2021-08-24T12:18:47 ***
+slurmstepd-luigi: error: *** JOB 168117 ON luigi CANCELLED AT 2021-08-24T12:18:47 ***
+srun: forcing job termination

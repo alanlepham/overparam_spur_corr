@@ -1,0 +1,28 @@
+Could not find conda environment: overparam_spur_corr
+You can list all discoverable environments with `conda info --envs`.
+
+Traceback (most recent call last):
+  File "/data/vsrivatsa/overparam_spur_corr/run_expt.py", line 3, in <module>
+    import pandas as pd
+ModuleNotFoundError: No module named 'pandas'
+Traceback (most recent call last):
+  File "/data/vsrivatsa/overparam_spur_corr/run_expt.py", line 3, in <module>
+    import pandas as pd
+ModuleNotFoundError: No module named 'pandas'
+Traceback (most recent call last):
+  File "/data/vsrivatsa/overparam_spur_corr/run_expt.py", line 3, in <module>
+    import pandas as pd
+ModuleNotFoundError: No module named 'pandas'
+Traceback (most recent call last):
+  File "/data/vsrivatsa/overparam_spur_corr/run_expt.py", line 3, in <module>
+    import pandas as pd
+ModuleNotFoundError: No module named 'pandas'
+srun: error: luigi: task 0: Exited with exit code 1
+srun: error: luigi: task 0: Exited with exit code 1
+Traceback (most recent call last):
+  File "/data/vsrivatsa/overparam_spur_corr/run_expt.py", line 3, in <module>
+    import pandas as pd
+ModuleNotFoundError: No module named 'pandas'
+srun: error: luigi: task 0: Exited with exit code 1
+srun: error: luigi: task 0: Exited with exit code 1
+srun: error: luigi: task 0: Exited with exit code 1
