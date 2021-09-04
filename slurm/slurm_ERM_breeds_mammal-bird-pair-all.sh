@@ -90,7 +90,14 @@ job_limit 5
 srun -N 1 -n 1 --gres=gpu:1 python run_expt.py --shift_type confounder --dataset Breeds --target_name breeds --save_step 10 --breeds_proportions 441,10676,9918,8258,1270,1528,1439,1147,2531,3050,3846,2341 --save_last --save_best --lr .1 --step_scheduler --scheduler_step 120 --n_epochs 100 --batch_size 128 --weight_decay 1.00E-04 --model resnet101 --train_from_scratch --gamma 0.1 --generalization_adjustment 0 --breeds_dataset_type entity13 --log_dir ./logs/ERM_breeds/mammal-bird-pair-all/1d72d98a-2008-4951-9973-834107c7acc4 & 
 job_limit 5
 
-srun -N 1 -n 1 --gres=gpu:1 python run_expt.py --shift_type confounder --dataset Breeds --target_name breeds --save_step 10 --breeds_proportions 441,10676,9918,8258,1270,1528,1439,1147,2531,3050,3846,2341 --save_last --save_best --lr .1 --step_scheduler --scheduler_step 120 --n_epochs 100 --batch_size 128 --weight_decay 1.00E-04 --model resnet152 --train_from_scratch --gamma 0.1 --generalization_adjustment 0 --breeds_dataset_type entity13 --log_dir ./logs/ERM_breeds/mammal-bird-pair-all/c2204093-2010-425d-803f-c0e2c802f96e 
+srun -N 1 -n 1 --gres=gpu:1 python run_expt.py --shift_type confounder --dataset Breeds --target_name breeds --save_step 10 --breeds_proportions 441,10676,9918,8258,1270,1528,1439,1147,2531,3050,3846,2341 --save_last --save_best --lr .1 --step_scheduler --scheduler_step 120 --n_epochs 100 --batch_size 128 --weight_decay 1.00E-04 --model resnet152 --train_from_scratch --gamma 0.1 --generalization_adjustment 0 --breeds_dataset_type entity13 --log_dir ./logs/ERM_breeds/mammal-bird-pair-all/c2204093-2010-425d-803f-c0e2c802f96e &
+job_limit 5
+
+srun -N 1 -n 1 --gres=gpu:1 python run_expt.py --shift_type confounder --dataset Breeds --target_name breeds --save_step 10 --save_last --save_best --lr .1 --step_scheduler --scheduler_step 60 --n_epochs 100 --batch_size 128 --weight_decay 1.00E-04 --model resnet18 --train_from_scratch --gamma 0.5 --generalization_adjustment 0 --breeds_dataset_type entity13 --log_dir ./logs/ERM_breeds/mammal-bird-pair-all/d66c657c-e176-4b18-801f-d2f718803674 & 
+job_limit 5
+
+srun -N 1 -n 1 --gres=gpu:1 python run_expt.py --shift_type confounder --dataset Breeds --target_name breeds --save_step 10 --save_last --save_best --lr .1 --step_scheduler --scheduler_step 120 --n_epochs 100 --batch_size 128 --weight_decay 1.00E-04 --model resnet18 --train_from_scratch --gamma 0.5 --generalization_adjustment 0 --breeds_dataset_type entity13 --log_dir ./logs/ERM_breeds/mammal-bird-pair-all/6e52c060-c5af-4198-9ccc-7e613df5fa93 
+
 
 wait
 date
