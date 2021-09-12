@@ -1,0 +1,86 @@
+/var/lib/slurm-llnl/slurmd/job168630/slurm_script: line 24: conda: command not found
+  File "run_expt.py", line 162
+  File "run_expt.py", line 162
+  File "run_expt.py", line 162
+    filename_csv = f"{filename}.csv"
+    filename_csv = f"{filename}.csv"
+  File "run_expt.py", line 162
+    filename_csv = f"{filename}.csv"
+                                   ^
+  File "run_expt.py", line 162
+                                   ^
+    filename_csv = f"{filename}.csv"
+                                   ^
+SyntaxError: invalid syntax
+    filename_csv = f"{filename}.csv"
+SyntaxError: invalid syntax
+                                   ^
+SyntaxError: invalid syntax
+                                   ^
+SyntaxError: invalid syntax
+SyntaxError: invalid syntax
+srun: error: luigi: task 0: Exited with exit code 1
+srun: error: luigi: task 0: Exited with exit code 1
+srun: error: luigi: task 0: Exited with exit code 1
+srun: error: luigi: task 0: Exited with exit code 1
+srun: error: luigi: task 0: Exited with exit code 1
+  File "run_expt.py", line 162
+    filename_csv = f"{filename}.csv"
+                                   ^
+SyntaxError: invalid syntax
+  File "run_expt.py", line 162
+    filename_csv = f"{filename}.csv"
+                                   ^
+SyntaxError: invalid syntax
+  File "run_expt.py", line 162
+    filename_csv = f"{filename}.csv"
+                                   ^
+SyntaxError: invalid syntax
+  File "run_expt.py", line 162
+    filename_csv = f"{filename}.csv"
+                                   ^
+SyntaxError: invalid syntax
+  File "run_expt.py", line 162
+    filename_csv = f"{filename}.csv"
+                                   ^
+SyntaxError: invalid syntax
+srun: error: luigi: task 0: Exited with exit code 1
+srun: error: luigi: task 0: Exited with exit code 1
+srun: error: luigi: task 0: Exited with exit code 1
+srun: error: luigi: task 0: Exited with exit code 1
+srun: error: luigi: task 0: Exited with exit code 1
+  File "run_expt.py", line 162
+    filename_csv = f"{filename}.csv"
+                                   ^
+SyntaxError: invalid syntax
+  File "run_expt.py", line 162
+    filename_csv = f"{filename}.csv"
+                                   ^
+SyntaxError: invalid syntax
+  File "run_expt.py", line 162
+    filename_csv = f"{filename}.csv"
+                                   ^
+SyntaxError: invalid syntax
+  File "run_expt.py", line 162
+    filename_csv = f"{filename}.csv"
+                                   ^
+SyntaxError: invalid syntax
+srun: error: luigi: task 0: Exited with exit code 1
+  File "run_expt.py", line 162
+    filename_csv = f"{filename}.csv"
+                                   ^
+SyntaxError: invalid syntax
+srun: error: luigi: task 0: Exited with exit code 1
+srun: error: luigi: task 0: Exited with exit code 1
+srun: error: luigi: task 0: Exited with exit code 1
+srun: error: luigi: task 0: Exited with exit code 1
+  File "run_expt.py", line 162
+    filename_csv = f"{filename}.csv"
+                                   ^
+  File "run_expt.py", line 162
+SyntaxError: invalid syntax
+    filename_csv = f"{filename}.csv"
+                                   ^
+SyntaxError: invalid syntax
+srun: error: luigi: task 0: Exited with exit code 1
+srun: error: luigi: task 0: Exited with exit code 1
