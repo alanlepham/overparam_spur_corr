@@ -64,6 +64,7 @@ class CelebADataset(ConfounderDataset):
         )
         self.split_array = self.split_df["partition"].values
         self.split_dict = {"train": 0, "val": 1, "test": 2}
+        self.split_num_groups = {"train": self.n_groups, "val": self.n_groups, "test": self.n_groups}
 
         if model_attributes[self.model_type]["feature_type"] == "precomputed":
             self.features_mat = torch.from_numpy(

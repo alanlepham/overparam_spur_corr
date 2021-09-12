@@ -42,7 +42,8 @@ def main():
     parser.add_argument("--breeds_proportions",  type=str)
     parser.add_argument("--breeds_cpu",  type=int)
     parser.add_argument("--reload_breeds_groups", default=False, action="store_true")
-
+    parser.add_argument("--breeds_external_group",  type=str)
+    parser.add_argument("--breeds_color_dots", default=False, action="store_true")
 
     # Objective
     parser.add_argument("--robust", default=False, action="store_true")

@@ -23,6 +23,9 @@ from robustness.tools.breeds_helpers import print_dataset_info
 from sklearn.cluster import KMeans
 from collections import Counter, defaultdict
 from p_tqdm import p_map
+from PIL import Image, ImageDraw
+from random import randint
+import numpy as np
 
 
 class BreedsDataset(ConfounderDataset):
@@ -46,6 +49,8 @@ class BreedsDataset(ConfounderDataset):
         self.augment_data = augment_data
         self.model_type = model_type
 
+        # breeds_dataset_type = extra_args.breeds_external_group
+
         breeds_dataset_type = extra_args.breeds_dataset_type
         breeds_proportions = []
         if extra_args.breeds_proportions:
@@ -61,6 +66,7 @@ class BreedsDataset(ConfounderDataset):
             pair = extra_args.breeds_pair
 
         np_data_groups = f"./log/basic_breeds/{pair}_groups.npy"
+        np_data_groups_dots = f"./log/basic_breeds/{pair}_groups_dots.npy"
 
         # TODO assumption based on rise machines
         if os.path.exists("/data/imagenetwhole"):
@@ -103,35 +109,11 @@ class BreedsDataset(ConfounderDataset):
         # -----------------
         # Loading Dataset
         # ----------------
+        self.full_dataset = load_breeds_groups(classes_available, data_dir, train_subclasses, label_map, test_subclasses)
 
-        # Load Seperate Source and Target datasets and select classes
-        dataset_source = datasets.CustomImageNet(data_dir, train_subclasses)
-        loaders_source = dataset_loader_helper(dataset_source)
-
-        train_set, test_set = loaders_source
-        train_set_source = filter_dataset_with_subclasses(
-            train_set, label_map, classes_available
-        )
-        test_set_source = filter_dataset_with_subclasses(
-            test_set, label_map, classes_available
-        )
-
-        dataset_target = datasets.CustomImageNet(data_dir, test_subclasses)
-        loaders_target = dataset_loader_helper(dataset_target)
-
-        train_target, test_target = loaders_target
-        train_set_target = filter_dataset_with_subclasses(
-            train_target, label_map, classes_available
-        )
-        test_set_target = filter_dataset_with_subclasses(
-            test_target, label_map, classes_available
-        )
-
-        # Combine datasets together since training from scratch and creating custom subgroups
-
-        self.train_set = concat_datasets_inplace(train_set_source, train_set_target)
-        self.test_set = concat_datasets_inplace(test_set_source, test_set_target)
-        self.full_dataset = concat_datasets_inplace(self.train_set, self.test_set)
+        self.breeds_extra_test_group = None
+        if extra_args.breeds_external_group:
+            self.breeds_extra_test_group = load_breeds_groups([extra_args.breeds_external_group], data_dir, train_subclasses, label_map, test_subclasses)
 
         # --------------------------
         # Relabel and Compute Groups
@@ -139,21 +121,20 @@ class BreedsDataset(ConfounderDataset):
 
         print("Realign dataset classes to 0,1")
         self.full_dataset = relabel_dataset_targets(self.full_dataset)
-        if (
-            not os.path.exists(np_data_groups)
-            or extra_args.reload_breeds_groups
-        ):
-            self.full_dataset.groups = np.array([-1] * len(self.full_dataset))
-            self.full_dataset = unisonShuffleDataset(
-                self.full_dataset
-            )  # Shuffle dataset before computing groups
-            num_cpus = extra_args.breeds_cpu if extra_args.breeds_cpu else 16
-            groups = compute_groups(self.full_dataset, num_cpus=num_cpus)
-            with open(np_data_groups, "wb") as f:
-                np.save(f, groups)
+        if extra_args.breeds_color_dots:
+            groups = self.load_groups(
+                np_data_groups_dots,
+                compute_groups_using_dots,
+                extra_args.reload_breeds_groups,
+                extra_args.breeds_cpu
+            )
         else:
-            with open(np_data_groups, "rb") as f:
-                groups = np.load(f)
+            groups = self.load_groups(
+                np_data_groups,
+                compute_groups_dominant_color,
+                extra_args.reload_breeds_groups,
+                extra_args.breeds_cpu
+            )
 
         self.full_dataset.groups = np.array(groups)
 
@@ -168,6 +149,7 @@ class BreedsDataset(ConfounderDataset):
         self.group_array = self.full_dataset.groups
 
         self.split_dict = {"train": 0, "val": 1, "test": 2}
+        self.split_num_groups = {"train": 4, "val": 4, "test": 4}
 
         validation_percent = 0.1
         test_percent = 0.2
@@ -196,7 +178,6 @@ class BreedsDataset(ConfounderDataset):
                     counts[i // 4][i % 4] = (
                         breeds_proportions[i] * self.split_sizes[i / 4]
                     )
-
             else:
                 # truncate_dataset(full_dataset, expected_size=sum(breeds_proportions))
 
@@ -204,9 +185,10 @@ class BreedsDataset(ConfounderDataset):
                 for i in range(12):
                     counts[i // 4][i % 4] = breeds_proportions[i]
                 print("New Counts", counts)
-            self.split_array = [0, 1, 2]                 
+            self.split_array = [0, 1, 2]
             self.split_array = resample(self.split_array, self.group_array, counts)
             print(get_counts(self.split_array, self.group_array))
+
         print("Completed initializing breeds")
 
     def __len__(self):
@@ -220,9 +202,11 @@ class BreedsDataset(ConfounderDataset):
 
     def group_str(self, group_idx):
         # First two groups are label 0 and second two groups are label 1
-
+        # class: mammal, bird external class: anthropod
+    
         # 0, 0 -> 0 -> color group 0, class 0
         # 0, 1 -> 1 -> color group 0, class 1
+
         # 1, 0 -> 2 -> color group 1, class 0
         # 1, 1 -> 3 -> color group 1, class 1
 
@@ -235,13 +219,106 @@ class BreedsDataset(ConfounderDataset):
         class_name = self.classes_available[class_num]
         return f"Color 0, Class: f{class_name}"
 
+    def load_groups(
+        self, groups_file_name, load_func, reload_breeds_groups, breeds_cpu
+    ):
+        if not os.path.exists(groups_file_name) or reload_breeds_groups:
+            self.full_dataset.groups = np.array([-1] * len(self.full_dataset))
+            self.full_dataset = unisonShuffleDataset(
+                self.full_dataset
+            )  # Shuffle dataset before computing groups
+            num_cpus = breeds_cpu if breeds_cpu else 16
+            groups = load_func(self.full_dataset, num_cpus=num_cpus)
+            with open(groups_file_name, "wb") as f:
+                np.save(f, groups)
+        else:
+            with open(groups_file_name, "rb") as f:
+                groups = np.load(f)
+
+def load_breeds_groups(classes_available, data_dir, train_subclasses, label_map, test_subclasses):
+    dataset_source = datasets.CustomImageNet(data_dir, train_subclasses)
+    loaders_source = dataset_loader_helper(dataset_source)
+    train_set, test_set = loaders_source
+    train_set_source = filter_dataset_with_subclasses(
+        train_set, label_map, classes_available
+    )
+    test_set_source = filter_dataset_with_subclasses(
+        test_set, label_map, classes_available
+    )
+
+    dataset_target = datasets.CustomImageNet(data_dir, test_subclasses)
+    loaders_target = dataset_loader_helper(dataset_target)
+
+    train_target, test_target = loaders_target
+    train_set_target = filter_dataset_with_subclasses(
+        train_target, label_map, classes_available
+    )
+    test_set_target = filter_dataset_with_subclasses(
+        test_target, label_map, classes_available
+    )
+    train_set = concat_datasets_inplace(train_set_source, train_set_target)
+    test_set = concat_datasets_inplace(test_set_source, test_set_target)
+    full_dataset = concat_datasets_inplace(train_set, test_set)
+    return full_dataset
+
+def colored_white(arr, size=40, color="white"):
+    return colored_circle(arr, size=size, color=color)
+
+
+def colored_black(arr, size=40, color="black"):
+    return colored_circle(arr, size=size, color=color)
+
+
+def colored_circle(arr, size=40, color="white"):
+    image = Image.fromarray(arr)
+    image = image.resize((224, 224))
+    draw = ImageDraw.Draw(image)
+    loc = randint(size, 224 - size)
+
+    draw.ellipse((loc, loc, loc + size, loc + size), fill=color)
+    return np.array(image, dtype=np.uint8)
+
+
+def compute_groups_using_dots(full_dataset):
+    indices = full_dataset.targets == 0
+    class0_white = indices[: len(full_dataset) // 2]
+    class0_black = indices[len(full_dataset) // 2 :]
+
+    indices = full_dataset.targets == 1
+    class1_white = indices[: len(indices) // 2]
+    class1_black = indices[len(indices) // 2 :]
+
+    full_dataset.samples[class0_white] = p_map(
+        colored_white, full_dataset.samples[class0_white]
+    )
+    full_dataset.samples[class1_white] = p_map(
+        colored_white, full_dataset.samples[class1_white]
+    )
+
+    full_dataset.samples[class0_black] = p_map(
+        colored_black, full_dataset.samples[class0_black]
+    )
+    full_dataset.samples[class1_black] = p_map(
+        colored_black, full_dataset.samples[class1_black]
+    )
+
+    groups = np.array([0] * len(full_dataset))
+
+    groups[class0_white] = 0
+    groups[class1_white] = 1
+
+    groups[class0_black] = 2
+    groups[class1_black] = 3
+    return groups
+
+
 def truncate_dataset(full_dataset, expected_size=1000):
     full_dataset.samples = full_dataset.samples[:expected_size]
     full_dataset.targets = full_dataset.targets[:expected_size]
     full_dataset.groups = full_dataset.groups[:expected_size]
 
 
-def compute_groups(full_dataset, num_cpus=16):
+def compute_groups_dominant_color(full_dataset, num_cpus=16):
     print("Computing dominant color metrics for dataset")
     samples = p_map(lambda item: item[0], full_dataset, num_cpus=num_cpus)
     dominant_metrics_computed = p_map(compute_dominant, samples, num_cpus=num_cpus)
@@ -307,22 +384,23 @@ def filter_dataset_with_subclasses(
 
 
 def dataset_loader_helper(dataset_source):
-    train_transform = transforms.Compose([
+    train_transform = transforms.Compose(
+        [
             transforms.RandomResizedCrop(224),
             transforms.RandomHorizontalFlip(),
             transforms.ToTensor(),
-            transforms.Normalize(mean=[0.485, 0.456, 0.406],
-                                     std=[0.229, 0.224, 0.225]),
-    ])
-    
-    test_transform = transforms.Compose([
-        transforms.Resize(256),
-        transforms.CenterCrop(224),
-        transforms.ToTensor(),
-        transforms.Normalize(mean=[0.485, 0.456, 0.406],
-                                    std=[0.229, 0.224, 0.225]),
-    ])
+            transforms.Normalize(mean=[0.485, 0.456, 0.406], std=[0.229, 0.224, 0.225]),
+        ]
+    )
 
+    test_transform = transforms.Compose(
+        [
+            transforms.Resize(256),
+            transforms.CenterCrop(224),
+            transforms.ToTensor(),
+            transforms.Normalize(mean=[0.485, 0.456, 0.406], std=[0.229, 0.224, 0.225]),
+        ]
+    )
 
     return load_dataset_values(
         transforms=(train_transform, test_transform),

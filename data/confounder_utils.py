@@ -62,7 +62,7 @@ def prepare_confounder_data(args, train, return_full_dataset=False):
         DRODataset(
             subsets[split],
             process_item_fn=None,
-            n_groups=full_dataset.n_groups,
+            n_groups=full_dataset.split_num_groups[split],
             n_classes=full_dataset.n_classes,
             group_str_fn=full_dataset.group_str) \
         for split in splits]

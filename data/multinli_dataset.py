@@ -76,6 +76,7 @@ class MultiNLIDataset(ConfounderDataset):
         # Extract splits
         self.split_array = self.metadata_df["split"].values
         self.split_dict = {"train": 0, "val": 1, "test": 2}
+        self.split_num_groups = {"train": self.n_groups, "val": self.n_groups, "test": self.n_groups}
 
         # Load features
         self.features_array = []
