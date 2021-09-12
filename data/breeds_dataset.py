@@ -289,20 +289,23 @@ def compute_groups_using_dots(full_dataset, num_cpus=16):
     indices = full_dataset.targets == 1
     class1_white = np.append(indices[: len(indices) // 2], remaining)
     class1_black = np.append(remaining, indices[len(indices) // 2 :])
-    
+
+    print("Loading Samples")
+    samples = p_map(lambda item: item[0], full_dataset[:5], num_cpus=num_cpus)
+
     print("Drawing white circles")
     full_dataset.samples[class0_white] = p_map(
-        colored_white, full_dataset[class0_white], num_cpus=num_cpus
+        colored_white, samples[class0_white], num_cpus=num_cpus
     )
     full_dataset.samples[class1_white] = p_map(
-        colored_white, full_dataset[class1_white], num_cpus=num_cpus
+        colored_white, samples[class1_white], num_cpus=num_cpus
     )
     print("Drawing black circles")
     full_dataset.samples[class0_black] = p_map(
-        colored_black, full_dataset[class0_black], num_cpus=num_cpus
+        colored_black, samples[class0_black], num_cpus=num_cpus
     )
     full_dataset.samples[class1_black] = p_map(
-        colored_black, full_dataset[class1_black], num_cpus=num_cpus
+        colored_black, samples[class1_black], num_cpus=num_cpus
     )
     
     print("Completed drawing circles")
