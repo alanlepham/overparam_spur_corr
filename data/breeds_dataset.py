@@ -569,14 +569,23 @@ class DrawBlackWhiteDots(torch.nn.Module):
         return self.__class__.__name__ + '(p={})'.format(self.p)
 
 def compute_groups_using_dots(full_dataset: DotDatasetFolder, num_cpus=16):
+    def set_first_half_false(arr):
+        item = arr.copy()
+        item[:len(arr) // 2] = False
+        return item
+
+    def set_second_half_false(arr):
+        item = arr.copy()
+        item[len(arr) // 2:] = False
+        return item    
+    
     indices = full_dataset.targets == 0
-    remaining = np.array([False] * (len(full_dataset) - len(full_dataset) // 2))
-    class0_white = np.append(indices[: len(full_dataset) // 2], remaining)
-    class0_black = np.append(remaining, indices[len(full_dataset) // 2 :])
+    class0_white = set_second_half_false(indices)
+    class0_black = set_first_half_false(indices)
 
     indices = full_dataset.targets == 1
-    class1_white = np.append(indices[: len(indices) // 2], remaining)
-    class1_black = np.append(remaining, indices[len(indices) // 2 :])
+    class1_white = set_second_half_false(indices)
+    class1_black = set_first_half_false(indices)
 
     full_dataset.draw_dots = True
     full_dataset.group_array[class0_white] = 0
