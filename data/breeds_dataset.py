@@ -124,6 +124,7 @@ class BreedsDataset(ConfounderDataset):
         print("Realign dataset classes to 0,1")
         self.full_dataset = relabel_dataset_targets(self.full_dataset)
         if extra_args.breeds_color_dots:
+            self.full_dataset.draw_dots = True
             groups = self.load_groups(
                 np_data_groups_dots,
                 compute_groups_using_dots,
@@ -137,6 +138,8 @@ class BreedsDataset(ConfounderDataset):
                 extra_args.reload_breeds_groups,
                 extra_args.breeds_cpu
             )
+
+        self.full_dataset.groups = groups
 
         self.full_dataset = unisonShuffleDataset(
             self.full_dataset
@@ -234,6 +237,7 @@ class BreedsDataset(ConfounderDataset):
         else:
             with open(groups_file_name, "rb") as f:
                 groups = np.load(f)
+        return groups
 
 def load_breeds_classes(classes_available, data_dir, train_subclasses, label_map, test_subclasses):
     dataset_source = datasets.CustomImageNet(data_dir, train_subclasses)
@@ -585,10 +589,10 @@ def compute_groups_using_dots(full_dataset: DotDatasetFolder, num_cpus=16):
     class1_white = set_second_half_false(indices)
     class1_black = set_first_half_false(indices)
 
-    full_dataset.draw_dots = True
-    full_dataset.groups[class0_white] = 0
-    full_dataset.groups[class1_white] = 1
+    groups = full_dataset.groups
+    groups[class0_white] = 0
+    groups[class1_white] = 1
 
-    full_dataset.groups[class0_black] = 2
-    full_dataset.groups[class1_black] = 3
-    return full_dataset.groups
+    groups[class0_black] = 2
+    groups[class1_black] = 3
+    return groups
