@@ -52,7 +52,7 @@ def run_epoch(
             batch = tuple(t.cuda() for t in batch)
             x = batch[0]
             from torchvision.utils import save_image
-            save_image(x, open("test.png", "w"))
+            save_image(x, open("test.png", "wb"))
 
             import sys
             sys.exit(1)
