@@ -279,29 +279,32 @@ def colored_circle(arr, size=40, color="white"):
     return np.array(image, dtype=np.uint8)
 
 
-def compute_groups_using_dots(full_dataset):
+def compute_groups_using_dots(full_dataset, num_cpus=16):
     indices = full_dataset.targets == 0
-    class0_white = indices[: len(full_dataset) // 2]
-    class0_black = indices[len(full_dataset) // 2 :]
+    remaining = np.array([False] * (len(full_dataset) - len(full_dataset) // 2))
+    class0_white = np.append(indices[: len(full_dataset) // 2], remaining)
+    class0_black = np.append(remaining, indices[len(full_dataset) // 2 :])
 
     indices = full_dataset.targets == 1
-    class1_white = indices[: len(indices) // 2]
-    class1_black = indices[len(indices) // 2 :]
-
+    class1_white = np.append(indices[: len(indices) // 2], remaining)
+    class1_black = np.append(remaining, indices[len(indices) // 2 :])
+    
+    print("Drawing white circles")
     full_dataset.samples[class0_white] = p_map(
-        colored_white, full_dataset.samples[class0_white]
+        colored_white, full_dataset.samples[class0_white], num_cpus=num_cpus
     )
     full_dataset.samples[class1_white] = p_map(
-        colored_white, full_dataset.samples[class1_white]
+        colored_white, full_dataset.samples[class1_white], num_cpus=num_cpus
     )
-
+    print("Drawing black circles")
     full_dataset.samples[class0_black] = p_map(
-        colored_black, full_dataset.samples[class0_black]
+        colored_black, full_dataset.samples[class0_black], num_cpus=num_cpus
     )
     full_dataset.samples[class1_black] = p_map(
-        colored_black, full_dataset.samples[class1_black]
+        colored_black, full_dataset.samples[class1_black], num_cpus=num_cpus
     )
-
+    
+    print("Completed drawing circles")
     groups = np.array([0] * len(full_dataset))
 
     groups[class0_white] = 0
