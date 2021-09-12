@@ -117,7 +117,6 @@ class BreedsDataset(ConfounderDataset):
         if extra_args.breeds_external_group:
             self.breeds_extra_test_group = load_breeds_classes([extra_args.breeds_external_group], data_dir, train_subclasses, label_map, test_subclasses)
 
-        self.full_dataset.groups = [-1] * len(self.full_dataset)
         # --------------------------
         # Relabel and Compute Groups
         # --------------------------
@@ -138,8 +137,6 @@ class BreedsDataset(ConfounderDataset):
                 extra_args.reload_breeds_groups,
                 extra_args.breeds_cpu
             )
-
-        self.full_dataset.groups = np.array(groups)
 
         self.full_dataset = unisonShuffleDataset(
             self.full_dataset
