@@ -51,6 +51,12 @@ def run_epoch(
 
             batch = tuple(t.cuda() for t in batch)
             x = batch[0]
+            from torchvision.utils import save_image
+            save_image(x, open("test.png", "w"))
+
+            import sys
+            sys.exit(1)
+
             y = batch[1]
             g = batch[2]
             if args.model == "bert":
