@@ -291,17 +291,17 @@ def compute_groups_using_dots(full_dataset, num_cpus=16):
     
     print("Drawing white circles")
     full_dataset.samples[class0_white] = p_map(
-        colored_white, full_dataset.samples[class0_white], num_cpus=num_cpus
+        colored_white, full_dataset[class0_white], num_cpus=num_cpus
     )
     full_dataset.samples[class1_white] = p_map(
-        colored_white, full_dataset.samples[class1_white], num_cpus=num_cpus
+        colored_white, full_dataset[class1_white], num_cpus=num_cpus
     )
     print("Drawing black circles")
     full_dataset.samples[class0_black] = p_map(
-        colored_black, full_dataset.samples[class0_black], num_cpus=num_cpus
+        colored_black, full_dataset[class0_black], num_cpus=num_cpus
     )
     full_dataset.samples[class1_black] = p_map(
-        colored_black, full_dataset.samples[class1_black], num_cpus=num_cpus
+        colored_black, full_dataset[class1_black], num_cpus=num_cpus
     )
     
     print("Completed drawing circles")
