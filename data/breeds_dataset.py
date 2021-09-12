@@ -270,6 +270,7 @@ def colored_black(arr, size=40, color="black"):
 
 
 def colored_circle(arr, size=40, color="white"):
+    print(arr, arr.shape)
     image = Image.fromarray(arr)
     image = image.resize((224, 224))
     draw = ImageDraw.Draw(image)
