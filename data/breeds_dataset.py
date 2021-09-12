@@ -5,6 +5,7 @@ import os
 import torch
 from PIL import Image
 import numpy as np
+import copy
 import torchvision.transforms as transforms
 from models import model_attributes
 from torch.utils.data import Dataset, Subset
@@ -513,10 +514,10 @@ class DotDatasetFolder(folder.ImageFolder):
                 self.tensor_index = i
                 break
         
-        self.transform_white = self.transform.copy()
-        self.transform_white.insert(self.tensor_index, DrawBlackWhiteDots("white"))
+        self.transform_white : transforms.Compose= copy.deepcopy(self.transform)
+        self.transform_white.transforms.insert(self.tensor_index, DrawBlackWhiteDots("white"))
 
-        self.transform_black = self.transform.copy()
+        self.transform_black : transforms.Compose= copy.deepcopy(self.transform)
         self.transform_black.insert(self.tensor_index, DrawBlackWhiteDots("black"))
 
     def __getitem__(self, index):
