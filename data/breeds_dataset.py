@@ -1,3 +1,4 @@
+from torchvision.transforms.transforms import ToTensor
 from data.resample_utils import resample, get_counts
 from enum import Enum, auto
 import os
@@ -269,54 +270,12 @@ def colored_black(arr, size=40, color="black"):
     return colored_circle(arr, size=size, color=color)
 
 
-def colored_circle(arr, size=40, color="white"):
-    print(arr, arr.shape)
-    image = Image.fromarray(arr)
-    image = image.resize((224, 224))
+def colored_circle(image, size=40, color="white"):
+    #image = image.resize((3, 224, 224))
     draw = ImageDraw.Draw(image)
-    loc = randint(size, 224 - size)
-
+    loc = randint(size, len(image) - size)
     draw.ellipse((loc, loc, loc + size, loc + size), fill=color)
     return np.array(image, dtype=np.uint8)
-
-
-def compute_groups_using_dots(full_dataset, num_cpus=16):
-    indices = full_dataset.targets == 0
-    remaining = np.array([False] * (len(full_dataset) - len(full_dataset) // 2))
-    class0_white = np.append(indices[: len(full_dataset) // 2], remaining)
-    class0_black = np.append(remaining, indices[len(full_dataset) // 2 :])
-
-    indices = full_dataset.targets == 1
-    class1_white = np.append(indices[: len(indices) // 2], remaining)
-    class1_black = np.append(remaining, indices[len(indices) // 2 :])
-
-    print("Loading Samples")
-    samples = p_map(lambda item: item[0], full_dataset[:5], num_cpus=num_cpus)
-
-    print("Drawing white circles")
-    full_dataset.samples[class0_white] = p_map(
-        colored_white, samples[class0_white], num_cpus=num_cpus
-    )
-    full_dataset.samples[class1_white] = p_map(
-        colored_white, samples[class1_white], num_cpus=num_cpus
-    )
-    print("Drawing black circles")
-    full_dataset.samples[class0_black] = p_map(
-        colored_black, samples[class0_black], num_cpus=num_cpus
-    )
-    full_dataset.samples[class1_black] = p_map(
-        colored_black, samples[class1_black], num_cpus=num_cpus
-    )
-    
-    print("Completed drawing circles")
-    groups = np.array([0] * len(full_dataset))
-
-    groups[class0_white] = 0
-    groups[class1_white] = 1
-
-    groups[class0_black] = 2
-    groups[class1_black] = 3
-    return groups
 
 
 def truncate_dataset(full_dataset, expected_size=1000):
@@ -458,10 +417,10 @@ def load_dataset_values(
             )
 
         if not only_val:
-            train_set = folder.ImageFolder(
+            train_set = DotDatasetFolder(
                 root=train_path, transform=transform_train, label_mapping=label_mapping
             )
-        test_set = folder.ImageFolder(
+        test_set = DotDatasetFolder(
             root=test_path, transform=transform_test, label_mapping=label_mapping
         )
     else:
@@ -536,3 +495,92 @@ def compute_dominant(image):
     except ValueError:
         # In the case dominant color fails use average. TODO find invalid cases
         return compute_average(orig_image)
+
+
+class DotDatasetFolder(folder.ImageFolder):
+    def __init__(self, root, transform=None, target_transform=None, label_mapping=None):
+        super(DotDatasetFolder, self).__init__(root,
+                                            transform=transform,
+                                            target_transform=target_transform,
+                                            label_mapping=label_mapping)
+        self.imgs = self.samples
+        self.group_array = np.array([-1] * len(self.samples))
+        self.draw_dots = False
+
+        self.tensor_index = -1
+        for i in range(len(self.transform.transforms)):
+            if isinstance(self.transform.transforms[i], ToTensor):
+                self.tensor_index = i
+                break
+        
+        self.transform_white = self.transform.copy()
+        self.transform_white.insert(self.tensor_index, DrawBlackWhiteDots("white"))
+
+        self.transform_black = self.transform.copy()
+        self.transform_black.insert(self.tensor_index, DrawBlackWhiteDots("black"))
+
+    def __getitem__(self, index):
+        """
+        Args:
+            index (int): Index
+
+        Returns:
+            tuple: (sample, target) where target is class_index of the target class.
+        """
+        path, target = self.samples[index]
+        sample = self.loader(path)
+        group_index = self.group_array[index]
+        if self.transform is not None:
+            if not self.draw_dots:
+                sample = self.transform(sample)
+            else:
+                if group_index < 2:
+                    sample = self.transform_white(sample) 
+                else:
+                    sample = self.transform_black(sample)
+
+        if self.target_transform is not None:
+            target = self.target_transform(target)
+    
+        return sample, target
+
+
+class DrawBlackWhiteDots(torch.nn.Module):
+    """Draws white/black group
+    """
+
+    def __init__(self, group_color):
+        super().__init__()
+        self.group_color = group_color
+
+    def forward(self, img):
+        """
+        Args:
+            img (PIL Image or Tensor): Image to be flipped.
+
+        Returns:
+            PIL Image or Tensor: Randomly flipped image.
+        """
+        img = colored_circle(img, color=self.group_color)
+        return img
+
+    def __repr__(self):
+        return self.__class__.__name__ + '(p={})'.format(self.p)
+
+def compute_groups_using_dots(full_dataset: DotDatasetFolder, num_cpus=16):
+    indices = full_dataset.targets == 0
+    remaining = np.array([False] * (len(full_dataset) - len(full_dataset) // 2))
+    class0_white = np.append(indices[: len(full_dataset) // 2], remaining)
+    class0_black = np.append(remaining, indices[len(full_dataset) // 2 :])
+
+    indices = full_dataset.targets == 1
+    class1_white = np.append(indices[: len(indices) // 2], remaining)
+    class1_black = np.append(remaining, indices[len(indices) // 2 :])
+
+    full_dataset.draw_dots = True
+    full_dataset.group_array[class0_white] = 0
+    full_dataset.group_array[class1_white] = 1
+
+    full_dataset.group_array[class0_black] = 2
+    full_dataset.group_array[class1_black] = 3
+    return full_dataset.group_array
