@@ -111,12 +111,13 @@ class BreedsDataset(ConfounderDataset):
         # -----------------
         # Loading Dataset
         # ----------------
-        self.full_dataset = load_breeds_groups(classes_available, data_dir, train_subclasses, label_map, test_subclasses)
+        self.full_dataset = load_breeds_classes(classes_available, data_dir, train_subclasses, label_map, test_subclasses)
 
         self.breeds_extra_test_group = None
         if extra_args.breeds_external_group:
-            self.breeds_extra_test_group = load_breeds_groups([extra_args.breeds_external_group], data_dir, train_subclasses, label_map, test_subclasses)
+            self.breeds_extra_test_group = load_breeds_classes([extra_args.breeds_external_group], data_dir, train_subclasses, label_map, test_subclasses)
 
+        self.full_dataset.groups = [-1] * len(self.full_dataset)
         # --------------------------
         # Relabel and Compute Groups
         # --------------------------
@@ -237,7 +238,7 @@ class BreedsDataset(ConfounderDataset):
             with open(groups_file_name, "rb") as f:
                 groups = np.load(f)
 
-def load_breeds_groups(classes_available, data_dir, train_subclasses, label_map, test_subclasses):
+def load_breeds_classes(classes_available, data_dir, train_subclasses, label_map, test_subclasses):
     dataset_source = datasets.CustomImageNet(data_dir, train_subclasses)
     loaders_source = dataset_loader_helper(dataset_source)
     train_set, test_set = loaders_source
@@ -505,7 +506,7 @@ class DotDatasetFolder(folder.ImageFolder):
                                             target_transform=target_transform,
                                             label_mapping=label_mapping)
         self.imgs = self.samples
-        self.group_array = np.array([-1] * len(self.samples))
+        self.groups = np.array([-1] * len(self.targets))
         self.draw_dots = False
 
         self.tensor_index = -1
@@ -530,7 +531,7 @@ class DotDatasetFolder(folder.ImageFolder):
         """
         path, target = self.samples[index]
         sample = self.loader(path)
-        group_index = self.group_array[index]
+        group_index = self.groups[index]
         if self.transform is not None:
             if not self.draw_dots:
                 sample = self.transform(sample)
@@ -588,9 +589,9 @@ def compute_groups_using_dots(full_dataset: DotDatasetFolder, num_cpus=16):
     class1_black = set_first_half_false(indices)
 
     full_dataset.draw_dots = True
-    full_dataset.group_array[class0_white] = 0
-    full_dataset.group_array[class1_white] = 1
+    full_dataset.groups[class0_white] = 0
+    full_dataset.groups[class1_white] = 1
 
-    full_dataset.group_array[class0_black] = 2
-    full_dataset.group_array[class1_black] = 3
-    return full_dataset.group_array
+    full_dataset.groups[class0_black] = 2
+    full_dataset.groups[class1_black] = 3
+    return full_dataset.groups
