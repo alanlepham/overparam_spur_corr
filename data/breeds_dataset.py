@@ -518,7 +518,7 @@ class DotDatasetFolder(folder.ImageFolder):
         self.transform_white.transforms.insert(self.tensor_index, DrawBlackWhiteDots("white"))
 
         self.transform_black : transforms.Compose= copy.deepcopy(self.transform)
-        self.transform_black.insert(self.tensor_index, DrawBlackWhiteDots("black"))
+        self.transform_black.transforms.insert(self.tensor_index, DrawBlackWhiteDots("black"))
 
     def __getitem__(self, index):
         """
