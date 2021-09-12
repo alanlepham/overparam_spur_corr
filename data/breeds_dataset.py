@@ -274,9 +274,9 @@ def colored_black(arr, size=40, color="black"):
 
 
 def colored_circle(image, size=40, color="white"):
-    #image = image.resize((3, 224, 224))
     draw = ImageDraw.Draw(image)
-    loc = randint(size, len(image) - size)
+    w, _ = image.size # Only using width since symmetrical
+    loc = randint(size, w - size)
     draw.ellipse((loc, loc, loc + size, loc + size), fill=color)
     return np.array(image, dtype=np.uint8)
 
