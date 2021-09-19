@@ -1,0 +1,21 @@
+srun: Job step aborted: Waiting up to 32 seconds for job step to finish.
+srun: Job step aborted: Waiting up to 32 seconds for job step to finish.
+srun: Job step aborted: Waiting up to 32 seconds for job step to finish.
+srun: Job step aborted: Waiting up to 32 seconds for job step to finish.
+srun: Job step aborted: Waiting up to 32 seconds for job step to finish.
+srun: got SIGCONT
+srun: got SIGCONT
+srun: got SIGCONT
+srun: got SIGCONT
+srun: got SIGCONT
+slurmstepd-luigi: error: *** STEP 169687.1 ON luigi CANCELLED AT 2021-09-12T12:31:25 ***
+slurmstepd-luigi: error: *** JOB 169687 ON luigi CANCELLED AT 2021-09-12T12:31:25 ***
+srun: forcing job termination
+srun: forcing job termination
+srun: forcing job termination
+srun: forcing job termination
+srun: forcing job termination
+slurmstepd-luigi: error: *** STEP 169687.4 ON luigi CANCELLED AT 2021-09-12T12:31:25 ***
+slurmstepd-luigi: error: *** STEP 169687.3 ON luigi CANCELLED AT 2021-09-12T12:31:25 ***
+slurmstepd-luigi: error: *** STEP 169687.0 ON luigi CANCELLED AT 2021-09-12T12:31:25 ***
+slurmstepd-luigi: error: *** STEP 169687.2 ON luigi CANCELLED AT 2021-09-12T12:31:25 ***

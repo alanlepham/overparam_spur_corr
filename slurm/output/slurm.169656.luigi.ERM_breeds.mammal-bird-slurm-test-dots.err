@@ -1,0 +1,102 @@
+  0%|          | 0/13485 [00:00<?, ?it/s]multiprocess.pool.RemoteTraceback: 
+"""
+Traceback (most recent call last):
+  File "/data/vsrivatsa/miniconda/miniconda/envs/breeds/lib/python3.8/site-packages/PIL/Image.py", line 2828, in fromarray
+    mode, rawmode = _fromarray_typemap[typekey]
+KeyError: ((1, 1), '<U57')
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/data/vsrivatsa/miniconda/miniconda/envs/breeds/lib/python3.8/site-packages/multiprocess/pool.py", line 125, in worker
+    result = (True, func(*args, **kwds))
+  File "/data/vsrivatsa/miniconda/miniconda/envs/breeds/lib/python3.8/site-packages/pathos/helpers/mp_helper.py", line 15, in <lambda>
+    func = lambda args: f(*args)
+  File "/data/vsrivatsa/overparam_spur_corr/data/breeds_dataset.py", line 265, in colored_white
+    return colored_circle(arr, size=size, color=color)
+  File "/data/vsrivatsa/overparam_spur_corr/data/breeds_dataset.py", line 273, in colored_circle
+    image = Image.fromarray(arr)
+  File "/data/vsrivatsa/miniconda/miniconda/envs/breeds/lib/python3.8/site-packages/PIL/Image.py", line 2830, in fromarray
+    raise TypeError("Cannot handle this data type: %s, %s" % typekey) from e
+TypeError: Cannot handle this data type: (1, 1), <U57
+"""
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "run_expt.py", line 335, in <module>
+    main()
+  File "run_expt.py", line 115, in main
+    train_data, val_data, test_data = prepare_data(args, train=True)
+  File "/data/vsrivatsa/overparam_spur_corr/data/data.py", line 32, in prepare_data
+    return prepare_confounder_data(args, train, return_full_dataset)
+  File "/data/vsrivatsa/overparam_spur_corr/data/confounder_utils.py", line 39, in prepare_confounder_data
+    full_dataset : ConfounderDataset = confounder_settings[args.dataset]['constructor'](
+  File "/data/vsrivatsa/overparam_spur_corr/data/breeds_dataset.py", line 125, in __init__
+    groups = self.load_groups(
+  File "/data/vsrivatsa/overparam_spur_corr/data/breeds_dataset.py", line 231, in load_groups
+    groups = load_func(self.full_dataset, num_cpus=num_cpus)
+  File "/data/vsrivatsa/overparam_spur_corr/data/breeds_dataset.py", line 293, in compute_groups_using_dots
+    full_dataset.samples[class0_white] = p_map(
+  File "/data/vsrivatsa/miniconda/miniconda/envs/breeds/lib/python3.8/site-packages/p_tqdm/p_tqdm.py", line 60, in p_map
+    result = list(generator)
+  File "/data/vsrivatsa/miniconda/miniconda/envs/breeds/lib/python3.8/site-packages/p_tqdm/p_tqdm.py", line 49, in _parallel
+    for item in tqdm(map_func(function, *iterables), total=length, **kwargs):
+  File "/data/vsrivatsa/miniconda/miniconda/envs/breeds/lib/python3.8/site-packages/tqdm/_tqdm.py", line 1017, in __iter__
+    for obj in iterable:
+  File "/data/vsrivatsa/miniconda/miniconda/envs/breeds/lib/python3.8/site-packages/multiprocess/pool.py", line 868, in next
+    raise value
+TypeError: Cannot handle this data type: (1, 1), <U57
+
+srun: error: luigi: task 0: Exited with exit code 1
+  0%|          | 0/13485 [00:00<?, ?it/s]multiprocess.pool.RemoteTraceback: 
+"""
+Traceback (most recent call last):
+  File "/data/vsrivatsa/miniconda/miniconda/envs/breeds/lib/python3.8/site-packages/PIL/Image.py", line 2828, in fromarray
+    mode, rawmode = _fromarray_typemap[typekey]
+KeyError: ((1, 1), '<U57')
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/data/vsrivatsa/miniconda/miniconda/envs/breeds/lib/python3.8/site-packages/multiprocess/pool.py", line 125, in worker
+    result = (True, func(*args, **kwds))
+  File "/data/vsrivatsa/miniconda/miniconda/envs/breeds/lib/python3.8/site-packages/pathos/helpers/mp_helper.py", line 15, in <lambda>
+    func = lambda args: f(*args)
+  File "/data/vsrivatsa/overparam_spur_corr/data/breeds_dataset.py", line 265, in colored_white
+    return colored_circle(arr, size=size, color=color)
+  File "/data/vsrivatsa/overparam_spur_corr/data/breeds_dataset.py", line 273, in colored_circle
+    image = Image.fromarray(arr)
+  File "/data/vsrivatsa/miniconda/miniconda/envs/breeds/lib/python3.8/site-packages/PIL/Image.py", line 2830, in fromarray
+    raise TypeError("Cannot handle this data type: %s, %s" % typekey) from e
+TypeError: Cannot handle this data type: (1, 1), <U57
+"""
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "run_expt.py", line 335, in <module>
+    main()
+  File "run_expt.py", line 115, in main
+    train_data, val_data, test_data = prepare_data(args, train=True)
+  File "/data/vsrivatsa/overparam_spur_corr/data/data.py", line 32, in prepare_data
+    return prepare_confounder_data(args, train, return_full_dataset)
+  File "/data/vsrivatsa/overparam_spur_corr/data/confounder_utils.py", line 39, in prepare_confounder_data
+    full_dataset : ConfounderDataset = confounder_settings[args.dataset]['constructor'](
+  File "/data/vsrivatsa/overparam_spur_corr/data/breeds_dataset.py", line 125, in __init__
+    groups = self.load_groups(
+  File "/data/vsrivatsa/overparam_spur_corr/data/breeds_dataset.py", line 231, in load_groups
+    groups = load_func(self.full_dataset, num_cpus=num_cpus)
+  File "/data/vsrivatsa/overparam_spur_corr/data/breeds_dataset.py", line 293, in compute_groups_using_dots
+    full_dataset.samples[class0_white] = p_map(
+  File "/data/vsrivatsa/miniconda/miniconda/envs/breeds/lib/python3.8/site-packages/p_tqdm/p_tqdm.py", line 60, in p_map
+    result = list(generator)
+  File "/data/vsrivatsa/miniconda/miniconda/envs/breeds/lib/python3.8/site-packages/p_tqdm/p_tqdm.py", line 49, in _parallel
+    for item in tqdm(map_func(function, *iterables), total=length, **kwargs):
+  File "/data/vsrivatsa/miniconda/miniconda/envs/breeds/lib/python3.8/site-packages/tqdm/_tqdm.py", line 1017, in __iter__
+    for obj in iterable:
+  File "/data/vsrivatsa/miniconda/miniconda/envs/breeds/lib/python3.8/site-packages/multiprocess/pool.py", line 868, in next
+    raise value
+TypeError: Cannot handle this data type: (1, 1), <U57
+
+srun: error: luigi: task 0: Exited with exit code 1

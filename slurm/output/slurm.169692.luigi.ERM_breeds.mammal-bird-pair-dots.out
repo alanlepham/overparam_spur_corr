@@ -1,0 +1,276 @@
+/data/vsrivatsa/overparam_spur_corr
+luigi
+Sun Sep 12 12:33:30 PDT 2021
+starting job...
+Dataset: Breeds
+Shift type: confounder
+Target name: breeds
+Confounder names: None
+Resume: False
+Minority fraction: None
+Imbalance ratio: None
+Fraction: 1.0
+Root dir: None
+Subsample to minority: False
+Reweight groups: False
+Augment data: False
+Val fraction: 0.1
+Breeds dataset type: entity13
+Breeds pair: None
+Breeds proportions: None
+Breeds cpu: None
+Reload breeds groups: False
+Breeds external group: None
+Breeds color dots: True
+Robust: False
+Alpha: 0.2
+Generalization adjustment: 0
+Automatic adjustment: False
+Robust step size: 0.01
+Use normalized loss: False
+Btl: False
+Hinge: False
+Model: resnet18
+Train from scratch: True
+Resnet width: None
+N epochs: 100
+Batch size: 128
+Lr: 0.1
+Scheduler: False
+Step scheduler: True
+Scheduler step: 30
+Weight decay: 0.0001
+Gamma: 0.1
+Minimum variational weight: 0
+Seed: 0
+Show progress: False
+Log dir: ./logs/ERM_breeds/mammal-bird-pair-dots/0dfc15e9-13c3-4101-a19e-0acdfba68692
+Log every: 50
+Save step: 10
+Save best: True
+Save last: True
+
+Dataset: Breeds
+Shift type: confounder
+Target name: breeds
+Confounder names: None
+Resume: False
+Minority fraction: None
+Imbalance ratio: None
+Fraction: 1.0
+Root dir: None
+Subsample to minority: False
+Reweight groups: False
+Augment data: False
+Val fraction: 0.1
+Breeds dataset type: entity13
+Breeds pair: None
+Breeds proportions: 3498,184,56,1057,467,466,133,133,2255,2255,642,642
+Breeds cpu: None
+Reload breeds groups: False
+Breeds external group: None
+Breeds color dots: True
+Robust: False
+Alpha: 0.2
+Generalization adjustment: 0
+Automatic adjustment: False
+Robust step size: 0.01
+Use normalized loss: False
+Btl: False
+Hinge: False
+Model: resnet18
+Train from scratch: True
+Resnet width: None
+N epochs: 300
+Batch size: 128
+Lr: 0.1
+Scheduler: False
+Step scheduler: True
+Scheduler step: 120
+Weight decay: 0.0001
+Gamma: 0.1
+Minimum variational weight: 0
+Seed: 0
+Show progress: False
+Log dir: ./logs/ERM_breeds/mammal-bird-pair-dots/ef1a309a-09b5-4925-a473-4857474dc8ee
+Log every: 50
+Save step: 10
+Save best: True
+Save last: True
+
+Dataset: Breeds
+Shift type: confounder
+Target name: breeds
+Confounder names: None
+Resume: False
+Minority fraction: None
+Imbalance ratio: None
+Fraction: 1.0
+Root dir: None
+Subsample to minority: False
+Reweight groups: False
+Augment data: False
+Val fraction: 0.1
+Breeds dataset type: entity13
+Breeds pair: None
+Breeds proportions: None
+Breeds cpu: None
+Reload breeds groups: False
+Breeds external group: None
+Breeds color dots: True
+Robust: False
+Alpha: 0.2
+Generalization adjustment: 0
+Automatic adjustment: False
+Robust step size: 0.01
+Use normalized loss: False
+Btl: False
+Hinge: False
+Model: resnet34
+Train from scratch: True
+Resnet width: None
+N epochs: 300
+Batch size: 128
+Lr: 0.5
+Scheduler: False
+Step scheduler: True
+Scheduler step: 60
+Weight decay: 0.0001
+Gamma: 0.1
+Minimum variational weight: 0
+Seed: 0
+Show progress: False
+Log dir: ./logs/ERM_breeds/mammal-bird-pair-dots/3730bc2f-314a-42c5-b3a4-af9902a16e17
+Log every: 50
+Save step: 10
+Save best: True
+Save last: True
+
+Dataset: Breeds
+Shift type: confounder
+Target name: breeds
+Confounder names: None
+Resume: False
+Minority fraction: None
+Imbalance ratio: None
+Fraction: 1.0
+Root dir: None
+Subsample to minority: False
+Reweight groups: False
+Augment data: False
+Val fraction: 0.1
+Breeds dataset type: entity13
+Breeds pair: None
+Breeds proportions: None
+Breeds cpu: None
+Reload breeds groups: False
+Breeds external group: None
+Breeds color dots: True
+Robust: False
+Alpha: 0.2
+Generalization adjustment: 0
+Automatic adjustment: False
+Robust step size: 0.01
+Use normalized loss: False
+Btl: False
+Hinge: False
+Model: resnet34
+Train from scratch: True
+Resnet width: None
+N epochs: 300
+Batch size: 128
+Lr: 0.1
+Scheduler: False
+Step scheduler: True
+Scheduler step: 120
+Weight decay: 0.0001
+Gamma: 0.1
+Minimum variational weight: 0
+Seed: 0
+Show progress: False
+Log dir: ./logs/ERM_breeds/mammal-bird-pair-dots/19707476-ad73-4856-9007-e9db777adaf9
+Log every: 50
+Save step: 10
+Save best: True
+Save last: True
+
+Dataset: Breeds
+Shift type: confounder
+Target name: breeds
+Confounder names: None
+Resume: False
+Minority fraction: None
+Imbalance ratio: None
+Fraction: 1.0
+Root dir: None
+Subsample to minority: False
+Reweight groups: False
+Augment data: False
+Val fraction: 0.1
+Breeds dataset type: entity13
+Breeds pair: None
+Breeds proportions: None
+Breeds cpu: None
+Reload breeds groups: False
+Breeds external group: None
+Breeds color dots: True
+Robust: False
+Alpha: 0.2
+Generalization adjustment: 0
+Automatic adjustment: False
+Robust step size: 0.01
+Use normalized loss: False
+Btl: False
+Hinge: False
+Model: resnet18
+Train from scratch: True
+Resnet width: None
+N epochs: 300
+Batch size: 128
+Lr: 0.1
+Scheduler: False
+Step scheduler: True
+Scheduler step: 120
+Weight decay: 0.0001
+Gamma: 0.1
+Minimum variational weight: 0
+Seed: 0
+Show progress: False
+Log dir: ./logs/ERM_breeds/mammal-bird-pair-dots/fbe0dbce-16ac-441b-b3e2-88be1707e2a8
+Log every: 50
+Save step: 10
+Save best: True
+Save last: True
+
+==> Preparing dataset custom_imagenet..
+==> Preparing dataset custom_imagenet..
+==> Preparing dataset custom_imagenet..
+==> Preparing dataset custom_imagenet..
+==> Preparing dataset custom_imagenet..
+==> Preparing dataset custom_imagenet..
+==> Preparing dataset custom_imagenet..
+==> Preparing dataset custom_imagenet..
+==> Preparing dataset custom_imagenet..
+==> Preparing dataset custom_imagenet..
+Realign dataset classes to 0,1
+Realign dataset classes to 0,1
+Realign dataset classes to 0,1
+Realign dataset classes to 0,1
+Realign dataset classes to 0,1
+group counts [13485 13435 13356 13565]
+sizes 37689 5384 10768
+Completed initializing breeds
+group counts [13485 13435 13356 13565]
+sizes 37689 5384 10768
+New Counts defaultdict(<class 'dict'>, {0: {0: 3498, 1: 184, 2: 56, 3: 1057}, 1: {0: 467, 1: 466, 2: 133, 3: 133}, 2: {0: 2255, 1: 2255, 2: 642, 3: 642}})
+group counts [13485 13435 13356 13565]
+sizes 37689 5384 10768
+Completed initializing breeds
+group counts [13485 13435 13356 13565]
+sizes 37689 5384 10768
+Completed initializing breeds
+group counts [13485 13435 13356 13565]
+sizes 37689 5384 10768
+Completed initializing breeds
+defaultdict(<function get_counts.<locals>.<lambda> at 0x7f8cef533700>, {0: defaultdict(<class 'dict'>, {0: 3498, 1: 184, 2: 56, 3: 1057}), 1: defaultdict(<class 'dict'>, {0: 467, 1: 466, 2: 133, 3: 133}), 2: defaultdict(<class 'dict'>, {0: 2255, 1: 2255, 2: 642, 3: 642}), -1: defaultdict(<class 'dict'>, {0: 7265, 1: 10530, 2: 12525, 3: 11733})})
+Completed initializing breeds
