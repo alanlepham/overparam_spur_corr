@@ -1,6 +1,6 @@
 import os, csv
 import argparse
-import IPython
+# import IPython
 import numpy as np
 from tqdm import tqdm
 
@@ -13,6 +13,16 @@ from data.data import dataset_attributes, shift_types, prepare_data, log_data
 from utils import set_seed, Logger, CSVBatchLogger, log_args
 
 from extractable_resnet import resnet18
+
+# python write_pretrained_features.py --dataset CUB --shift_type confounder --target_name waterbird_complete95 --confounder_names forest2water2 --batch_size 128 --model resnet18
+
+# --root_dir 
+#     optional
+# --model_path
+#     if get_preds_instead_of_features
+# --layers_to_extract
+# --get_preds_instead_of_features
+# /work/ekchan/overparam_spur_corr/cub/features/resnet18_1layer.npy
 
 def main():
     parser = argparse.ArgumentParser()

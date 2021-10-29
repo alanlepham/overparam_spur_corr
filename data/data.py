@@ -5,7 +5,7 @@ from torch.utils.data import Subset
 from data.label_shift_utils import prepare_label_shift_data
 from data.confounder_utils import prepare_confounder_data
 
-root_dir = '/work/alanpham/overparam_spur_corr'
+root_dir = '/work/ekchan/overparam_spur_corr' #'/u/scr/nlp/dro/'
 
 dataset_attributes = {
     'CelebA': {

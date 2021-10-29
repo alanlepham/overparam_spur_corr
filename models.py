@@ -37,6 +37,26 @@ model_attributes = {
         'target_resolution': (224, 224),
         'flatten': False
     },
+    'vgg11_bn': {
+        'feature_type': 'image',
+        'target_resolution': (224, 224),
+        'flatten': False
+    },
+    'vgg13_bn': {
+        'feature_type': 'image',
+        'target_resolution': (224, 224),
+        'flatten': False
+    },
+    'vgg16_bn': {
+        'feature_type': 'image',
+        'target_resolution': (224, 224),
+        'flatten': False
+    },
+    'vgg19_bn': {
+        'feature_type': 'image',
+        'target_resolution': (224, 224),
+        'flatten': False
+    },
     'raw_logistic_regression': {
         'feature_type': 'image',
         'target_resolution': None,

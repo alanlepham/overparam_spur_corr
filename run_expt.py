@@ -195,6 +195,24 @@ def main():
         d = model.fc.in_features
         model.fc = nn.Linear(d, n_classes)
 
+    # vgg
+    elif args.model == 'vgg11_bn':
+        model = torchvision.models.vgg11_bn(pretrained=pretrained)
+        d = model.classifier._modules['6'].in_features
+        model.classifier._modules['6'] = nn.Linear(d, n_classes)
+    elif args.model =='vgg13_bn':
+        model = torchvision.models.vgg13_bn(pretrained=pretrained)
+        d = model.classifier._modules['6'].in_features
+        model.classifier._modules['6'] = nn.Linear(d, n_classes)
+    elif args.model =='vgg16_bn':
+        model = torchvision.models.vgg16_bn(pretrained=pretrained)
+        d = model.classifier._modules['6'].in_features
+        model.classifier._modules['6'] = nn.Linear(d, n_classes)
+    elif args.model =='vgg19_bn':
+        model = torchvision.models.vgg19_bn(pretrained=pretrained)
+        d = model.classifier._modules['6'].in_features
+        model.classifier._modules['6'] = nn.Linear(d, n_classes)
+
     # misc
     elif args.model == 'wideresnet50':
         model = torchvision.models.wide_resnet50_2(pretrained=pretrained)
